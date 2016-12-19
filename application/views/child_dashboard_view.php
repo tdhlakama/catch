@@ -124,7 +124,7 @@
                     <div class="form-group">
                         <div class="row colbox">
                             <div class="col-lg-4 col-sm-4">
-                                <label for="place_of_birth" class="control-label">Place_of_birth</label>
+                                <label for="place_of_birth" class="control-label">Place of birth</label>
                             </div>
                             <div class="col-lg-8 col-sm-8">
                                 <?php echo $emp->place_of_birth; ?>
@@ -203,7 +203,7 @@
                     <div class="form-group">
                         <div class="row colbox">
                             <div class="col-lg-4 col-sm-4">
-                                <label for="living_with" class="control-label"> living_with
+                                <label for="living_with" class="control-label">living with
                                 </label>
                             </div>
                             <div class="col-lg-8 col-sm-8">
@@ -215,7 +215,7 @@
                     <div class="form-group">
                         <div class="row colbox">
                             <div class="col-lg-4 col-sm-4">
-                                <label for="living_at" class="control-label">Living_at</label>
+                                <label for="living_at" class="control-label">Living at</label>
                             </div>
                             <div class="col-lg-8 col-sm-8">
                                 <?php echo $emp->living_at; ?>
