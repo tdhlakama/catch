@@ -84,26 +84,27 @@ class Setting extends Generic_home
             if ($valid) {
 
                 $child_id = $this->child_model->save_upload(
-                    $child_no,
-                    $item[1],
-                    $item[2],
-                    $item[3],
-                    $item[4],
-                    $item[5],
-                    $item[7],
-                    $item[8],
-                    $item[9],
-                    $item[10],
-                    $item[11],
-                    $item[12],
-                    $item[13],
-                    $item[14],
-                    $item[15],
-                    $item[16],
-                    $item[17],
-                    $item[18],
-                    $item[19],
-                    $item[20],
+                    $child_no,//file no
+                    $item[1],//firstname
+                    $item[2],//lastname
+                    $item[3],//gender
+                    $item[4],//date of birth
+                    $item[5],//parents name
+                    $item[6],//province
+                    $item[7],//district
+                    $item[8],//address
+                    $item[9],//phone
+                    $item[10],//birth place
+                    $item[11],//displacement
+                    $item[12],//age verified
+                    $item[13],//verified by
+                    $item[14],//who verified
+                    $item[15],//educatio
+                    $item[16],//living with
+                    $item[17],//living at
+                    $item[18],//father status
+                    $item[19],//mother status
+                    $item[20],//ethicinity
                     $id
                 );
                 $count++;
