@@ -37,7 +37,7 @@
         <?php
         foreach ($csv as $i => $item) {
             echo '<tr>';
-            echo '<td> ' . ($this->child_model->check_duplicate(trim($item[0])) ? '<label class="m">' . $item[0] . "</label>" : $item[0]) . ' </td>';
+            echo '<td> ' . ($this->case_model->check_duplicate(trim($item[0])) ? '<label class="m">' . $item[0] . "</label>" : $item[0]) . ' </td>';
             echo '<td> ' . $item[1] . ' </td>';
             echo '<td> ' . $item[2] . ' </td>';
             echo '<td> ' . $item[3] . ' </td>';

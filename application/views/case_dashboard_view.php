@@ -14,10 +14,10 @@
                         <div class="row colbox">
 
                             <div class="col-lg-4 col-sm-4">
-                                <label for="child_no" class="control-label">File #</label>
+                                <label for="case_no" class="control-label">File #</label>
                             </div>
                             <div class="col-lg-8 col-sm-8">
-                                <?php echo $emp->child_no; ?>
+                                <?php echo $emp->case_no; ?>
                             </div>
                         </div>
                     </div>
@@ -266,11 +266,23 @@
                 </div>
                 <div class="panel-body">
 
-                    <div class="form-group">
-                        <div class="row colbox">
-
-                        </div>
-                    </div>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>File Number</th>
+                            <th>Arrested Before</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($arrestlist as $i => $item): ?>
+                            <tr>
+                                <td><?php echo($i + 1) ?></td>
+                                <td><?php echo $item->arrest_no; ?></td>
+                                <td><?php echo $item->arrested_before; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
 
                 </div>
             </div>

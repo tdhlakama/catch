@@ -27,6 +27,7 @@ class Generic extends CI_Controller {
         $this->load->helper('download');
         
         $this->load->model('child_model');
+        $this->load->model('arrest_model');
         $this->load->model('upload_model');
 
         $str = ' <a href="' . site_url('home') . '"> Home </a>';

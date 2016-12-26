@@ -1,12 +1,12 @@
 <?php
 
 /*
- * File Name: child_model.php
+ * File Name: arrest_model.php
  */
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Child_model extends CI_Model
+class Arrest_model extends CI_Model
 {
 
     function __construct()
@@ -18,8 +18,8 @@ class Child_model extends CI_Model
     public function get_last_entries($total)
     {
         $this->db->distinct();
-        $this->db->from('child', $total);
-        $this->db->group_by('child_id');
+        $this->db->from('arrest', $total);
+        $this->db->group_by('arrest_id');
         $query = $this->db->get();
         return $query->result();
     }
@@ -27,7 +27,7 @@ class Child_model extends CI_Model
     public function get_all()
     {
         $this->db->distinct();
-        $this->db->from('child');
+        $this->db->from('arrest');
         $query = $this->db->get();
         return $query->result();
     }
@@ -35,25 +35,25 @@ class Child_model extends CI_Model
     public function get_list()
     {
         $this->db->distinct();
-        $this->db->from('child');
+        $this->db->from('arrest');
         $query = $this->db->get();
         return $query->result();
     }
 
     function get($id)
     {
-        $this->db->from('child');
-        $this->db->where('child_id', $id);
+        $this->db->from('arrest');
+        $this->db->where('arrest_id', $id);
         $query = $this->db->get();
         return $query->row();
     }
 
     public function save()
     {
-        $this->child_no = $this->input->post('child_no');
+        $this->arrest_no = $this->input->post('arrest_no');
         $this->first_name = $this->input->post('first_name');
         $this->last_name = $this->input->post('last_name');
-        $this->db->insert('child', $this);
+        $this->db->insert('arrest', $this);
         return $this->db->insert_id();
     }
 
@@ -61,19 +61,19 @@ class Child_model extends CI_Model
     {
         $this->first_name = $this->input->post('first_name');
         $this->last_name = $this->input->post('last_name');
-        $this->db->where('child_id', $id);
-        $this->db->update('child', $this);
+        $this->db->where('arrest_id', $id);
+        $this->db->update('arrest', $this);
     }
 
     function get_row_count()
     {
         $this->db->distinct();
-        return $this->db->count_all('child');
+        return $this->db->count_all('arrest');
     }
 
     function get_search_count($q)
     {
-        $this->db->from('child');
+        $this->db->from('arrest');
         $this->db->like('first_name', $q, 'both');
         $this->db->or_like('last_name', $q);
         $query = $this->db->get();
@@ -83,7 +83,7 @@ class Child_model extends CI_Model
 
     function get_count_by_worker_type($id)
     {
-        $this->db->from('child');
+        $this->db->from('arrest');
         $this->db->where('worker_type_id', $id);
         $query = $this->db->get();
         return $query->num_rows();
@@ -91,13 +91,13 @@ class Child_model extends CI_Model
 
     function delete($id)
     {
-        $this->db->where('child_id', $id);
-        $this->db->delete('child');
+        $this->db->where('arrest_id', $id);
+        $this->db->delete('arrest');
     }
 
     function get_search_list($q)
     {
-        $this->db->from('child');
+        $this->db->from('arrest');
         $this->db->like('first_name', $q, 'both');
         $this->db->or_like('last_name', $q);
         $query = $this->db->get();
@@ -115,10 +115,10 @@ class Child_model extends CI_Model
         return $list_result = array_combine($_id, $_name);
     }
 
-    function check_duplicate($child_no)
+    function check_duplicate($arrest_no)
     {
-        $this->db->from('child');
-        $this->db->where('child_no', $child_no);
+        $this->db->from('arrest');
+        $this->db->where('arrest_no', $arrest_no);
         $query = $this->db->get();
         if ($query->num_rows() == 0) {
             return false;
@@ -127,53 +127,46 @@ class Child_model extends CI_Model
         }
     }
 
-    public function save_upload($child_no, $first_name, $last_name, $gender, $date_of_birth,
-                                $parent_name, $address_province, $address_district, $address_detail, $phone_number,
-                                $place_of_birth, $displacement, $age_verified, $age_verified_by,$who_verified, $education_level, $living_with
-        , $living_at, $father_status, $mother_status, $ethinicity, $upload_id)
+    public function save_upload($arrest_no, $child_id, $date_of_arrest, $arresting_officer, $station,
+                                $parent_informed, $parents_contact, $arrested_before, $charges_communicated, $murder,
+                                $rape, $touting, $sodomy)
     {
-        $this->child_no = $child_no;
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->gender = $gender;
+        $this->arrest_no = $arrest_no;
+        $this->child_id = $child_id;
         $currentDate = date('Y-m-d');
-        $this->date_of_birth = $currentDate;
-        $this->parent_name = $parent_name;
-        $this->address_province = $address_province;
-        $this->address_district = $address_district;
-        $this->address_detail = $address_detail;
-        $this->phone_number = $phone_number;
-        $this->place_of_birth = $place_of_birth;
-        $this->displacement = $displacement;
-        $this->age_verified = $age_verified;
-        $this->age_verified_by = $age_verified_by;
-        $this->who_verified = $who_verified;
-        $this->education_level = $education_level;
-        $this->living_with = $living_with;
-        $this->living_at = $living_at;
-        $this->father_status = $father_status;
-        $this->mother_status = $mother_status;
-        $this->ethinicity = $ethinicity;
-        $this->upload_id = $upload_id;
-        $this->db->insert('child', $this);
+        $this->date_of_arrest = $currentDate;
+        $this->arresting_officer = $arresting_officer;
+        $this->station = $station;
+        $this->parent_informed = $parent_informed;
+        $this->parents_contact = $parents_contact;
+        $this->arrested_before = $arrested_before;
+        $this->charges_communicated = $charges_communicated;
+        $this->murder = $murder;
+        $this->rape = $rape;
+        $this->touting = $touting;
+        $this->sodomy = $sodomy;
+        $this->db->insert('arrest', $this);
         return $this->db->insert_id();
     }
 
-    public function get_upload_list($upload_id)
+    public function get_arrest_list($child_id)
     {
         $this->db->distinct();
-        $this->db->from('child');
-        $this->db->where('upload_id', $upload_id);
+        $this->db->from('arrest');
+        $this->db->where('child_id', $child_id);
         $query = $this->db->get();
         return $query->result();
     }
 
-    function export() {
-        $query = $this->db->query("SELECT * FROM child");
+    function export()
+    {
+        $query = $this->db->query("SELECT * FROM arrest");
         $delimiter = ",";
         $newline = "\r\n";
         $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
-        $data = str_replace('"','',$data);
+        $data = str_replace('"', '', $data);
         return $data;
     }
+
+
 }

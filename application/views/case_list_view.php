@@ -24,7 +24,7 @@
         <tbody>
             <?php foreach ($child_list as $item): ?>
                 <tr>
-                    <td><?php echo $item->child_no; ?></td>
+                    <td><?php echo $item->case_no; ?></td>
                     <td><?php echo $item->first_name; ?></td>
                     <td ><?php echo $item->last_name; ?></td>
                     <td><?php echo $item->gender; ?></td>

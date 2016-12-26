@@ -18,20 +18,29 @@
                     <div class="list-group">
 
                         <a href="<?php echo site_url('child/listAll'); ?>" class="list-group-item">
-                            <h4 class="list-group-item-heading">Files</h4>
+                            <h4 class="list-group-item-heading">Cases</h4>
                         </a>
 
-                        <a href="<?php echo site_url('setting/child_csv'); ?>" class="list-group-item">
+                        <a href="<?php echo site_url('case/case_csv'); ?>" class="list-group-item">
                             <h4 class="list-group-item-heading">Download Case Demograhic Template</h4>
                         </a>
 
-                        <a href="<?php echo site_url('setting/child_csv'); ?>" class="list-group-item">
+                        <a href="<?php echo site_url('arrest/arrest_csv'); ?>" class="list-group-item">
                             <h4 class="list-group-item-heading">Case Arrest Template</h4>
                         </a>
 
-                        <a href="<?php echo site_url('setting/child_csv'); ?>" class="list-group-item">
-                            <h4 class="list-group-item-heading">Period Detention Form Template</h4>
-                        </a>
+                        <a href="<?php echo site_url('detention/detetion_assesment_csv'); ?>" class="list-group-item">
+                                                    <h4 class="list-group-item-heading">Case Detention Assessment Template</h4>
+                                                </a>
+
+                         <a href="<?php echo site_url('release/case_release__csv'); ?>" class="list-group-item">
+                                 <h4 class="list-group-item-heading">Case Release Template</h4>
+                         </a>
+
+                          <a href="<?php echo site_url('hrh/case_hrh_csv'); ?>" class="list-group-item">
+                                                          <h4 class="list-group-item-heading">Case HRH Template</h4>
+                                                  </a>
+                     
                     </div>
 
                 </div>

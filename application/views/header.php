@@ -78,9 +78,13 @@
 
                 <li class="<?php echo active_method('upload_view'); ?>">
                     <a href="<?php echo site_url('setting/upload_view'); ?>">
-                        <i class="glyphicon glyphicon-upload"></i> Upload File</a>
+                        <i class="glyphicon glyphicon-upload"></i> Upload Case File</a>
                 </li>
 
+                <li class="<?php echo active_method('upload_view'); ?>">
+                    <a href="<?php echo site_url('arrest/upload_view'); ?>">
+                        <i class="glyphicon glyphicon-upload"></i> Upload Arrest File</a>
+                </li>
 
                 <li class="<?php echo active_method('upload_result'); ?>">
                     <a href="<?php echo site_url('setting/upload_result'); ?>">
