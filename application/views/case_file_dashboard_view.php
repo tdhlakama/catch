@@ -7,7 +7,7 @@
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Child Details
+                    Case File Details
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
@@ -290,8 +290,6 @@
                         </div>
                     </div>
 
-
-
                     <div class="form-group">
                         <div class="row colbox">
                             <div class="col-lg-4 col-sm-4">
@@ -327,8 +325,8 @@
                     <table class="table table-striped table-hover">
                         <thead>
                         <tr>
-                            <th>File Number</th>
-                            <th>Arrested Before</th>
+                            <th>Arrest No</th>
+                            <th>Date of Arrest</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -336,7 +334,88 @@
                             <tr>
                                 <td><?php echo($i + 1) ?></td>
                                 <td><?php echo $item->arrest_no; ?></td>
-                                <td><?php echo $item->arrested_before; ?></td>
+                                <td><?php echo $item->date_of_arrest; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Detention Information
+                </div>
+                <div class="panel-body">
+
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Assesment Number</th>
+                            <th>Date of Assesment</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($assesmentlist as $i => $item): ?>
+                            <tr>
+                                <td><?php echo($i + 1) ?></td>
+                                <td><?php echo $item->assesment_no; ?></td>
+                                <td><?php echo $item->date_of_assesment; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Assesment Information
+                </div>
+                <div class="panel-body">
+
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Assesment Number</th>
+                            <th>Date of Assesment</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($assesmentlist as $i => $item): ?>
+                            <tr>
+                                <td><?php echo($i + 1) ?></td>
+                                <td><?php echo $item->assesment_no; ?></td>
+                                <td><?php echo $item->date_of_assesment; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Release Information
+                </div>
+                <div class="panel-body">
+
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Assesment Number</th>
+                            <th>Date of Assesment</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($assesmentlist as $i => $item): ?>
+                            <tr>
+                                <td><?php echo($i + 1) ?></td>
+                                <td><?php echo $item->assesment_no; ?></td>
+                                <td><?php echo $item->date_of_assesment; ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>

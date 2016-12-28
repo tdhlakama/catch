@@ -96,6 +96,17 @@
                         <i class="glyphicon glyphicon-upload"></i> Upload Assesment File</a>
                 </li>
 
+                <li class="<?php echo active_method('upload_view'); ?>">
+                    <a href="<?php echo site_url('assesment/upload_view'); ?>">
+                        <i class="glyphicon glyphicon-upload"></i> Upload Release File</a>
+                </li>
+
+                <li class="<?php echo active_method('upload_view'); ?>">
+                    <a href="<?php echo site_url('assesment/upload_view'); ?>">
+                        <i class="glyphicon glyphicon-upload"></i> Upload HRH</a>
+                </li>
+
+
                 <li class="<?php echo active_method('upload_result'); ?>">
                     <a href="<?php echo site_url('case_file/upload_result'); ?>">
                         <i class="glyphicon glyphicon-upload"></i> Upload History</a>
