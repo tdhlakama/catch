@@ -3,7 +3,7 @@
 </div>
 <div class="row">
     <?php echo $this->session->flashdata('msg'); ?>
-    <div class="row">
+    <div class="row ">
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">

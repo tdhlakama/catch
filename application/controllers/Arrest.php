@@ -11,15 +11,9 @@ class Arrest extends Generic_home
         parent::__construct();
     }
 
-    public function upload_result()
-    {
-        $this->breadcrumbs->push('Upload', '/');
-        $this->load->view('footer');
-    }
-
     public function upload_view()
     {
-        $this->breadcrumbs->push('Upload', '/');
+        $this->breadcrumbs->push('Upload Arrest File', '/');
         $data['error'] = '';
         $this->load->view('arrest_upload_view', $data);
         $this->load->view('footer');
@@ -54,6 +48,7 @@ class Arrest extends Generic_home
 
     public function upload_success()
     {
+        $this->breadcrumbs->push('Upload Arrest File', '/');
         $data['csv'] = array_map('str_getcsv', file('./uploads/case_arrest.csv'));
         $this->load->view('arrest_upload_sucess_view', $data);
         $this->load->view('footer');
@@ -66,7 +61,7 @@ class Arrest extends Generic_home
         $count = 0;
         $errors = 0;
         $duplicate = '';
-        
+
         $id = $this->upload_model->save($this->session->userdata('username'));
         foreach ($data['csv'] as $item) {
             $valid = true;
@@ -78,24 +73,57 @@ class Arrest extends Generic_home
                 $arrest_no = $item[0];
             }
 
+            $valid = true;
+            $case_file_no = null;
+            if (!$this->case_file_model->check_duplicate(trim($item[1]))) {
+                $valid = false;
+                $duplicate = 'Case File ID NOT found';
+            }else{
+                $case_file_no = $item[1];
+            }
+
             if ($valid) {
- 
-                
+
                 $arrest_id = $this->arrest_model->save_upload(
-                    $arrest_no,//file no
-                
-                    $item[1],//$arrest_id
+                    $arrest_no,//arrest_no
+                    $case_file_no,//$case_file_id
                     $item[2],//$date_of_arrest
                     $item[3],//$arresting_officer
                     $item[4],//$station
                     $item[5],//$parent_informed
                     $item[6],//$parents_contact
                     $item[7],//$arrested_before
-                    $item[8],//$charges_communicated
-                    $item[9],//$murder
-                    $item[10],//$rape
-                    $item[11],//$touting
-                    $item[12]//$sodomy
+                    $item[8],//$similar_charges
+                    $item[9],//$which_ones
+                    $item[10],//$charges_communicated
+                    $item[11],//$victim
+                    $item[12],//$murder
+                    $item[13],//$rape
+                    $item[14],//$touting
+                    $item[15],//$sodomy
+                    $item[16],//$robbery
+                    $item[17],//$attempted_murder
+                    $item[18],//$indescent_assault
+                    $item[19],//$kidnapping
+                    $item[20],//$theft
+                    $item[21],//$sex_with_minor
+                    $item[22],//$malicious_damage
+                    $item[23],//$unlawful_entry
+                    $item[24],//$drug
+                    $item[25],//$bulling
+                    $item[26],//$stock_theft
+                    $item[27],//$unknown
+                    $item[28],//$others
+                    $item[29],//$warrant_issued
+                    $item[30],//$warrant_date
+                    $item[31],//$given_to_child
+                    $item[32],//$notice_period
+                    $item[33],//$child_alone
+                    $item[34],//$whom
+                    $item[35],//$treated_at_arrest
+                    $item[36],//$placed_with
+                    $item[37]//$comments
+
                 );
                 $count++;
             } else {
@@ -104,7 +132,7 @@ class Arrest extends Generic_home
 
         }
         $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Updated Succesfully ' . $count . ' * Errors Found ' . $errors . ' </div>');
-        redirect('arrest/arrest_upload_success');
+        redirect('arrest/upload_success');
     }
 
     public function download_template_csv()

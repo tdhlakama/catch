@@ -127,12 +127,21 @@ class Arrest_model extends CI_Model
         }
     }
 
-    public function save_upload($arrest_no, $child_id, $date_of_arrest, $arresting_officer, $station,
-                                $parent_informed, $parents_contact, $arrested_before, $charges_communicated, $murder,
-                                $rape, $touting, $sodomy)
+    public function save_upload(
+        $arrest_no, $case_file_no, $date_of_arrest, $arresting_officer, $station
+        , $parent_informed, $parents_contact, $arrested_before
+        , $similar_charges, $which_ones, $charges_communicated, $victim
+        , $murder, $rape, $touting, $sodomy
+        , $robbery, $attempted_murder, $indescent_assault, $kidnapping
+        , $theft, $sex_with_minor, $malicious_damage, $unlawful_entry
+        , $drug, $bulling, $stock_theft, $unknown
+        , $others, $warrant_issued, $warrant_date, $given_to_child
+        , $notice_period, $child_alone, $whom, $treated_at_arrest
+        , $placed_with, $comments)
+
     {
         $this->arrest_no = $arrest_no;
-        $this->child_id = $child_id;
+        $this->case_file_no = $case_file_no;
         $currentDate = date('Y-m-d');
         $this->date_of_arrest = $currentDate;
         $this->arresting_officer = $arresting_officer;
@@ -141,19 +150,45 @@ class Arrest_model extends CI_Model
         $this->parents_contact = $parents_contact;
         $this->arrested_before = $arrested_before;
         $this->charges_communicated = $charges_communicated;
+        $this->similar_charges = $similar_charges;
+        $this->which_ones = $which_ones;
+        $this->victim = $victim;
         $this->murder = $murder;
         $this->rape = $rape;
         $this->touting = $touting;
         $this->sodomy = $sodomy;
+        $this->robbery = $robbery;
+        $this->attempted_murder = $attempted_murder;
+        $this->indescent_assault = $indescent_assault;
+        $this->kidnapping = $kidnapping;
+        $this->unlawful_entry = $unlawful_entry;
+        $this->theft = $theft;
+        $this->sex_with_minor = $sex_with_minor;
+        $this->drug = $drug;
+        $this->bulling = $bulling;
+        $this->malicious_damage = $malicious_damage;
+        $this->stock_theft = $stock_theft;
+        $this->unknown = $unknown;
+        $this->others = $others;
+        $this->warrant_issued = $warrant_issued;
+        $this->warrant_date = $warrant_date;
+        $this->given_to_child = $given_to_child;
+        $this->warrant_date = $warrant_date;
+        $this->notice_period = $notice_period;
+        $this->child_alone = $child_alone;
+        $this->whom = $whom;
+        $this->treated_at_arrest = $treated_at_arrest;
+        $this->placed_with = $placed_with;
+        $this->comments = $comments;
         $this->db->insert('arrest', $this);
         return $this->db->insert_id();
     }
 
-    public function get_arrest_list($child_id)
+    public function get_arrest_list($case_file_no)
     {
         $this->db->distinct();
         $this->db->from('arrest');
-        $this->db->where('case_file_id', $child_id);
+        $this->db->where('case_file_no', $case_file_no);
         $query = $this->db->get();
         return $query->result();
     }
