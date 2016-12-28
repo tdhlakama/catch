@@ -6,7 +6,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Case extends Generic_home
+class Case_file extends Generic_home
 {
 
     public function __construct()
@@ -14,20 +14,12 @@ class Case extends Generic_home
         parent::__construct();
     }
 
- public function upload_result()
-    {
-        $this->breadcrumbs->push('Upload', '/');
-        $data['upload_list'] = $this->upload_model->get_list();
-        $this->load->view('case_upload_result', $data);
-        $this->load->view('footer');
-    }
-
     public function upload_view()
     {
-        $this->breadcrumbs->push('Upload', '/');
+        $this->breadcrumbs->push('Upload Case File', '/');
         $data['error'] = '';
         $data['upload_list'] = $this->upload_model->get_last_five_entries();
-        $this->load->view('case_upload_view', $data);
+        $this->load->view('case_file_upload_view', $data);
         $this->load->view('footer');
     }
 
@@ -51,9 +43,9 @@ class Case extends Generic_home
         }
         if (!$this->upload->do_upload('userfile')) {
             $error = array('error' => $this->upload->display_errors());
-            $this->load->view('upload_view', $error);
+            $this->load->view('case_file_upload_view', $error);
         } else {
-            redirect('case/case_upload_success');
+            redirect('case_file/upload_success');
         }
 
     }
@@ -61,7 +53,7 @@ class Case extends Generic_home
     public function upload_success()
     {
         $data['csv'] = array_map('str_getcsv', file('./uploads/case_demographic.csv'));
-        $this->load->view('upload_sucess_view', $data);
+        $this->load->view('case_file_upload_sucess_view', $data);
         $this->load->view('footer');
     }
 
@@ -76,18 +68,18 @@ class Case extends Generic_home
         $id = $this->upload_model->save($this->session->userdata('username'));
         foreach ($data['csv'] as $item) {
             $valid = true;
-            $child_no = null;
-            if ($this->child_model->check_duplicate(trim($item[0]))) {
+            $case_file_no = null;
+            if ($this->case_file_model->check_duplicate(trim($item[0]))) {
                 $valid = false;
                 $duplicate = 'Duplicate ID found';
             } else {
-                $child_no = $item[0];
+                $case_file_no = $item[0];
             }
 
             if ($valid) {
 
-                $child_id = $this->child_model->save_upload(
-                    $child_no,//file no
+                $case_file_id = $this->case_file_model->save_upload(
+                    $case_file_no,//file no
                     $item[1],//firstname
                     $item[2],//lastname
                     $item[3],//gender
@@ -108,6 +100,11 @@ class Case extends Generic_home
                     $item[18],//father status
                     $item[19],//mother status
                     $item[20],//ethicinity
+                    $item[21],//$province_location
+                    $item[22],//$district_location
+                    $item[23],//$prison_name
+                    $item[24],//$interview_location
+                    $item[25],//$source
                     $id
                 );
                 $count++;
@@ -118,8 +115,17 @@ class Case extends Generic_home
         }
         $this->upload_model->update($id, $count, $errors, "");
         $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Updated Succesfully ' . $count . ' * Errors Found ' . $errors . ' </div>');
-        redirect('setting/upload_success');
+        redirect('case_file/upload_result');
     }
+
+    public function upload_result()
+    {
+        $this->breadcrumbs->push('Upload Case File', '/');
+        $data['upload_list'] = $this->upload_model->get_list();
+        $this->load->view('case_file_upload_result', $data);
+        $this->load->view('footer');
+    }
+
 
     public function download_template_csv()
     {
@@ -129,39 +135,39 @@ class Case extends Generic_home
 
     function listAll()
     {
-        $this->breadcrumbs->push('Files', '/case/listAll');
-        $data['case_list'] = $this->case_model->get_list();
-        $this->load->view('case_list_view', $data);
+        $this->breadcrumbs->push('Case Files', '/case/listAll');
+        $data['case_file_list'] = $this->case_file_model->get_list();
+        $this->load->view('case_file_list_view', $data);
         $this->load->view('footer');
     }
 
     function get_search_list($q)
     {
         $this->breadcrumbs->push('Files', '/case/listAll');
-        $data['case_list'] = $this->case_model->get_search_list($q);
-        $this->load->view('case_list_view', $data);
+        $data['case_file_list'] = $this->case_file_model->get_search_list($q);
+        $this->load->view('case_file_list_view', $data);
         $this->load->view('footer');
     }
 
     function get_upload_list($q)
     {
         $this->breadcrumbs->push('Files', '/case/listAll');
-        $data['case_list'] = $this->case_model->get_upload_list($q);
-        $this->load->view('case_list_view', $data);
+        $data['case_file_list'] = $this->case_file_model->get_upload_list($q);
+        $this->load->view('case_file_list_view', $data);
         $this->load->view('footer');
     }
 
     function delete($id)
     {
-        $this->case_model->delete($id);
+        $this->case_file_model->delete($id);
         $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Recorded Deleted from Database!!!</div>');
-        redirect('case/listAll');
+        redirect('case_file/listAll');
     }
 
     function search()
     {
         $keyword = $this->input->post('keyword');
-        $data['case_total'] = $this->case_model->get_search_count($keyword);
+        $data['case_total'] = $this->case_file_model->get_search_count($keyword);
         $data['location_total'] = $this->location_model->get_search_count($keyword);
         $data['demand_location_total'] = $this->demand_location_model->get_search_count($keyword);
         $data['worker_type_total'] = $this->worker_type_model->get_search_count($keyword);
@@ -173,7 +179,7 @@ class Case extends Generic_home
 
     function autocomplete()
     {
-        $this->case_model->get_autocomplete();
+        $this->case_file_model->get_autocomplete();
     }
 
     function dashboard($id)
@@ -181,9 +187,9 @@ class Case extends Generic_home
         $this->breadcrumbs->push('case Settings', '/case/listAll');
         $this->breadcrumbs->push('case Dashboard', '/case/dashboard/' . $id);
 
-        $data['emp'] = $this->case_model->get($id);
+        $data['emp'] = $this->case_file_model->get($id);
         $data['arrestlist'] = $this->arrest_model->get_arrest_list($id);
-        $this->load->view('case_dashboard_view', $data);
+        $this->load->view('case_file_dashboard_view', $data);
         $this->load->view('footer');
     }
 
@@ -193,7 +199,7 @@ class Case extends Generic_home
         $this->email->to('tdhlakama@live.com');
         //$this->email->cc('tdhlakama@yahoo.com');
         $this->email->subject('Reminder Contracts Expiring');
-        $emp = $this->case_model->get_list();
+        $emp = $this->case_file_model->get_list();
         $msg = 'Graduate list' . "<br/>";
         if (isset($emp)) {
             foreach ($emp as $item) {

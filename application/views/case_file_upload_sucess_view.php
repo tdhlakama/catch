@@ -6,7 +6,7 @@
 <div class="row">
     <?php echo $this->session->flashdata('msg'); ?>
     <table id="emp_table" class="table table-striped table-hover">
-        <caption><h4><a href="<?php echo site_url('setting/save_success'); ?>" class="btn btn-lg btn-primary"
+        <caption><h4><a href="<?php echo site_url('case_file/save_success'); ?>" class="btn btn-lg btn-primary"
                         style="float: right;">Save Information</a></h4></caption>
         <thead>
         <tr>
@@ -31,13 +31,18 @@
             <th>Father Status</th>
             <th>Mother Status</th>
             <th>Ethinicty</th>
+            <th>Province Prison</th>
+            <th>District Prison</th>
+            <th>Prison Name</th>
+            <th>Interview Location</th>
+            <th>Source of Infor</th>
         </tr>
         </thead>
         <tbody>
         <?php
         foreach ($csv as $i => $item) {
             echo '<tr>';
-            echo '<td> ' . ($this->case_model->check_duplicate(trim($item[0])) ? '<label class="m">' . $item[0] . "</label>" : $item[0]) . ' </td>';
+            echo '<td> ' . ($this->case_file_model->check_duplicate(trim($item[0])) ? '<label class="m">' . $item[0] . "</label>" : $item[0]) . ' </td>';
             echo '<td> ' . $item[1] . ' </td>';
             echo '<td> ' . $item[2] . ' </td>';
             echo '<td> ' . $item[3] . ' </td>';
@@ -58,6 +63,11 @@
             echo '<td> ' . $item[18] . ' </td>';
             echo '<td> ' . $item[19] . ' </td>';
             echo '<td> ' . $item[20] . ' </td>';
+            echo '<td> ' . $item[21] . ' </td>';
+            echo '<td> ' . $item[22] . ' </td>';
+            echo '<td> ' . $item[23] . ' </td>';
+            echo '<td> ' . $item[24] . ' </td>';
+            echo '<td> ' . $item[25] . ' </td>';
             echo '</tr>';
         }
         ?>

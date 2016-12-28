@@ -26,7 +26,7 @@ class Generic extends CI_Controller {
         $this->load->helper('file');
         $this->load->helper('download');
         
-        $this->load->model('child_model');
+        $this->load->model('case_file_model');
         $this->load->model('arrest_model');
         $this->load->model('upload_model');
 

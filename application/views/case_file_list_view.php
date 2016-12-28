@@ -1,9 +1,9 @@
 <div class="row">
     <?php echo $this->breadcrumbs->show(); ?>
     <div class="list-group">
-        <a href="<?php echo site_url('child/listAll'); ?>" class="list-group-item">
-            <h4 class="list-group-item-heading">Child</h4>
-            <p class="list-group-item-text">Inform</p>
+        <a href="<?php echo site_url('case_file/listAll'); ?>" class="list-group-item">
+            <h4 class="list-group-item-heading">Case Files</h4>
+            <p class="list-group-item-text">Individual Case Files for each child</p>
         </a>
     </div>
 </div>
@@ -22,15 +22,15 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($child_list as $item): ?>
+            <?php foreach ($case_file_list as $item): ?>
                 <tr>
-                    <td><?php echo $item->case_no; ?></td>
+                    <td><?php echo $item->case_file_no; ?></td>
                     <td><?php echo $item->first_name; ?></td>
                     <td ><?php echo $item->last_name; ?></td>
                     <td><?php echo $item->gender; ?></td>
                     <td><?php echo $item->date_of_birth; ?></td>
                     <td>
-                        <a href="<?php echo base_url(); ?>index.php/child/dashboard/<?php echo $item->child_id; ?> " class="btn-sm btn-success">View</a>
+                        <a href="<?php echo base_url(); ?>index.php/case_file/dashboard/<?php echo $item->case_file_id; ?> " class="btn-sm btn-success">View</a>
                     </td>  
                 </tr>
             <?php endforeach; ?>

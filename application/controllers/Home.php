@@ -15,7 +15,7 @@ class Home extends Generic_home
 
     public function index()
     {
-        $data['total_number_of_files'] = $this->child_model->get_row_count();
+        $data['total_number_of_files'] = $this->case_file_model->get_row_count();
         $this->load->view('home_view', $data);
         $this->load->view('footer');
     }

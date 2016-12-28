@@ -17,11 +17,11 @@
 
                     <div class="list-group">
 
-                        <a href="<?php echo site_url('child/listAll'); ?>" class="list-group-item">
+                        <a href="<?php echo site_url('case_file/listAll'); ?>" class="list-group-item">
                             <h4 class="list-group-item-heading">Cases</h4>
                         </a>
 
-                        <a href="<?php echo site_url('case/case_csv'); ?>" class="list-group-item">
+                        <a href="<?php echo site_url('case_file/case_csv'); ?>" class="list-group-item">
                             <h4 class="list-group-item-heading">Download Case Demograhic Template</h4>
                         </a>
 

@@ -60,7 +60,7 @@ $config['salt_prefix']    = version_compare(PHP_VERSION, '5.3.7', '<') ? '$2a$' 
  | The controller should check this function and act
  | appropriately. If this variable set to 0, there is no maximum.
  */
-$config['site_title']                 = "Login - Allocation Optimization Tool";       // Site Title, example.com
+$config['site_title']                 = "Login - Catch Surveillance Database";       // Site Title, example.com
 $config['admin_email']                = "admin@example.com"; // Admin Email, admin@example.com
 $config['default_group']              = 'members';           // Default group, use name
 $config['admin_group']                = 'admin';             // Default administrators group, use name

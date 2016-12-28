@@ -17,7 +17,7 @@
                                 <label for="case_no" class="control-label">File #</label>
                             </div>
                             <div class="col-lg-8 col-sm-8">
-                                <?php echo $emp->case_no; ?>
+                                <?php echo $emp->case_file_no; ?>
                             </div>
                         </div>
                     </div>
@@ -252,6 +252,64 @@
                             </div>
                             <div class="col-lg-8 col-sm-8">
                                 <?php echo $emp->ethinicity; ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row colbox">
+                            <div class="col-lg-4 col-sm-4">
+                                <label for="province_location" class="control-label">Province Location</label>
+                            </div>
+                            <div class="col-lg-8 col-sm-8">
+                                <?php echo $emp->province_location; ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row colbox">
+                            <div class="col-lg-4 col-sm-4">
+                                <label for="district_location" class="control-label">District Location</label>
+                            </div>
+                            <div class="col-lg-8 col-sm-8">
+                                <?php echo $emp->district_location; ?>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="row colbox">
+                            <div class="col-lg-4 col-sm-4">
+                                <label for="prison_name" class="control-label">Prison Name</label>
+                            </div>
+                            <div class="col-lg-8 col-sm-8">
+                                <?php echo $emp->prison_name; ?>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="row colbox">
+                            <div class="col-lg-4 col-sm-4">
+                                <label for="interview_location" class="control-label">Interview Done at</label>
+                            </div>
+                            <div class="col-lg-8 col-sm-8">
+                                <?php echo $emp->interview_location; ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row colbox">
+                            <div class="col-lg-4 col-sm-4">
+                                <label for="source" class="control-label">Source of Infor</label>
+                            </div>
+                            <div class="col-lg-8 col-sm-8">
+                                <?php echo $emp->source; ?>
                             </div>
                         </div>
                     </div>

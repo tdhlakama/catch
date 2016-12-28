@@ -77,7 +77,7 @@
                 </li>
 
                 <li class="<?php echo active_method('upload_view'); ?>">
-                    <a href="<?php echo site_url('setting/upload_view'); ?>">
+                    <a href="<?php echo site_url('case_file/upload_view'); ?>">
                         <i class="glyphicon glyphicon-upload"></i> Upload Case File</a>
                 </li>
 
@@ -87,7 +87,7 @@
                 </li>
 
                 <li class="<?php echo active_method('upload_result'); ?>">
-                    <a href="<?php echo site_url('setting/upload_result'); ?>">
+                    <a href="<?php echo site_url('case_file/upload_result'); ?>">
                         <i class="glyphicon glyphicon-upload"></i> Upload History</a>
                 </li>
 

@@ -153,7 +153,7 @@ class Arrest_model extends CI_Model
     {
         $this->db->distinct();
         $this->db->from('arrest');
-        $this->db->where('child_id', $child_id);
+        $this->db->where('case_file_id', $child_id);
         $query = $this->db->get();
         return $query->result();
     }

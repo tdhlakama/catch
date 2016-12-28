@@ -24,7 +24,7 @@
                 <td><?php echo $item->upload_by; ?></td>
                 <td><?php echo $item->reasons; ?></td>
                 <td>
-                    <a href="<?php echo base_url(); ?>index.php/graduate/get_upload_list/<?php echo $item->upload_id; ?> "
+                    <a href="<?php echo base_url(); ?>index.php/case_file/get_upload_list/<?php echo $item->upload_id; ?> "
                        class="btn-sm btn-success">View Records Uploaded</a>
                 </td>
             </tr>

@@ -4,14 +4,14 @@
 <div class="row">
 
     <div class="col-sm-offset-3 col-lg-6 col-sm-6 well">
-        <h4><a href="<?php echo site_url('setting/download_template_csv'); ?>" class="btn btn-lg btn-primary"
+        <h4><a href="<?php echo site_url('case_file/download_template_csv'); ?>" class="btn btn-lg btn-primary"
                style="float: right;">Download Template File</a></h4>
-        <legend>Upload File</legend>
+        <legend>Upload Case File</legend>
 
         <fieldset>
             <?php echo $error; ?>
 
-            <?php echo form_open_multipart('setting/do_upload'); ?>
+            <?php echo form_open_multipart('case_file/do_upload'); ?>
 
             <input type="file" name="userfile" size="20"/>
 
