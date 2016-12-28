@@ -29,18 +29,22 @@
                             <h4 class="list-group-item-heading">Case Arrest Template</h4>
                         </a>
 
-                        <a href="<?php echo site_url('detention/detetion_assesment_csv'); ?>" class="list-group-item">
-                                                    <h4 class="list-group-item-heading">Case Detention Assessment Template</h4>
-                                                </a>
+                        <a href="<?php echo site_url('assesment/case_assesment_csv'); ?>" class="list-group-item">
+                            <h4 class="list-group-item-heading">Case Assessment Template</h4>
+                        </a>
 
-                         <a href="<?php echo site_url('release/case_release__csv'); ?>" class="list-group-item">
-                                 <h4 class="list-group-item-heading">Case Release Template</h4>
-                         </a>
+                        <a href="<?php echo site_url('detention/case_detetion_csv'); ?>" class="list-group-item">
+                            <h4 class="list-group-item-heading">Case Assessment Template</h4>
+                        </a>
 
-                          <a href="<?php echo site_url('hrh/case_hrh_csv'); ?>" class="list-group-item">
-                                                          <h4 class="list-group-item-heading">Case HRH Template</h4>
-                                                  </a>
-                     
+                        <a href="<?php echo site_url('release/case_release__csv'); ?>" class="list-group-item">
+                            <h4 class="list-group-item-heading">Case Release Template</h4>
+                        </a>
+
+                        <a href="<?php echo site_url('hrh/case_hrh_csv'); ?>" class="list-group-item">
+                            <h4 class="list-group-item-heading">Case HRH Template</h4>
+                        </a>
+
                     </div>
 
                 </div>
