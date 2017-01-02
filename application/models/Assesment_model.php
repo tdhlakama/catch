@@ -24,14 +24,6 @@ class Assesment_model extends CI_Model
         return $query->result();
     }
 
-    public function get_all()
-    {
-        $this->db->distinct();
-        $this->db->from('assesment');
-        $query = $this->db->get();
-        return $query->result();
-    }
-
     public function get_list()
     {
         $this->db->distinct();
@@ -46,23 +38,6 @@ class Assesment_model extends CI_Model
         $this->db->where('assesment_id', $id);
         $query = $this->db->get();
         return $query->row();
-    }
-
-    public function save()
-    {
-        $this->assesment_no = $this->input->post('assesment_no');
-        $this->first_name = $this->input->post('first_name');
-        $this->last_name = $this->input->post('last_name');
-        $this->db->insert('assesment', $this);
-        return $this->db->insert_id();
-    }
-
-    public function update($id)
-    {
-        $this->first_name = $this->input->post('first_name');
-        $this->last_name = $this->input->post('last_name');
-        $this->db->where('assesment_id', $id);
-        $this->db->update('assesment', $this);
     }
 
     function get_row_count()
@@ -81,10 +56,56 @@ class Assesment_model extends CI_Model
     }
 
 
-    function get_count_by_worker_type($id)
+    function get_count_by_type($food_deprivation
+        , $hand_cuffed, $electric_shock, $beaten_without_instrument, $beaten_with_instrument
+        , $neglect, $slapping, $verbal_abuse, $shackle, $solitary_confinement
+        , $toilet_deprivation, $sexual_abuse, $other_abuse)
     {
         $this->db->from('assesment');
-        $this->db->where('worker_type_id', $id);
+        if ($food_deprivation === "yes") {
+            $this->db->where('murder', $food_deprivation);
+        }
+        if ($hand_cuffed === "yes") {
+            $this->db->where('hand_cuffed', $hand_cuffed);
+        }
+        if ($electric_shock === "yes") {
+            $this->db->where('electric_shock', $electric_shock);
+        }
+        if ($beaten_without_instrument === "yes") {
+            $this->db->where('beaten_without_instrument', $beaten_without_instrument);
+        }
+        if ($beaten_with_instrument === "yes") {
+            $this->db->where('beaten_with_instrument', $beaten_with_instrument);
+        }
+        if ($neglect === "yes") {
+            $this->db->where('neglect', $neglect);
+        }
+        if ($slapping === "yes") {
+            $this->db->where('slapping', $slapping);
+        }
+        if ($verbal_abuse === "yes") {
+            $this->db->where('verbal_abuse', $verbal_abuse);
+        }
+        if ($shackle === "yes") {
+            $this->db->where('shackle', $shackle);
+        }
+        if ($solitary_confinement === "yes") {
+            $this->db->where('solitary_confinement', $solitary_confinement);
+        }
+        if ($toilet_deprivation === "yes") {
+            $this->db->where('toilet_deprivation', $toilet_deprivation);
+        }
+        if ($solitary_confinement === "yes") {
+            $this->db->where('solitary_confinement', $solitary_confinement);
+        }
+        if ($sexual_abuse === "yes") {
+            $this->db->where('sexual_abuse', $sexual_abuse);
+        }
+        if ($other_abuse === "yes") {
+            $this->db->where('other_abuse', $other_abuse);
+        }
+
+
         $query = $this->db->get();
         return $query->num_rows();
     }

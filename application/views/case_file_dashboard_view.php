@@ -406,16 +406,16 @@
                     <table class="table table-striped table-hover">
                         <thead>
                         <tr>
-                            <th>Assesment Number</th>
-                            <th>Date of Assesment</th>
+                            <th>Release Number</th>
+                            <th>Date of Release</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($assesmentlist as $i => $item): ?>
+                        <?php foreach ($releaselist as $i => $item): ?>
                             <tr>
                                 <td><?php echo($i + 1) ?></td>
-                                <td><?php echo $item->assesment_no; ?></td>
-                                <td><?php echo $item->date_of_assesment; ?></td>
+                                <td><?php echo $item->release_no; ?></td>
+                                <td><?php echo $item->date_of_release; ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>

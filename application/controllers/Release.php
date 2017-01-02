@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Arrest extends Generic_home
+class Release extends Generic_home
 {
 
     public function __construct()
@@ -21,7 +21,7 @@ class Arrest extends Generic_home
     {
         $this->breadcrumbs->push('Upload', '/');
         $data['error'] = '';
-        $this->load->view('arrest_upload_view', $data);
+        $this->load->view('release_upload_view', $data);
         $this->load->view('footer');
     }
 
@@ -32,12 +32,12 @@ class Arrest extends Generic_home
         $config['max_size'] = 100;
         $config['max_width'] = 1024;
         $config['max_height'] = 768;
-        $config['file_name'] = 'case_arrest.csv';
+        $config['file_name'] = 'case_release.csv';
 
         $this->load->library('Upload', $config);
         $this->upload->initialize($config);
 
-        $file = "./uploads/case_arrest.csv";
+        $file = "./uploads/case_release.csv";
         if (!unlink($file)) {
             echo("Upload Failed");
         } else {
@@ -45,23 +45,23 @@ class Arrest extends Generic_home
         }
         if (!$this->upload->do_upload('userfile')) {
             $error = array('error' => $this->upload->display_errors());
-            $this->load->view('arrest_upload_view', $error);
+            $this->load->view('release_upload_view', $error);
         } else {
-            redirect('arrest/upload_success');
+            redirect('release/upload_success');
         }
 
     }
 
     public function upload_success()
     {
-        $data['csv'] = array_map('str_getcsv', file('./uploads/case_arrest.csv'));
-        $this->load->view('arrest_upload_sucess_view', $data);
+        $data['csv'] = array_map('str_getcsv', file('./uploads/case_release.csv'));
+        $this->load->view('release_upload_sucess_view', $data);
         $this->load->view('footer');
     }
 
     public function save_success()
     {
-        $data['csv'] = array_map('str_getcsv', file('./uploads/case_arrest.csv'));
+        $data['csv'] = array_map('str_getcsv', file('./uploads/case_release.csv'));
 
         $count = 0;
         $errors = 0;
@@ -70,32 +70,38 @@ class Arrest extends Generic_home
         $id = $this->upload_model->save($this->session->userdata('username'));
         foreach ($data['csv'] as $item) {
             $valid = true;
-            $arrest_no = null;
-            if ($this->arrest_model->check_duplicate(trim($item[0]))) {
+            $release_no = null;
+            if ($this->release_model->check_duplicate(trim($item[0]))) {
                 $valid = false;
                 $duplicate = 'Duplicate ID found';
             } else {
-                $arrest_no = $item[0];
+                $release_no = $item[0];
+            }
+
+            $valid = true;
+            $case_file_no = null;
+            if (!$this->case_file_model->check_duplicate(trim($item[1]))) {
+                $valid = false;
+                $duplicate = 'Case File ID NOT found';
+            }else{
+                $case_file_no = $item[1];
             }
 
             if ($valid) {
- 
-                
-                $arrest_id = $this->arrest_model->save_upload(
-                    $arrest_no,//file no
-                
-                    $item[1],//$arrest_id
-                    $item[2],//$date_of_arrest
-                    $item[3],//$arresting_officer
-                    $item[4],//$station
-                    $item[5],//$parent_informed
-                    $item[6],//$parents_contact
-                    $item[7],//$arrested_before
-                    $item[8],//$charges_communicated
-                    $item[9],//$murder
-                    $item[10],//$rape
-                    $item[11],//$touting
-                    $item[12]//$sodomy
+                 
+                $release_id = $this->release_model->save_upload(
+                    $release_no,//file no
+                    $case_file_no,
+                    $item[2],//$date_of_release
+                    $item[3],//$bail
+                    $item[4],//$bail_amount
+                    $item[5],//$parents_contact
+                    $item[6],//$care_ngo
+                    $item[7],//$care_orphange
+                    $item[8],//$care_relative
+                    $item[9],//$case_status
+                    $item[10]//$comments
+
                 );
                 $count++;
             } else {
@@ -104,12 +110,12 @@ class Arrest extends Generic_home
 
         }
         $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Updated Succesfully ' . $count . ' * Errors Found ' . $errors . ' </div>');
-        redirect('arrest/arrest_upload_success');
+        redirect('release/upload_success');
     }
 
     public function download_template_csv()
     {
-        force_download("./assets/tool/case_arrest.csv", NULL);
+        force_download("./assets/tool/case_release.csv", NULL);
     }
 
 }

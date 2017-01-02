@@ -57,3 +57,24 @@ if (!function_exists('get_number_of_allowed_preferences')) {
     }
 }
 
+
+if (!function_exists('valid_yes_no')) {
+    function valid_yes_no($value)
+    {
+        if ((strcasecmp($value, 'yes') == 0) || (strcasecmp($value, 'no') == 0)) {
+            return $value;
+        } else {
+            return '<label class="m">' . $value . '</label>';
+        }        
+    }
+}
+
+if (!function_exists('validate_yes_no')) {
+    function get_validate_yes_no()
+    {
+        $CI =& get_instance();
+        $CI->load->model('setting_model');
+        $CI->setting_model->get_number_of_preferences_allowed();
+    }
+}
+

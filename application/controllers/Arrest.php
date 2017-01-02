@@ -78,8 +78,42 @@ class Arrest extends Generic_home
             if (!$this->case_file_model->check_duplicate(trim($item[1]))) {
                 $valid = false;
                 $duplicate = 'Case File ID NOT found';
-            }else{
+            } else {
                 $case_file_no = $item[1];
+            }
+
+            if (!$this->case_file_model->check_duplicate(trim($item[1]))) {
+                $valid = false;
+                $duplicate = 'Case File ID NOT found';
+            } else {
+                $case_file_no = $item[1];
+            }
+
+            if (!$this->is_value_yes_no($item[5])
+                || !$this->is_value_yes_no($item[7])
+                || !$this->is_value_yes_no($item[11])
+                || !$this->is_value_yes_no($item[12])
+                || !$this->is_value_yes_no($item[13])
+                || !$this->is_value_yes_no($item[14])
+                || !$this->is_value_yes_no($item[15])
+                || !$this->is_value_yes_no($item[16])
+                || !$this->is_value_yes_no($item[17])
+                || !$this->is_value_yes_no($item[18])
+                || !$this->is_value_yes_no($item[19])
+                || !$this->is_value_yes_no($item[20])
+                || !$this->is_value_yes_no($item[21])
+                || !$this->is_value_yes_no($item[22])
+                || !$this->is_value_yes_no($item[23])
+                || !$this->is_value_yes_no($item[24])
+                || !$this->is_value_yes_no($item[25])
+                || !$this->is_value_yes_no($item[26])
+                || !$this->is_value_yes_no($item[27])
+                || !$this->is_value_yes_no($item[29])
+                || !$this->is_value_yes_no($item[31])
+                || !$this->is_value_yes_no($item[33])
+                || !$this->is_value_yes_no($item[36])
+            ) {
+                $valid = false;
             }
 
             if ($valid) {
@@ -90,38 +124,38 @@ class Arrest extends Generic_home
                     $item[2],//$date_of_arrest
                     $item[3],//$arresting_officer
                     $item[4],//$station
-                    $item[5],//$parent_informed
+                    $this->blank_no($item[5]),//$parent_informed
                     $item[6],//$parents_contact
-                    $item[7],//$arrested_before
+                    $this->blank_no($item[7]),//$arrested_before
                     $item[8],//$similar_charges
                     $item[9],//$which_ones
-                    $item[10],//$charges_communicated
-                    $item[11],//$victim
-                    $item[12],//$murder
-                    $item[13],//$rape
-                    $item[14],//$touting
-                    $item[15],//$sodomy
-                    $item[16],//$robbery
-                    $item[17],//$attempted_murder
-                    $item[18],//$indescent_assault
-                    $item[19],//$kidnapping
-                    $item[20],//$theft
-                    $item[21],//$sex_with_minor
-                    $item[22],//$malicious_damage
-                    $item[23],//$unlawful_entry
-                    $item[24],//$drug
-                    $item[25],//$bulling
-                    $item[26],//$stock_theft
-                    $item[27],//$unknown
+                    $this->blank_no($item[10]),//$charges_communicated
+                    $this->blank_no($item[11]),//$victim
+                    $this->blank_no($item[12]),//$murder
+                    $this->blank_no($item[13]),//$rape
+                    $this->blank_no($item[14]),//$touting
+                    $this->blank_no($item[15]),//$sodomy
+                    $this->blank_no($item[16]),//$robbery
+                    $this->blank_no($item[17]),//$attempted_murder
+                    $this->blank_no($item[18]),//$indescent_assault
+                    $this->blank_no($item[19]),//$kidnapping
+                    $this->blank_no($item[20]),//$theft
+                    $this->blank_no($item[21]),//$sex_with_minor
+                    $this->blank_no($item[22]),//$malicious_damage
+                    $this->blank_no($item[23]),//$unlawful_entry
+                    $this->blank_no($item[24]),//$drug
+                    $this->blank_no($item[25]),//$bulling
+                    $this->blank_no($item[26]),//$stock_theft
+                    $this->blank_no($item[27]),//$unknown
                     $item[28],//$others
-                    $item[29],//$warrant_issued
+                    $this->blank_no($item[29]),//$warrant_issued
                     $item[30],//$warrant_date
-                    $item[31],//$given_to_child
+                    $this->blank_no($item[31]),//$given_to_child
                     $item[32],//$notice_period
-                    $item[33],//$child_alone
+                    $this->blank_no($item[33]),//$child_alone
                     $item[34],//$whom
                     $item[35],//$treated_at_arrest
-                    $item[36],//$placed_with
+                    $this->blank_no($item[36]),//$placed_with
                     $item[37]//$comments
 
                 );

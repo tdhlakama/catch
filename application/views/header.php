@@ -87,7 +87,7 @@
                 </li>
 
                 <li class="<?php echo active_method('upload_view'); ?>">
-                    <a href="<?php echo site_url('assesment/upload_view'); ?>">
+                    <a href="<?php echo site_url('detention/upload_view'); ?>">
                         <i class="glyphicon glyphicon-upload"></i> Upload Detention File</a>
                 </li>
 
@@ -97,7 +97,7 @@
                 </li>
 
                 <li class="<?php echo active_method('upload_view'); ?>">
-                    <a href="<?php echo site_url('assesment/upload_view'); ?>">
+                    <a href="<?php echo site_url('release/upload_view'); ?>">
                         <i class="glyphicon glyphicon-upload"></i> Upload Release File</a>
                 </li>
 

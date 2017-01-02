@@ -191,7 +191,8 @@ class Case_file extends Generic_home
         $case_file_no =$data['emp']->case_file_no;
         $data['arrestlist'] = $this->arrest_model->get_arrest_list($case_file_no);
         $data['assesmentlist'] = $this->assesment_model->get_assesment_list($case_file_no);
-        
+        $data['releaselist'] = $this->release_model->get_release_list($case_file_no);
+
         $this->load->view('case_file_dashboard_view', $data);
         $this->load->view('footer');
     }

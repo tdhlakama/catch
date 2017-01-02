@@ -24,14 +24,6 @@ class Arrest_model extends CI_Model
         return $query->result();
     }
 
-    public function get_all()
-    {
-        $this->db->distinct();
-        $this->db->from('arrest');
-        $query = $this->db->get();
-        return $query->result();
-    }
-
     public function get_list()
     {
         $this->db->distinct();
@@ -48,43 +40,75 @@ class Arrest_model extends CI_Model
         return $query->row();
     }
 
-    public function save()
-    {
-        $this->arrest_no = $this->input->post('arrest_no');
-        $this->first_name = $this->input->post('first_name');
-        $this->last_name = $this->input->post('last_name');
-        $this->db->insert('arrest', $this);
-        return $this->db->insert_id();
-    }
-
-    public function update($id)
-    {
-        $this->first_name = $this->input->post('first_name');
-        $this->last_name = $this->input->post('last_name');
-        $this->db->where('arrest_id', $id);
-        $this->db->update('arrest', $this);
-    }
-
     function get_row_count()
     {
         $this->db->distinct();
         return $this->db->count_all('arrest');
     }
 
-    function get_search_count($q)
+    function get_count_by_murder($value)
     {
         $this->db->from('arrest');
-        $this->db->like('first_name', $q, 'both');
-        $this->db->or_like('last_name', $q);
+        $this->db->where('worker_type_id', $value);
         $query = $this->db->get();
         return $query->num_rows();
     }
 
-
-    function get_count_by_worker_type($id)
+    function get_count_by_type($murder, $rape, $touting, $sodomy
+        , $robbery, $attempted_murder, $indescent_assault, $kidnapping
+        , $theft, $sex_with_minor, $malicious_damage, $unlawful_entry
+        , $drug, $bulling, $stock_theft, $unknown
+    )
     {
         $this->db->from('arrest');
-        $this->db->where('worker_type_id', $id);
+        if ($murder === "yes") {
+            $this->db->where('murder', $murder);
+        }
+        if ($rape === "yes") {
+            $this->db->where('rape', $rape);
+        }
+        if ($touting === "yes") {
+            $this->db->where('touting', $touting);
+        }
+        if ($sodomy === "yes") {
+            $this->db->where('sodomy', $sodomy);
+        }
+        if ($robbery === "yes") {
+            $this->db->where('robbery', $robbery);
+        }
+        if ($attempted_murder === "yes") {
+            $this->db->where('attempted_murder', $attempted_murder);
+        }
+        if ($indescent_assault === "yes") {
+            $this->db->where('indescent_assault', $indescent_assault);
+        }
+        if ($kidnapping === "yes") {
+            $this->db->where('kidnapping', $kidnapping);
+        }
+        if ($theft === "yes") {
+            $this->db->where('theft', $theft);
+        }
+        if ($sex_with_minor === "yes") {
+            $this->db->where('sex_with_minor', $sex_with_minor);
+        }
+        if ($malicious_damage === "yes") {
+            $this->db->where('malicious_damage', $malicious_damage);
+        }
+        if ($unlawful_entry === "yes") {
+            $this->db->where('unlawful_entry', $unlawful_entry);
+        }
+        if ($drug === "yes") {
+            $this->db->where('drug', $drug);
+        }
+        if ($bulling === "yes") {
+            $this->db->where('bulling', $bulling);
+        }
+        if ($stock_theft === "yes") {
+            $this->db->where('stock_theft', $stock_theft);
+        }
+        if ($unknown === "yes") {
+            $this->db->where('unknown', $unknown);
+        }
         $query = $this->db->get();
         return $query->num_rows();
     }
@@ -95,24 +119,63 @@ class Arrest_model extends CI_Model
         $this->db->delete('arrest');
     }
 
-    function get_search_list($q)
+    function get_search_list($murder, $rape, $touting, $sodomy
+        , $robbery, $attempted_murder, $indescent_assault, $kidnapping
+        , $theft, $sex_with_minor, $malicious_damage, $unlawful_entry
+        , $drug, $bulling, $stock_theft, $unknown
+    )
     {
         $this->db->from('arrest');
-        $this->db->like('first_name', $q, 'both');
-        $this->db->or_like('last_name', $q);
+        if ($murder === "yes") {
+            $this->db->where('murder', $murder);
+        }
+        if ($rape === "yes") {
+            $this->db->where('rape', $rape);
+        }
+        if ($touting === "yes") {
+            $this->db->where('touting', $touting);
+        }
+        if ($sodomy === "yes") {
+            $this->db->where('sodomy', $sodomy);
+        }
+        if ($robbery === "yes") {
+            $this->db->where('robbery', $robbery);
+        }
+        if ($attempted_murder === "yes") {
+            $this->db->where('attempted_murder', $attempted_murder);
+        }
+        if ($indescent_assault === "yes") {
+            $this->db->where('indescent_assault', $indescent_assault);
+        }
+        if ($kidnapping === "yes") {
+            $this->db->where('kidnapping', $kidnapping);
+        }
+        if ($theft === "yes") {
+            $this->db->where('theft', $theft);
+        }
+        if ($sex_with_minor === "yes") {
+            $this->db->where('sex_with_minor', $sex_with_minor);
+        }
+        if ($malicious_damage === "yes") {
+            $this->db->where('malicious_damage', $malicious_damage);
+        }
+        if ($unlawful_entry === "yes") {
+            $this->db->where('unlawful_entry', $unlawful_entry);
+        }
+        if ($drug === "yes") {
+            $this->db->where('drug', $drug);
+        }
+        if ($bulling === "yes") {
+            $this->db->where('bulling', $bulling);
+        }
+        if ($stock_theft === "yes") {
+            $this->db->where('stock_theft', $stock_theft);
+        }
+        if ($unknown === "yes") {
+            $this->db->where('unknown', $unknown);
+        }
         $query = $this->db->get();
         return $query->result();
-    }
-
-    function get_gender_dropdown()
-    {
-        $_id = array('-SELECT-');
-        $_name = array('-SELECT-');
-        array_push($_id, 'M');
-        array_push($_name, 'M');
-        array_push($_id, 'F');
-        array_push($_name, 'F');
-        return $list_result = array_combine($_id, $_name);
     }
 
     function check_duplicate($arrest_no)

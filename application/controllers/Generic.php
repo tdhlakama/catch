@@ -30,6 +30,7 @@ class Generic extends CI_Controller {
         $this->load->model('arrest_model');
         $this->load->model('detention_model');
         $this->load->model('assesment_model');
+        $this->load->model('release_model');
         $this->load->model('upload_model');
 
         $str = ' <a href="' . site_url('home') . '"> Home </a>';
@@ -96,22 +97,33 @@ class Generic extends CI_Controller {
         if ($returnhtml)
             return $view_html; //This will return html on 3rd argument being true
     }
-        
-    public function get_value($value) {
-        if ($value === 'YES') {
-            return 1;
+
+    function valid_yes_no($value)
+    {
+        if ((strcasecmp($value, 'yes') == 0) || (strcasecmp($value, 'no') == 0)) {
+            return $value;
         } else {
-            return 0;
+            return '<label class="m">' . $value . '</label>';
         }
     }
-    public function get_budget_value($value) {
-        if ($value == 0) {
-            return 'NA';
+
+    function is_value_yes_no($value)
+    {
+        if ((strcasecmp($value, 'yes') == 0) || (strcasecmp($value, 'no') == 0) || (strcasecmp($value, '') == 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function blank_no($value)
+    {
+        if ((strcasecmp($value, '') == 0)) {
+            return 'no';
         } else {
             return $value;
         }
     }
-
 }
 ?>
 

@@ -24,14 +24,6 @@ class Case_file_model extends CI_Model
         return $query->result();
     }
 
-    public function get_all()
-    {
-        $this->db->distinct();
-        $this->db->from('case_file');
-        $query = $this->db->get();
-        return $query->result();
-    }
-
     public function get_list()
     {
         $this->db->distinct();
@@ -46,23 +38,6 @@ class Case_file_model extends CI_Model
         $this->db->where('case_file_id', $id);
         $query = $this->db->get();
         return $query->row();
-    }
-
-    public function save()
-    {
-        $this->case_file_no = $this->input->post('case_file_no');
-        $this->first_name = $this->input->post('first_name');
-        $this->last_name = $this->input->post('last_name');
-        $this->db->insert('case_file', $this);
-        return $this->db->insert_id();
-    }
-
-    public function update($id)
-    {
-        $this->first_name = $this->input->post('first_name');
-        $this->last_name = $this->input->post('last_name');
-        $this->db->where('case_file_id', $id);
-        $this->db->update('case_file', $this);
     }
 
     function get_row_count()
@@ -80,11 +55,10 @@ class Case_file_model extends CI_Model
         return $query->num_rows();
     }
 
-
-    function get_count_by_worker_type($id)
+    function get_count_by_gender($gender)
     {
         $this->db->from('case_file');
-        $this->db->where('worker_type_id', $id);
+        $this->db->where('gender', $gender);
         $query = $this->db->get();
         return $query->num_rows();
     }
