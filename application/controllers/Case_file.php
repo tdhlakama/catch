@@ -18,7 +18,6 @@ class Case_file extends Generic_home
     {
         $this->breadcrumbs->push('Upload Case File', '/');
         $data['error'] = '';
-        $data['upload_list'] = $this->upload_model->get_last_five_entries();
         $this->load->view('case_file_upload_view', $data);
         $this->load->view('footer');
     }
@@ -114,6 +113,11 @@ class Case_file extends Generic_home
 
         }
         $this->upload_model->update($id, $count, $errors, "");
+
+        if (!$valid && $count == 0) {
+            $this->upload_model->delete($id);
+        }
+
         $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Updated Succesfully ' . $count . ' * Errors Found ' . $errors . ' </div>');
         redirect('case_file/upload_result');
     }
@@ -188,7 +192,7 @@ class Case_file extends Generic_home
         $this->breadcrumbs->push('case Dashboard', '/case/dashboard/' . $id);
 
         $data['emp'] = $this->case_file_model->get($id);
-        $case_file_no =$data['emp']->case_file_no;
+        $case_file_no = $data['emp']->case_file_no;
         $data['arrestlist'] = $this->arrest_model->get_arrest_list($case_file_no);
         $data['assesmentlist'] = $this->assesment_model->get_assesment_list($case_file_no);
         $data['releaselist'] = $this->release_model->get_release_list($case_file_no);
