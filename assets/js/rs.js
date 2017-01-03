@@ -78,6 +78,8 @@ $(function () {
         column.visible(!column.visible());
     });
 
+
+
 });
 
 function activeTab(tab) {
@@ -86,57 +88,6 @@ function activeTab(tab) {
 
 var delete_message = 'Are You Sure to Delete this Record?';
 
-function save_worker() {
-    $("graduateform#submit").click(function () {
-        $("#loading").show();
-        var graduate_no = $("#graduate_no").val();
-        var first_name = $("#first_name").val();
-        var last_name = $("#last_name").val();
-        var location_id = $("#location_id").val();
-        var worker_type_id = $("#worker_type_id").val();
-        var worker_level_id = $("#worker_level_id").val();
-        var gender = $("#gender").val();
-
-        $.post($base_url + "graduate/index", {
-                graduate_no: graduate_no,
-                first_name: first_name,
-                last_name: last_name
-                ,
-                location_id: location_id,
-                worker_type_id: worker_type_id,
-                worker_level_id: worker_level_id,
-                gender: gender
-            },
-            function (status) {
-                $("#loading").hide();
-                if (status == 'Form Submitted Successfully....') {
-                    $("#graduate_no").val('');
-                    $("#first_name").val('');
-                    $("#last_name").val('');
-                    $("#location_id").val('');
-                    $("#worker_level_id").val('');
-                    $("#worker_type_id").val('');
-                    $("#gender").val('');
-                }
-                alert(status);
-            });
-    });
-}
-
-function delete_location(id) {
-
-    if (confirm(delete_message)) {
-        window.location.href = base_url + 'index.php/location/delete/' + id;
-    }
-}
-
-function delete_graduate(id) {
-
-    if (confirm(delete_message)) {
-        window.location.href = base_url + 'index.php/graduate/delete/' + id;
-    }
-}
-
 function delete_user(id) {
 
     if (confirm(delete_message)) {
@@ -144,26 +95,29 @@ function delete_user(id) {
     }
 }
 
-function delete_worker_type(id) {
 
-    if (confirm(delete_message)) {
-        window.location.href = base_url + 'index.php/worker_type/delete/' + id;
-    }
+function show_arrest() {
+
+    $("#arrestModal").modal('show');
 }
 
-function delete_worker_level(id) {
+function show_assesment() {
 
-    if (confirm(delete_message)) {
-        window.location.href = base_url + 'index.php/worker_level/delete/' + id;
-    }
+    $("#assesmentModel").modal('show');
 }
 
-function delete_worker_salary(id) {
+function show_detention() {
 
-    if (confirm(delete_message)) {
-        window.location.href = base_url + 'index.php/worker_salary/delete/' + id;
-    }
+    $("#detentionModal").modal('show');
 }
+
+function show_release() {
+
+    $("#releaseModal").modal('show');
+}
+
+
+
 
 function delete_setting(id) {
 

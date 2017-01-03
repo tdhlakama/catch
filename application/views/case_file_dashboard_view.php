@@ -328,6 +328,7 @@
                             <th></th>
                             <th>Arrest No</th>
                             <th>Date of Arrest</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -336,6 +337,27 @@
                                 <td><?php echo($i + 1) ?></td>
                                 <td><?php echo $item->arrest_no; ?></td>
                                 <td><?php echo $item->date_of_arrest; ?></td>
+                                <td>
+                                    <!-- Small modal -->
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="show_arrest()">
+                                       View
+                                    </button>
+
+                                    <div id="arrestModal" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title">Arrest Detail</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Do you want to save changes you made to document before closing?</p>
+                                                    <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -356,6 +378,7 @@
                             <th></th>
                             <th>Detention Number</th>
                             <th>Date of Arrival</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -364,6 +387,28 @@
                                 <td><?php echo($i + 1) ?></td>
                                 <td><?php echo $item->detention_no; ?></td>
                                 <td><?php echo $item->date_of_arrival; ?></td>
+
+                                <td>
+                                    <!-- Small modal -->
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="show_detention()">
+                                        View
+                                    </button>
+
+                                    <div id="detentionModal" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title">Detention Information </h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Do you want to save changes you made to document before closing?</p>
+                                                    <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -384,6 +429,7 @@
                             <th></th>
                             <th>Assesment Number</th>
                             <th>Date of Assesment</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -392,6 +438,27 @@
                                 <td><?php echo($i + 1) ?></td>
                                 <td><?php echo $item->assesment_no; ?></td>
                                 <td><?php echo $item->date_of_assesment; ?></td>
+                                <td>
+                                    <!-- Small modal -->
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="show_assesment()">
+                                         View
+                                    </button>
+
+                                    <div id="assesmentModel" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title">   Assesment Information  </h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Do you want to save changes you made to document before closing?</p>
+                                                    <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -412,6 +479,7 @@
                             <th></th>
                             <th>Release Number</th>
                             <th>Date of Release</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -420,6 +488,27 @@
                                 <td><?php echo($i + 1) ?></td>
                                 <td><?php echo $item->release_no; ?></td>
                                 <td><?php echo $item->date_of_release; ?></td>
+                                <td>
+                                    <!-- Small modal -->
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="show_release()">
+                                        View
+                                    </button>
+
+                                    <div id="releaseModal" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title"> Release Information</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Do you want to save changes you made to document before closing?</p>
+                                                    <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>

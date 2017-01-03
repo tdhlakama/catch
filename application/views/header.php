@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Catch Surveillance Database</title>
-    <link rel="stylesheet" href="<?php echo base_url("/assets/css/bootstrap.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("/assets/css/bootstrap.min.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("/assets/css/datatables.min.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("/assets/css/jquery-ui.min.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("/assets/css/sb-admin.css"); ?>">
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="<?php echo base_url('/assets/js/jquery-1.11.3.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('/assets/js/datatables.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('/assets/js/jquery-ui.min.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url("/assets/js/bootstrap.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("/assets/js/bootstrap.min.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("/assets/js/chart.min.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("/assets/js/rs.js"); ?>"></script>
     <script>
@@ -59,7 +59,7 @@
             $checkUsername = $this->session->userdata('username');
 
             if (isset($checkUsername)) {
-                echo '<li> <a <a href="javascript: configure_system();">Configure System</a> </li>';
+                echo '<li><a href="javascript: configure_system();">Configure System</a> </li>';
                 echo '<li><a href="javascript: change_password();">User: ' . $this->session->userdata('username') . ' </a></li>';
                 echo '<li><i class="fa fa-fw fa-power-off"></i><a href="javascript: logout();">Log Out</a></li>';
             }
