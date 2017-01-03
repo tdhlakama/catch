@@ -65,10 +65,30 @@ if (!function_exists('valid_yes_no')) {
             return $value;
         } else {
             return '<label class="m">' . $value . '</label>';
-        }        
+        }
     }
 }
 
+if (!function_exists('valid_gender')) {
+    function valid_gender($value)
+    {
+        if ((strcasecmp($value, 'm') == 0) || (strcasecmp($value, 'f') == 0)) {
+            return $value;
+        } else {
+            return '<label class="m">' . $value . '</label>';
+        }
+    }
+}
+if (!function_exists('valid_parent_status')) {
+    function valid_parent_status($value)
+    {
+        if ((strcasecmp($value, 'alive') == 0) || (strcasecmp($value, 'dead') == 0) || (strcasecmp($value, 'absent') == 0)) {
+            return $value;
+        } else {
+            return '<label class="m">' . $value . '</label>';
+        }
+    }
+}
 if (!function_exists('validate_yes_no')) {
     function get_validate_yes_no()
     {

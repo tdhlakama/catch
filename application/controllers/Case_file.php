@@ -75,6 +75,17 @@ class Case_file extends Generic_home
                 $case_file_no = $item[0];
             }
 
+
+            if (!$this->is_valid_gender($item[3])) {
+                $valid = false;
+            }
+
+
+            if (!$this->is_value_yes_no($item[12])) {
+                $valid = false;
+            }
+
+
             if ($valid) {
 
                 $case_file_id = $this->case_file_model->save_upload(

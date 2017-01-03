@@ -45,7 +45,7 @@
             echo '<td> ' . ($this->case_file_model->check_duplicate(trim($item[0])) ? '<label class="m">' . $item[0] . "</label>" : $item[0]) . ' </td>';
             echo '<td> ' . $item[1] . ' </td>';
             echo '<td> ' . $item[2] . ' </td>';
-            echo '<td> ' . $item[3] . ' </td>';
+            echo '<td> ' . valid_gender($item[3]) . ' </td>';
             echo '<td> ' . $item[4] . ' </td>';
             echo '<td> ' . $item[5] . ' </td>';
             echo '<td> ' . $item[6] . ' </td>';
@@ -53,15 +53,15 @@
             echo '<td> ' . $item[8] . ' </td>';
             echo '<td> ' . $item[9] . ' </td>';
             echo '<td> ' . $item[10] . ' </td>';
-            echo '<td> ' . $item[11] . ' </td>';
-            echo '<td> ' . $item[12] . ' </td>';
+            echo '<td> ' . valid_yes_no($item[11]) . ' </td>';
+            echo '<td> ' . valid_yes_no($item[12]) . ' </td>';
             echo '<td> ' . $item[13] . ' </td>';
             echo '<td> ' . $item[14] . ' </td>';
             echo '<td> ' . $item[15] . ' </td>';
             echo '<td> ' . $item[16] . ' </td>';
             echo '<td> ' . $item[17] . ' </td>';
-            echo '<td> ' . $item[18] . ' </td>';
-            echo '<td> ' . $item[19] . ' </td>';
+            echo '<td> ' . valid_parent_status($item[18]) . ' </td>';
+            echo '<td> ' . valid_parent_status($item[19]) . ' </td>';
             echo '<td> ' . $item[20] . ' </td>';
             echo '<td> ' . $item[21] . ' </td>';
             echo '<td> ' . $item[22] . ' </td>';

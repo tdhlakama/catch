@@ -125,6 +125,24 @@ class Generic extends CI_Controller {
             return $value;
         }
     }
+
+    function is_valid_gender($value)
+    {
+        if ((strcasecmp($value, 'm') == 0) || (strcasecmp($value, 'f') == 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function is_valid_parent_status($value)
+    {
+        if ((strcasecmp($value, 'alive') == 0) || (strcasecmp($value, 'dead') == 0) || (strcasecmp($value, 'absent') == 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 ?>
 
