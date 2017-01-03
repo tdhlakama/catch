@@ -5,7 +5,7 @@
     <?php echo $this->session->flashdata('msg'); ?>
     <div class="row ">
         <div class="col-lg-4">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     Case File Details
                 </div>
@@ -316,7 +316,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="panel panel-default">
+            <div class="panel panel-danger">
                 <div class="panel-heading">
                     Arrest Information
                 </div>
@@ -325,6 +325,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                         <tr>
+                            <th></th>
                             <th>Arrest No</th>
                             <th>Date of Arrest</th>
                         </tr>
@@ -343,7 +344,7 @@
                 </div>
             </div>
 
-            <div class="panel panel-default">
+            <div class="panel panel-warning">
                 <div class="panel-heading">
                     Detention Information
                 </div>
@@ -352,6 +353,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                         <tr>
+                            <th></th>
                             <th>Detention Number</th>
                             <th>Date of Arrival</th>
                         </tr>
@@ -379,6 +381,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                         <tr>
+                            <th></th>
                             <th>Assesment Number</th>
                             <th>Date of Assesment</th>
                         </tr>
@@ -397,7 +400,7 @@
                 </div>
             </div>
 
-            <div class="panel panel-default">
+            <div class="panel panel-green">
                 <div class="panel-heading">
                     Release Information
                 </div>
@@ -406,6 +409,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                         <tr>
+                            <th></th>
                             <th>Release Number</th>
                             <th>Date of Release</th>
                         </tr>
