@@ -95,10 +95,10 @@ class Release extends Generic_home
                     $item[2],//$date_of_release
                     $item[3],//$bail
                     $item[4],//$bail_amount
-                    $item[5],//$parents_contact
-                    $item[6],//$care_ngo
-                    $item[7],//$care_orphange
-                    $item[8],//$care_relative
+                    $this->blank_no($item[5]),//$parents_contact
+                    $this->blank_no($item[6]),//$care_ngo
+                    $this->blank_no($item[7]),//$care_orphange
+                    $this->blank_no($item[8]),//$care_relative
                     $item[9],//$case_status
                     $item[10]//$comments
 

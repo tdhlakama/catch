@@ -24,14 +24,6 @@ class Detention_model extends CI_Model
         return $query->result();
     }
 
-    public function get_all()
-    {
-        $this->db->distinct();
-        $this->db->from('detention');
-        $query = $this->db->get();
-        return $query->result();
-    }
-
     public function get_list()
     {
         $this->db->distinct();
@@ -46,23 +38,6 @@ class Detention_model extends CI_Model
         $this->db->where('detention_id', $id);
         $query = $this->db->get();
         return $query->row();
-    }
-
-    public function save()
-    {
-        $this->detention_no = $this->input->post('detention_no');
-        $this->first_name = $this->input->post('first_name');
-        $this->last_name = $this->input->post('last_name');
-        $this->db->insert('detention', $this);
-        return $this->db->insert_id();
-    }
-
-    public function update($id)
-    {
-        $this->first_name = $this->input->post('first_name');
-        $this->last_name = $this->input->post('last_name');
-        $this->db->where('detention_id', $id);
-        $this->db->update('detention', $this);
     }
 
     function get_row_count()
@@ -128,58 +103,38 @@ class Detention_model extends CI_Model
     }
 
     public function save_upload(
-        $detention_no, $case_file_no, $date_of_detention, $detentioning_officer, $station
-        , $parent_informed, $parents_contact, $detentioned_before
-        , $similar_charges, $which_ones, $charges_communicated, $victim
-        , $murder, $rape, $touting, $sodomy
-        , $robbery, $attempted_murder, $indescent_assault, $kidnapping
-        , $theft, $sex_with_minor, $malicious_damage, $unlawful_entry
-        , $drug, $bulling, $stock_theft, $unknown
-        , $others, $warrant_issued, $warrant_date, $given_to_child
-        , $notice_period, $child_alone, $whom, $treated_at_detention
-        , $placed_with, $comments)
-
+        $detention_no, $case_file_no, $date_of_arrival, $detention_province, $detention_district
+        , $detention_location, $facility_name, $facility_type, $date_of_transfer, $first_investigation_report, $age_verification
+        , $child_statement, $medical_record, $medical_done_before, $legal_aid
+        , $organisation, $lawyer, $phone, $met_lawyer, $met_how_many_times
+        , $interrogated, $interogation_date, $interogation_duration, $done_by)
     {
+
         $this->detention_no = $detention_no;
         $this->case_file_no = $case_file_no;
         $currentDate = date('Y-m-d');
-        $this->date_of_detention = $currentDate;
-        $this->detentioning_officer = $detentioning_officer;
-        $this->station = $station;
-        $this->parent_informed = $parent_informed;
-        $this->parents_contact = $parents_contact;
-        $this->detentioned_before = $detentioned_before;
-        $this->charges_communicated = $charges_communicated;
-        $this->similar_charges = $similar_charges;
-        $this->which_ones = $which_ones;
-        $this->victim = $victim;
-        $this->murder = $murder;
-        $this->rape = $rape;
-        $this->touting = $touting;
-        $this->sodomy = $sodomy;
-        $this->robbery = $robbery;
-        $this->attempted_murder = $attempted_murder;
-        $this->indescent_assault = $indescent_assault;
-        $this->kidnapping = $kidnapping;
-        $this->unlawful_entry = $unlawful_entry;
-        $this->theft = $theft;
-        $this->sex_with_minor = $sex_with_minor;
-        $this->drug = $drug;
-        $this->bulling = $bulling;
-        $this->malicious_damage = $malicious_damage;
-        $this->stock_theft = $stock_theft;
-        $this->unknown = $unknown;
-        $this->others = $others;
-        $this->warrant_issued = $warrant_issued;
-        $this->warrant_date = $warrant_date;
-        $this->given_to_child = $given_to_child;
-        $this->warrant_date = $warrant_date;
-        $this->notice_period = $notice_period;
-        $this->child_alone = $child_alone;
-        $this->whom = $whom;
-        $this->treated_at_detention = $treated_at_detention;
-        $this->placed_with = $placed_with;
-        $this->comments = $comments;
+        $this->date_of_arrival = $currentDate;
+        $this->detention_province = $detention_province;
+        $this->detention_district = $detention_district;
+        $this->detention_location = $detention_location;
+        $this->facility_name = $facility_name;
+        $this->facility_type = $facility_type;
+        $this->date_of_transfer = $date_of_transfer;
+        $this->first_investigation_report = $first_investigation_report;
+        $this->age_verification = $age_verification;
+        $this->child_statement = $child_statement;
+        $this->medical_record = $medical_record;
+        $this->medical_done_before = $medical_done_before;
+        $this->legal_aid = $legal_aid;
+        $this->organisation = $organisation;
+        $this->interogation_date = $currentDate;
+        $this->lawyer = $lawyer;
+        $this->met_lawyer = $met_lawyer;
+        $this->met_how_many_times = $met_how_many_times;
+        $this->phone = $phone;
+        $this->interrogated = $interrogated;
+        $this->interogation_duration = $interogation_duration;
+        $this->done_by = $done_by;
         $this->db->insert('detention', $this);
         return $this->db->insert_id();
     }

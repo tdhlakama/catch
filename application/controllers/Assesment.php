@@ -82,48 +82,77 @@ class Assesment extends Generic_home
                 $case_file_no = $item[1];
             }
 
+            if (!$this->is_value_yes_no($item[3])
+                || !$this->is_value_yes_no($item[4])
+                || !$this->is_value_yes_no($item[5])
+                || !$this->is_value_yes_no($item[6])
+                || !$this->is_value_yes_no($item[7])
+                || !$this->is_value_yes_no($item[11])
+                || !$this->is_value_yes_no($item[12])
+                || !$this->is_value_yes_no($item[13])
+                || !$this->is_value_yes_no($item[14])
+                || !$this->is_value_yes_no($item[15])
+                || !$this->is_value_yes_no($item[16])
+                || !$this->is_value_yes_no($item[18])
+                || !$this->is_value_yes_no($item[19])
+                || !$this->is_value_yes_no($item[20])
+                || !$this->is_value_yes_no($item[21])
+                || !$this->is_value_yes_no($item[22])
+                || !$this->is_value_yes_no($item[23])
+                || !$this->is_value_yes_no($item[25])
+                || !$this->is_value_yes_no($item[26])
+                || !$this->is_value_yes_no($item[27])
+                || !$this->is_value_yes_no($item[29])
+                || !$this->is_value_yes_no($item[33])
+                || !$this->is_value_yes_no($item[34])
+                || !$this->is_value_yes_no($item[35])
+                || !$this->is_value_yes_no($item[36])
+                || !$this->is_value_yes_no($item[37])
+            ) {
+                $valid = false;
+            }
+
             if ($valid) {
 
                 $assesment_id = $this->assesment_model->save_upload(
                     $assesment_no,//assesment_no
                     $case_file_no,//$case_file_id
                     $item[2],//$date_of_assesment
-                    $item[3],//$ill_treatment
-                    $item[4],//$food_deprivation
-                    $item[5],//$hand_cuffed
-                    $item[6],//$electric_shock
-                    $item[7],//$beaten_without_instrument
-                    $item[8],//$beaten_with_instrument
-                    $item[9],//$neglect
-                    $item[10],//$slapping
-                    $item[11],//$verbal_abuse
-                    $item[12],//$shackle
-                    $item[13],//$solitary_confinement
-                    $item[14],//$toilet_deprivation
-                    $item[15],//$sexual_abuse
-                    $item[16],//$other_abuse
+                    $this->blank_no($item[3]),//$ill_treatment
+                    $this->blank_no($item[4]),//$food_deprivation
+                    $this->blank_no($item[5]),//$hand_cuffed
+                    $this->blank_no($item[6]),//$electric_shock
+                    $this->blank_no($item[7]),//$beaten_without_instrument
+                    $this->blank_no($item[8]),//$beaten_with_instrument
+                    $this->blank_no($item[9]),//$neglect
+                    $this->blank_no($item[10]),//$slapping
+                    $this->blank_no($item[11]),//$verbal_abuse
+                    $this->blank_no($item[12]),//$shackle
+                    $this->blank_no($item[13]),//$solitary_confinement
+                    $this->blank_no($item[14]),//$toilet_deprivation
+                    $this->blank_no($item[15]),//$sexual_abuse
+                    $this->blank_no($item[16]),//$other_abuse
                     $item[17],//$abuse_details
-                    $item[18],//$detainees
-                    $item[19],//$police
-                    $item[20],//$prison_guard
-                    $item[21],//$detaining_officer
-                    $item[22],//$prosecutor
-                    $item[23],//$other_person
+                    $this->blank_no($item[18]),//$detainees
+                    $this->blank_no($item[19]),//$police
+                    $this->blank_no($item[20]),//$prison_guard
+                    $this->blank_no($item[21]),//$detaining_officer
+                    $this->blank_no($item[22]),//$prosecutor
+                    $this->blank_no($item[23]),//$other_person
                     $item[24],//torture_details
-                    $item[25],//$separate_facilities
-                    $item[26],//$health_care
-                    $item[27],//$education
-                    $item[28],//$recreation
-                    $item[29],//$water_sanitation
+                    $this->blank_no($item[25]),//$separate_facilities
+                    $this->blank_no($item[26]),//$health_care
+                    $this->blank_no($item[27]),//$education
+                    $this->blank_no($item[28]),//$recreation
+                    $this->blank_no($item[29]),//$water_sanitation
                     $item[30],//$number_of_prisoners
                     $item[31],//$food_times
                     $item[32],//family_visit
-                    $item[33],//$_lessThan24hrs
-                    $item[34],//$_24to48hrs
-                    $item[35],//$_3to10days
-                    $item[36],//$_10to21days
-                    $item[37]//$_greaterThan21
-
+                    $this->blank_no($item[33]),//$_lessThan24hrs
+                    $this->blank_no($item[34]),//$_24to48hrs
+                    $this->blank_no($item[35]),//$_3to10days
+                    $this->blank_no($item[36]),//$_10to21days
+                    $this->blank_no($item[37])//$_greaterThan21
                 );
                 $count++;
             } else {

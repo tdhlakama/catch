@@ -91,7 +91,7 @@ class Case_file extends Generic_home
                     $item[9],//phone
                     $item[10],//birth place
                     $item[11],//displacement
-                    $item[12],//age verified
+                    $this->blank_no($item[12]),//age verified
                     $item[13],//verified by
                     $item[14],//who verified
                     $item[15],//educatio
@@ -192,6 +192,7 @@ class Case_file extends Generic_home
         $data['arrestlist'] = $this->arrest_model->get_arrest_list($case_file_no);
         $data['assesmentlist'] = $this->assesment_model->get_assesment_list($case_file_no);
         $data['releaselist'] = $this->release_model->get_release_list($case_file_no);
+        $data['detentionlist'] = $this->detention_model->get_detention_list($case_file_no);
 
         $this->load->view('case_file_dashboard_view', $data);
         $this->load->view('footer');

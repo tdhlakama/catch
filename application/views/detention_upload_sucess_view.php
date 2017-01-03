@@ -12,42 +12,28 @@
         <tr>
             <th>Arrest File #</th>
             <th>File Number</th>
-            <th>Date of Arrest</th>
-            <th>Arresting Officer</th>
-            <th>Station</th>
-            <th>Parents Informed</th>
-            <th>Parents Conact Inform</th>
-            <th>Arrested Before</th>
-            <th>Similar Charges</th>
-            <th>Which Ones</th>
-            <th>Charges Communicated</th>
-            <th>Victim</th>
-            <th>Murder</th>
-            <th>Rape</th>
-            <th>Touting</th>
-            <th>Sodomy</th>
-            <th>Robbery</th>
-            <th>Attempted Murder</th>
-            <th>Indescent_assault</th>
-            <th>Kiddnapping</th>
-            <th>Theft</th>
-            <th>Sex_with_minor</th>
-            <th>Malicious_damage</th>
-            <th>Unlawful_entry</th>
-            <th>Drug Abuse</th>
-            <th>Bulling</th>
-            <th>Stock Theft</th>
-            <th>Unknown</th>
-            <th>Others</th>
-            <th>Warrant_issued</th>
-            <th>Warrant_date</th>
-            <th>Given_to_child</th>
-            <th>Notice_period</th>
-            <th>Child Alone</th>
-            <th>With Whom</th>
-            <th>Treated_at_detention</th>
-            <th>Placed_with</th>
-            <th>Comments</th>
+            <th>Date of Arrival</th>
+            <th>Province</th>
+            <th>District</th>
+            <th>Location</th>
+            <th>Facility Name</th>
+            <th>Facility Type</th>
+            <th>Date of Transfer</th>
+            <th>First Investigation Report</th>
+            <th>Age Verification</th>
+            <th>Child Statement</th>
+            <th>Medical Record</th>
+            <th>Medical Done Before</th>
+            <th>legal Aid</th>
+            <th>Organisation</th>
+            <th>Laywer</th>
+            <th>Phone</th>
+            <th>Met Laywer</th>
+            <th>How many Times</th>
+            <th>Interrogated</th>
+            <th>Interogation Date</th>
+            <th>Duration</th>
+            <th>Done By</th>
         </tr>
         </thead>
         <tbody>
@@ -63,35 +49,21 @@
             echo '<td> ' . $item[6] . ' </td>';
             echo '<td> ' . $item[7] . ' </td>';
             echo '<td> ' . $item[8] . ' </td>';
-            echo '<td> ' . $item[9] . ' </td>';
-            echo '<td> ' . $item[10] . ' </td>';
-            echo '<td> ' . $item[11] . ' </td>';
-            echo '<td> ' . $item[12] . ' </td>';
-            echo '<td> ' . $item[13] . ' </td>';
-            echo '<td> ' . $item[14] . ' </td>';
+            echo '<td> ' . valid_yes_no($item[9]) . ' </td>';
+            echo '<td> ' . valid_yes_no($item[10]) . ' </td>';
+            echo '<td> ' . valid_yes_no($item[11]) . ' </td>';
+            echo '<td> ' . valid_yes_no($item[12]) . ' </td>';
+            echo '<td> ' . valid_yes_no($item[13]) . ' </td>';
+            echo '<td> ' . valid_yes_no($item[14]) . ' </td>';
             echo '<td> ' . $item[15] . ' </td>';
             echo '<td> ' . $item[16] . ' </td>';
             echo '<td> ' . $item[17] . ' </td>';
-            echo '<td> ' . $item[18] . ' </td>';
+            echo '<td> ' . valid_yes_no($item[18]) . ' </td>';
             echo '<td> ' . $item[19] . ' </td>';
-            echo '<td> ' . $item[20] . ' </td>';
+            echo '<td> ' . valid_yes_no($item[20]) . ' </td>';
             echo '<td> ' . $item[21] . ' </td>';
             echo '<td> ' . $item[22] . ' </td>';
             echo '<td> ' . $item[23] . ' </td>';
-            echo '<td> ' . $item[24] . ' </td>';
-            echo '<td> ' . $item[25] . ' </td>';
-            echo '<td> ' . $item[26] . ' </td>';
-            echo '<td> ' . $item[27] . ' </td>';
-            echo '<td> ' . $item[28] . ' </td>';
-            echo '<td> ' . $item[29] . ' </td>';
-            echo '<td> ' . $item[30] . ' </td>';
-            echo '<td> ' . $item[31] . ' </td>';
-            echo '<td> ' . $item[32] . ' </td>';
-            echo '<td> ' . $item[33] . ' </td>';
-            echo '<td> ' . $item[34] . ' </td>';
-            echo '<td> ' . $item[35] . ' </td>';
-            echo '<td> ' . $item[36] . ' </td>';
-            echo '<td> ' . $item[37] . ' </td>';
             echo '</tr>';
         }
         ?>

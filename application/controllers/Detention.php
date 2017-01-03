@@ -82,48 +82,46 @@ class Detention extends Generic_home
                 $case_file_no = $item[1];
             }
 
+            if (!$this->is_value_yes_no($item[9])
+                || !$this->is_value_yes_no($item[10])
+                || !$this->is_value_yes_no($item[11])
+                || !$this->is_value_yes_no($item[12])
+                || !$this->is_value_yes_no($item[13])
+                || !$this->is_value_yes_no($item[14])
+                || !$this->is_value_yes_no($item[18])
+                || !$this->is_value_yes_no($item[20])
+            ) {
+                $valid = false;
+            }
+
             if ($valid) {
 
                 $detention_id = $this->detention_model->save_upload(
                     $detention_no,//detention_no
                     $case_file_no,//$case_file_id
-                    $item[2],//$date_of_detention
-                    $item[3],//$detentioning_officer
-                    $item[4],//$station
-                    $item[5],//$parent_informed
-                    $item[6],//$parents_contact
-                    $item[7],//$detentioned_before
-                    $item[8],//$similar_charges
-                    $item[9],//$which_ones
-                    $item[10],//$charges_communicated
-                    $item[11],//$victim
-                    $item[12],//$murder
-                    $item[13],//$rape
-                    $item[14],//$touting
-                    $item[15],//$sodomy
-                    $item[16],//$robbery
-                    $item[17],//$attempted_murder
-                    $item[18],//$indescent_assault
-                    $item[19],//$kidnapping
-                    $item[20],//$theft
-                    $item[21],//$sex_with_minor
-                    $item[22],//$malicious_damage
-                    $item[23],//$unlawful_entry
-                    $item[24],//$drug
-                    $item[25],//$bulling
-                    $item[26],//$stock_theft
-                    $item[27],//$unknown
-                    $item[28],//$others
-                    $item[29],//$warrant_issued
-                    $item[30],//$warrant_date
-                    $item[31],//$given_to_child
-                    $item[32],//$notice_period
-                    $item[33],//$child_alone
-                    $item[34],//$whom
-                    $item[35],//$treated_at_detention
-                    $item[36],//$placed_with
-                    $item[37]//$comments
-
+                    $item[2],//$date_of_arrival
+                    $item[3],//$detention_province
+                    $item[4],//$detention_district
+                    $item[5],//$detention_location
+                    $item[6],//$facility_name
+                    $item[7],//$facility_type
+                    $item[8],//$date_of_transfer
+                    $this->blank_no($item[9]),//$first_investigation_report
+                    $this->blank_no($item[10]),//$age_verification
+                    $this->blank_no($item[11]),//$child_statement
+                    $this->blank_no($item[12]),//$medical_record
+                    $this->blank_no($item[13]),//$medical_done_before
+                    $this->blank_no($item[14]),//$legal_aid
+                    $item[15],//$organisation
+                    $item[16],//$lawyer
+                    $item[17],//$phone
+                    $this->blank_no($item[18]),//$met_lawyer
+                    $item[19],//$met_how_many_times
+                    $this->blank_no($item[20]),//$interrogated
+                    $item[21],//$interogation_date
+                    $item[22],//$interogation_duration
+                    $item[23]//$done_by
+                   
                 );
                 $count++;
             } else {
