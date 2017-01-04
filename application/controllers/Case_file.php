@@ -147,7 +147,6 @@ class Case_file extends Generic_home
         force_download("./assets/tool/case_demographic.csv", NULL);
     }
 
-
     function listAll()
     {
         $this->breadcrumbs->push('Case Files', '/case/listAll');
@@ -208,7 +207,7 @@ class Case_file extends Generic_home
         $data['assesmentlist'] = $this->assesment_model->get_assesment_list($case_file_no);
         $data['releaselist'] = $this->release_model->get_release_list($case_file_no);
         $data['detentionlist'] = $this->detention_model->get_detention_list($case_file_no);
-
+        $data['catchuploadlist'] = $this->catch_file_model->get_upload_list($case_file_no);
         $this->load->view('case_file_dashboard_view', $data);
         $this->load->view('footer');
     }
@@ -239,7 +238,71 @@ class Case_file extends Generic_home
         redirect("home");
     }
 
+    function catch_upload($case_file_no)
+    {
+        $this->breadcrumbs->push('Upload Extra Files', '/');
+        $data['error'] = '';
+        $data['case_file_no'] = $case_file_no;
+        $this->load->view('catch_file_upload_view', $data);
+        $this->load->view('footer');
+    }
+
+    public function catch_upload_file($case_file_no)
+    {
+        $status = "";
+        $file_element_name = 'userfile';
+        if (empty($_POST['title'])) {
+            $status = "error";
+            $msg = "Please enter a title";
+        }
+
+        if ($status != "error") {
+            $config['upload_path'] = './files/';
+            $config['allowed_types'] = 'gif|jpg|png|doc|docx|txt';
+            $config['max_size'] = 1024 * 8;
+            $config['encrypt_name'] = TRUE;
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload($file_element_name)) {
+                $data['error'] = $this->upload->display_errors();
+                $data['case_file_no'] = $case_file_no;
+                $this->load->view('catch_file_upload_view', $data);
+                $this->load->view('footer');
+            } else {
+                $data = $this->upload->data();
+                $file_id = $this->catch_file_model->save($data['file_name'], $_POST['title'], $case_file_no);
+                if ($file_id) {
+                    $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">File successfully uploaded!</div>');
+                    $case_file = $this->case_file_model->get_by_case_file_no($case_file_no);
+                    redirect('case_file/dashboard/' . $case_file->case_file_id);
+                } else {
+                    unlink($data['full_path']);
+                    $data['error'] = $this->upload->display_errors();
+                    $data['case_file_no'] = $case_file_no;
+                    $this->load->view('catch_file_upload_view', $data);
+                    $this->load->view('footer');
+                }
+                @unlink($_FILES[$file_element_name]);
+            }
+        }
+
+    }
+
+    public function delete_file($id)
+    {
+        $file = $this->catch_file_model->get($id);
+        $case_file = $this->case_file_model->get_by_case_file_no($file->case_file_no);
+        $this->catch_file_model->delete($id);
+        unlink('./files/' . $file->file_name);
+        $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">File Deleted successfully!</div>');
+        redirect('case_file/dashboard/' . $case_file->case_file_id);
+    }
+
+    public function download_file($id)
+    {
+        $file = $this->catch_file_model->get($id);
+        force_download("./files/" . $file->file_name, NULL);
+    }
+
 }
 
 ?>
-

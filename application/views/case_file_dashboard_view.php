@@ -3,6 +3,7 @@
 </div>
 <div class="row">
     <?php echo $this->session->flashdata('msg'); ?>
+
     <div class="row ">
         <div class="col-lg-4">
             <div class="panel panel-primary">
@@ -379,7 +380,7 @@
                                                             <td><?php echo $item->arrested_before; ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Where the charges communicated to the child?  </td>
+                                                            <td>Where the charges communicated to the child?</td>
                                                             <td><?php echo $item->charges_communicated; ?></td>
                                                         </tr>
                                                         <tr>
@@ -467,7 +468,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2"></td>
-                                                          <tr>
+                                                        <tr>
                                                             <td>Arrest warrant issued?</td>
                                                             <td><?php echo $item->warrant_issued; ?></td>
                                                         </tr>
@@ -492,11 +493,14 @@
                                                             <td><?php echo $item->treated_at_arrest; ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Where you placed in detention facilities with adults</td>
+                                                            <td>Where you placed in detention facilities with adults
+                                                            </td>
                                                             <td><?php echo $item->placed_with; ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Details about conditions and reasons of arrest as stated by the child</td>
+                                                            <td>Details about conditions and reasons of arrest as stated
+                                                                by the child
+                                                            </td>
                                                             <td><?php echo $item->comments; ?></td>
                                                         </tr>
                                                     </table>
@@ -576,7 +580,8 @@
                                                             <td><?php echo $item->date_of_transfer; ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="2"><h4>Are records available at place of detentntion </h4></td>
+                                                            <td colspan="2"><h4>Are records available at place of
+                                                                    detentntion </h4></td>
                                                         </tr>
                                                         <tr>
                                                             <td>First Investigation Report</td>
@@ -598,7 +603,7 @@
                                                             <td colspan="2"></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Was a medical check-up carried out upon arrival?   </td>
+                                                            <td>Was a medical check-up carried out upon arrival?</td>
                                                             <td><?php echo $item->medical_done_before; ?></td>
                                                         </tr>
                                                         <tr>
@@ -762,7 +767,7 @@
                                                         <tr>
                                                             <td colspan="2"><h4>Perpetrated by</h4></td>
                                                         </tr>
-                                                       <tr>
+                                                        <tr>
                                                             <td>Detaining Officer</td>
                                                             <td><?php echo $item->detaining_officer; ?></td>
                                                         </tr>
@@ -785,7 +790,7 @@
                                                         <tr>
                                                             <td>Prosecutor</td>
                                                             <td><?php echo $item->prosecutor; ?></td>
-                                                       </tr>
+                                                        </tr>
                                                         <tr>
                                                             <td>Torture Details</td>
                                                             <td><?php echo $item->torture_details; ?></td>
@@ -794,7 +799,8 @@
                                                             <td colspan="2"></td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="2"><h4>Existence of adequate facilities for children</h4></td>
+                                                            <td colspan="2"><h4>Existence of adequate facilities for
+                                                                    children</h4></td>
                                                         </tr>
 
                                                         <tr>
@@ -814,18 +820,18 @@
                                                             <td>Recreation</td>
                                                             <td><?php echo $item->recreation; ?></td>
                                                         </tr>
-'
+                                                        '
                                                         <tr>
-                                                            <td> Water supply and sanitation </td>
+                                                            <td> Water supply and sanitation</td>
                                                             <td><?php echo $item->water_sanitation; ?></td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="2">  </td>
+                                                            <td colspan="2"></td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td>How many other prisoners in the same room? </td>
+                                                            <td>How many other prisoners in the same room?</td>
                                                             <td><?php echo $item->number_of_prisoners; ?></td>
                                                         </tr>
 
@@ -840,7 +846,8 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="2"><h4>How long were you placed in detention</h4></td>
+                                                            <td colspan="2"><h4>How long were you placed in
+                                                                    detention</h4></td>
                                                         </tr>
 
                                                         <tr>
@@ -852,12 +859,12 @@
                                                             <td><?php echo $item->_24to48hrs; ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>3 days - 10days </td>
+                                                            <td>3 days - 10days</td>
                                                             <td><?php echo $item->_3to10days; ?></td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td>10-21 days </td>
+                                                            <td>10-21 days</td>
                                                             <td><?php echo $item->_10to21days; ?></td>
                                                         </tr>
 
@@ -924,11 +931,11 @@
                                                             <td>Bail Amount</td>
                                                             <td><?php echo $item->bail_amount; ?></td>
                                                         </tr>
-                                                          <tr>
-                                                              <td colspan="2">
-                                                                  Handover to whom, after release?
-                                                              </td>
-                                                          </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                Handover to whom, after release?
+                                                            </td>
+                                                        </tr>
                                                         <tr>
                                                             <td>Care of Parents</td>
                                                             <td><?php echo $item->care_parent; ?></td>
@@ -973,8 +980,48 @@
                 </div>
             </div>
 
+            <a href="<?php echo site_url('case_file/catch_upload/'. $emp->case_file_no); ?>">
+                <i class="glyphicon glyphicon-upload"></i> Upload Case File</a>
+
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    Uploads
+                </div>
+                <div class="panel-body">
+
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Title</th>
+                            <th>File Name</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($catchuploadlist as $i => $item): ?>
+                            <tr>
+                                <td><?php echo($i + 1) ?></td>
+                                <td>
+                                    <a href="<?php echo site_url('case_file/download_file/'. $item->catch_file_id); ?>"
+                                    ><?php echo $item->title; ?></a>
+                                </td>
+                                <td><?php echo $item->file_name; ?></td>
+                                <td>
+                                    <a href="<?php echo base_url(); ?>index.php/case_file/view_file/<?php echo $item->catch_file_id; ?> "
+                                       class="btn-sm btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
 
-</div>
 
+
+
+</div>

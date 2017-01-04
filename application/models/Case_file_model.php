@@ -32,6 +32,14 @@ class Case_file_model extends CI_Model
         return $query->result();
     }
 
+    function get_by_case_file_no($case_file_no)
+    {
+        $this->db->from('case_file');
+        $this->db->where('case_file_no', $case_file_no);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
     function get($id)
     {
         $this->db->from('case_file');
