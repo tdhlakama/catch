@@ -82,14 +82,9 @@ class Arrest extends Generic_home
                 $case_file_no = $item[1];
             }
 
-            if (!$this->case_file_model->check_duplicate(trim($item[1]))) {
-                $valid = false;
-                $duplicate = 'Case File ID NOT found';
-            } else {
-                $case_file_no = $item[1];
-            }
-
-            if (!$this->is_value_yes_no($item[5])
+            if (!$this->is_value_yes_no($item[4])
+                || !$this->is_value_yes_no($item[5])
+                || !$this->is_value_yes_no($item[6])
                 || !$this->is_value_yes_no($item[7])
                 || !$this->is_value_yes_no($item[11])
                 || !$this->is_value_yes_no($item[12])
@@ -99,9 +94,6 @@ class Arrest extends Generic_home
                 || !$this->is_value_yes_no($item[16])
                 || !$this->is_value_yes_no($item[17])
                 || !$this->is_value_yes_no($item[18])
-                || !$this->is_value_yes_no($item[19])
-                || !$this->is_value_yes_no($item[20])
-                || !$this->is_value_yes_no($item[21])
                 || !$this->is_value_yes_no($item[22])
                 || !$this->is_value_yes_no($item[23])
                 || !$this->is_value_yes_no($item[24])
@@ -112,6 +104,13 @@ class Arrest extends Generic_home
                 || !$this->is_value_yes_no($item[31])
                 || !$this->is_value_yes_no($item[33])
                 || !$this->is_value_yes_no($item[36])
+                || !$this->is_value_yes_no($item[37])
+                || !$this->is_value_yes_no($item[38])
+                || !$this->is_value_yes_no($item[39])
+                || !$this->is_value_yes_no($item[40])
+                || !$this->is_value_yes_no($item[41])
+                || !$this->is_value_yes_no($item[44])
+                || !$this->is_value_yes_no($item[47])
             ) {
                 $valid = false;
             }
@@ -121,43 +120,52 @@ class Arrest extends Generic_home
                 $arrest_id = $this->arrest_model->save_upload(
                     $arrest_no,//arrest_no
                     $case_file_no,//$case_file_id
-                    $item[2],//$date_of_arrest
-                    $item[3],//$arresting_officer
-                    $item[4],//$station
-                    $this->blank_no($item[5]),//$parent_informed
-                    $item[6],//$parents_contact
-                    $this->blank_no($item[7]),//$arrested_before
-                    $item[8],//$similar_charges
-                    $item[9],//$which_ones
-                    $this->blank_no($item[10]),//$charges_communicated
-                    $this->blank_no($item[11]),//$victim
-                    $this->blank_no($item[12]),//$murder
-                    $this->blank_no($item[13]),//$rape
-                    $this->blank_no($item[14]),//$touting
-                    $this->blank_no($item[15]),//$sodomy
-                    $this->blank_no($item[16]),//$robbery
-                    $this->blank_no($item[17]),//$attempted_murder
-                    $this->blank_no($item[18]),//$indescent_assault
-                    $this->blank_no($item[19]),//$kidnapping
-                    $this->blank_no($item[20]),//$theft
-                    $this->blank_no($item[21]),//$sex_with_minor
-                    $this->blank_no($item[22]),//$malicious_damage
-                    $this->blank_no($item[23]),//$unlawful_entry
-                    $this->blank_no($item[24]),//$drug
-                    $this->blank_no($item[25]),//$bulling
-                    $this->blank_no($item[26]),//$stock_theft
-                    $this->blank_no($item[27]),//$unknown
-                    $item[28],//$others
-                    $this->blank_no($item[29]),//$warrant_issued
-                    $item[30],//$warrant_date
-                    $this->blank_no($item[31]),//$given_to_child
-                    $item[32],//$notice_period
-                    $this->blank_no($item[33]),//$child_alone
-                    $item[34],//$whom
-                    $item[35],//$treated_at_arrest
-                    $this->blank_no($item[36]),//$placed_with
-                    $item[37]//$comments
-
+                    $item[2],//address
+                    $item[3],//alleged crime
+                    $this->blank_no($item[4]),//rape
+                    $this->blank_no($item[5]),//touting
+                    $this->blank_no($item[6]),//Sodomy
+                    $this->blank_no($item[7]),//Robbery
+                    $this->blank_no($item[8]),//Attempted murder
+                    $this->blank_no($item[9]),//Murder
+                    $this->blank_no($item[10]),//Indecent
+                    $this->blank_no($item[11]),//Kidnapping
+                    $this->blank_no($item[12]),//Theft
+                    $this->blank_no($item[13]),//Stock
+                    $this->blank_no($item[14]),//Drug
+                    $this->blank_no($item[15]),//Malicious
+                    $this->blank_no($item[16]),//Unlawful
+                    $this->blank_no($item[17]),//Sexual
+                    $this->blank_no($item[18]),//Bulling
+                    $item[19],//Others
+                    $item[20],//Police station
+                    $item[21],//Arresting officer
+                    $this->blank_no($item[22]),//Charge commicated
+                    $this->blank_no($item[23]),//Parents informed
+                    $this->blank_no($item[24]),//Arrested before
+                    $this->blank_no($item[25]),//similiar charges
+                    $this->blank_no($item[26]),//first time offence
+                    $this->blank_no($item[27]),//Murder repeat
+                    $this->blank_no($item[28]),//Rape repeat
+                    $this->blank_no($item[29]),//Touting
+                    $this->blank_no($item[30]),//Sodomy
+                    $this->blank_no($item[31]),//Robbery
+                    $this->blank_no($item[22]),//Attempted
+                    $this->blank_no($item[33]),//Indecent
+                    $this->blank_no($item[34]),//Kidnapping
+                    $this->blank_no($item[35]),//Theft
+                    $this->blank_no($item[36]),//Sexual
+                    $this->blank_no($item[37]),//Malicious,
+                    $this->blank_no($item[38]),//Unlaw,
+                    $this->blank_no($item[39]),//Drug,
+                    $this->blank_no($item[40]),//Bulling,
+                    $this->blank_no($item[41]),//Stock,
+                    $item[42],//Unknown,
+                    $item[43],//Others,
+                    $this->blank_no($item[44]),//Arrested alone,
+                    $item[45],//Staying whom,
+                    $item[46],//Staying at,
+                    $this->blank_no($item[47])//working,
                 );
                 $count++;
             } else {
@@ -172,6 +180,14 @@ class Arrest extends Generic_home
     public function download_template_csv()
     {
         force_download("./assets/tool/case_arrest.csv", NULL);
+    }
+
+    function listAll()
+    {
+        $this->breadcrumbs->push('Arrest Files', '/arrest/listAll');
+        $data['arrestlist'] = $this->arrest_model->get_list();
+        $this->load->view('arrest_list_view', $data);
+        $this->load->view('footer');
     }
 
 }

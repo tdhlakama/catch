@@ -15,12 +15,8 @@
             <th>Date of Release</th>
             <th>Bail</th>
             <th>Bail Amount</th>
-            <th>Parents Care</th>
-            <th>NGO Care</th>
-            <th>Orphange</th>
-            <th>Relative</th>
-            <th>Case Status</th>
-            <th>Comments</th>
+            <th>Released to Parenyt Care</th>
+            <th>Released to Department of Child Services </th>
         </tr>
         </thead>
         <tbody>
@@ -28,16 +24,12 @@
         foreach ($csv as $i => $item) {
             echo '<tr>';
             echo '<td> ' . ($this->release_model->check_duplicate(trim($item[0])) ? '<label class="m">' . $item[0] . "</label>" : $item[0]) . ' </td>';
-            echo '<td> ' . ($this->case_file_model->check_duplicate(trim($item[1])) ?  $item[0] : '<label class="m">' . $item[0]) . "</label>" . ' </td>';
+            echo '<td> ' . ($this->case_file_model->check_duplicate(trim($item[1])) ?  $item[1] : '<label class="m">' . $item[1]) . "</label>" . ' </td>';
             echo '<td> ' . $item[2] . ' </td>';
             echo '<td> ' . valid_yes_no($item[3]) . ' </td>';
             echo '<td> ' . $item[4] . ' </td>';
             echo '<td> ' . valid_yes_no($item[5]) . ' </td>';
             echo '<td> ' . valid_yes_no($item[6]) . ' </td>';
-            echo '<td> ' . valid_yes_no($item[7]) . ' </td>';
-            echo '<td> ' . valid_yes_no($item[8]) . ' </td>';
-            echo '<td> ' . $item[9] . ' </td>';
-            echo '<td> ' . $item[10] . ' </td>';
             echo '</tr>';
         }
         ?>

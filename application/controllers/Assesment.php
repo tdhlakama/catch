@@ -13,7 +13,7 @@ class Assesment extends Generic_home
 
     public function upload_view()
     {
-        $this->breadcrumbs->push('Upload Assesment File', '/');
+        $this->breadcrumbs->push('Upload Human Rights Violations File', '/');
         $data['error'] = '';
         $this->load->view('assesment_upload_view', $data);
         $this->load->view('footer');
@@ -48,7 +48,7 @@ class Assesment extends Generic_home
 
     public function upload_success()
     {
-        $this->breadcrumbs->push('Upload Assesment File', '/');
+        $this->breadcrumbs->push('Upload Human Rights Violations File', '/');
         $data['csv'] = array_map('str_getcsv', file('./uploads/case_assesment.csv'));
         $this->load->view('assesment_upload_sucess_view', $data);
         $this->load->view('footer');
@@ -93,21 +93,13 @@ class Assesment extends Generic_home
                 || !$this->is_value_yes_no($item[14])
                 || !$this->is_value_yes_no($item[15])
                 || !$this->is_value_yes_no($item[16])
+                || !$this->is_value_yes_no($item[17])
                 || !$this->is_value_yes_no($item[18])
                 || !$this->is_value_yes_no($item[19])
                 || !$this->is_value_yes_no($item[20])
                 || !$this->is_value_yes_no($item[21])
                 || !$this->is_value_yes_no($item[22])
                 || !$this->is_value_yes_no($item[23])
-                || !$this->is_value_yes_no($item[25])
-                || !$this->is_value_yes_no($item[26])
-                || !$this->is_value_yes_no($item[27])
-                || !$this->is_value_yes_no($item[29])
-                || !$this->is_value_yes_no($item[33])
-                || !$this->is_value_yes_no($item[34])
-                || !$this->is_value_yes_no($item[35])
-                || !$this->is_value_yes_no($item[36])
-                || !$this->is_value_yes_no($item[37])
             ) {
                 $valid = false;
             }
@@ -118,41 +110,30 @@ class Assesment extends Generic_home
                     $assesment_no,//assesment_no
                     $case_file_no,//$case_file_id
                     $item[2],//$date_of_assesment
-                    $this->blank_no($item[3]),//$ill_treatment
-                    $this->blank_no($item[4]),//$food_deprivation
-                    $this->blank_no($item[5]),//$hand_cuffed
-                    $this->blank_no($item[6]),//$electric_shock
-                    $this->blank_no($item[7]),//$beaten_without_instrument
-                    $this->blank_no($item[8]),//$beaten_with_instrument
-                    $this->blank_no($item[9]),//$neglect
-                    $this->blank_no($item[10]),//$slapping
-                    $this->blank_no($item[11]),//$verbal_abuse
-                    $this->blank_no($item[12]),//$shackle
-                    $this->blank_no($item[13]),//$solitary_confinement
-                    $this->blank_no($item[14]),//$toilet_deprivation
-                    $this->blank_no($item[15]),//$sexual_abuse
-                    $this->blank_no($item[16]),//$other_abuse
-                    $item[17],//$abuse_details
-                    $this->blank_no($item[18]),//$detainees
-                    $this->blank_no($item[19]),//$police
-                    $this->blank_no($item[20]),//$prison_guard
-                    $this->blank_no($item[21]),//$detaining_officer
-                    $this->blank_no($item[22]),//$prosecutor
-                    $this->blank_no($item[23]),//$other_person
-                    $item[24],//torture_details
-                    $this->blank_no($item[25]),//$separate_facilities
-                    $this->blank_no($item[26]),//$health_care
-                    $this->blank_no($item[27]),//$education
-                    $this->blank_no($item[28]),//$recreation
-                    $this->blank_no($item[29]),//$water_sanitation
-                    $item[30],//$number_of_prisoners
-                    $item[31],//$food_times
-                    $item[32],//family_visit
-                    $this->blank_no($item[33]),//$_lessThan24hrs
-                    $this->blank_no($item[34]),//$_24to48hrs
-                    $this->blank_no($item[35]),//$_3to10days
-                    $this->blank_no($item[36]),//$_10to21days
-                    $this->blank_no($item[37])//$_greaterThan21
+                    $this->blank_no($item[3]),//Violation
+                    $this->blank_no($item[4]),//Cuffed
+                    $this->blank_no($item[5]),//beaten_without
+                    $this->blank_no($item[6]),//Slapped
+                    $this->blank_no($item[7]),//Verbal
+                    $this->blank_no($item[8]),//Mixed
+                    $this->blank_no($item[9]),//Coreced
+                    $this->blank_no($item[10]),//Detained
+                    $this->blank_no($item[11]),//Gallery
+                    $this->blank_no($item[12]),//Charges
+                    $this->blank_no($item[13]),//Child NOT REPRESENTED
+                    $this->blank_no($item[14]),//Food
+                    $this->blank_no($item[15]),//Solitary
+                    $this->blank_no($item[16]),//Inadequate BEDDING
+                    $this->blank_no($item[17]),//diet
+                    $this->blank_no($item[18]),//Education
+                    $this->blank_no($item[19]),//TRAINING
+                    $this->blank_no($item[20]),//HEALTH
+                    $this->blank_no($item[21]),//Sanitary
+                    $this->blank_no($item[22]),//TOILTE Facilities
+                    $item[23],//Point of Violation
+                    $item[24],//Perpertrator
+                    $item[25],//Action Taken
+                    $item[26]//Notes
                 );
                 $count++;
             } else {
@@ -169,6 +150,13 @@ class Assesment extends Generic_home
         force_download("./assets/tool/case_assesment.csv", NULL);
     }
 
+    function listAll()
+    {
+        $this->breadcrumbs->push('Human Rights Violations Files', '/assesment/listAll');
+        $data['assesmentlist'] = $this->assesment_model->get_list();
+        $this->load->view('assesment_list_view', $data);
+        $this->load->view('footer');
+    }
 }
 
 ?>

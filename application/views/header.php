@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Catch Surveillance Database</title>
+    <title>CATCH Surveillance Database</title>
     <link rel="stylesheet" href="<?php echo base_url("/assets/css/bootstrap.min.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("/assets/css/datatables.min.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("/assets/css/jquery-ui.min.css"); ?>">
@@ -76,36 +76,30 @@
                         <i class="glyphicon glyphicon-home"></i> Home</a>
                 </li>
 
-                <li class="<?php echo active_method('upload_view'); ?>">
-                    <a href="<?php echo site_url('case_file/upload_view'); ?>">
-                        <i class="glyphicon glyphicon-upload"></i> Upload Case File</a>
+                <li class="<?php echo active_link('case_file'); ?>">
+                    <a href="<?php echo site_url('case_file/listAll'); ?>">
+                        <i class="glyphicon glyphicon-info-sign"></i> Case Files</a>
                 </li>
 
-                <li class="<?php echo active_method('upload_view'); ?>">
-                    <a href="<?php echo site_url('arrest/upload_view'); ?>">
-                        <i class="glyphicon glyphicon-upload"></i> Upload Arrest File</a>
+                <li class="<?php echo active_link('arrest'); ?>">
+                    <a href="<?php echo site_url('arrest/listAll'); ?>">
+                        <i class="glyphicon glyphicon-info-sign"></i> Arrest Files</a>
                 </li>
 
-                <li class="<?php echo active_method('upload_view'); ?>">
-                    <a href="<?php echo site_url('detention/upload_view'); ?>">
-                        <i class="glyphicon glyphicon-upload"></i> Upload Detention File</a>
+                <li class="<?php echo active_link('detention'); ?>">
+                    <a href="<?php echo site_url('detention/listAll'); ?>">
+                        <i class="glyphicon glyphicon-info-sign"></i> Detention Files</a>
                 </li>
 
-                <li class="<?php echo active_method('upload_view'); ?>">
-                    <a href="<?php echo site_url('assesment/upload_view'); ?>">
-                        <i class="glyphicon glyphicon-upload"></i> Upload Assesment File</a>
+                <li class="<?php echo active_link('assesment'); ?>">
+                    <a href="<?php echo site_url('assesment/listAll'); ?>">
+                        <i class="glyphicon glyphicon-info-sign"></i> HR Violation Files</a>
                 </li>
 
-                <li class="<?php echo active_method('upload_view'); ?>">
-                    <a href="<?php echo site_url('release/upload_view'); ?>">
-                        <i class="glyphicon glyphicon-upload"></i> Upload Release File</a>
+                <li class="<?php echo active_link('assesment'); ?>">
+                    <a href="<?php echo site_url('release/listAll'); ?>">
+                        <i class="glyphicon glyphicon-info-sign"></i> Release Files</a>
                 </li>
-
-                <li class="<?php echo active_method('upload_view'); ?>">
-                    <a href="<?php echo site_url('assesment/upload_view'); ?>">
-                        <i class="glyphicon glyphicon-upload"></i> Upload HRH</a>
-                </li>
-
 
                 <li class="<?php echo active_method('upload_result'); ?>">
                     <a href="<?php echo site_url('case_file/upload_result'); ?>">

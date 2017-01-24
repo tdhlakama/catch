@@ -100,28 +100,25 @@ class Detention extends Generic_home
                     $detention_no,//detention_no
                     $case_file_no,//$case_file_id
                     $item[2],//$date_of_arrival
-                    $item[3],//$detention_province
-                    $item[4],//$detention_district
-                    $item[5],//$detention_location
-                    $item[6],//$facility_name
-                    $item[7],//$facility_type
-                    $item[8],//$date_of_transfer
-                    $this->blank_no($item[9]),//$first_investigation_report
-                    $this->blank_no($item[10]),//$age_verification
-                    $this->blank_no($item[11]),//$child_statement
-                    $this->blank_no($item[12]),//$medical_record
-                    $this->blank_no($item[13]),//$medical_done_before
-                    $this->blank_no($item[14]),//$legal_aid
-                    $item[15],//$organisation
-                    $item[16],//$lawyer
-                    $item[17],//$phone
-                    $this->blank_no($item[18]),//$met_lawyer
-                    $item[19],//$met_how_many_times
-                    $this->blank_no($item[20]),//$interrogated
-                    $item[21],//$interogation_date
-                    $item[22],//$interogation_duration
-                    $item[23]//$done_by
-                   
+                    $item[3],//Facility NAME
+                    $item[4],//Facility TYPE
+                    $this->blank_no($item[5]),//MEDICAL CHECK UP
+                    $item[6],//Received SERVICES RECEIVED
+                    $item[7],//LEGAL AID
+                    $item[8],//NAME OF ORGANISATION
+                    $item[9],//LAWYERS NAME
+                    $item[10],//PHONE
+                    $item[11],//WHEN DID MEET
+                    $item[12],//HOW MANY TIMES
+                    $item[13],//NUMBER OF PRISIONERS
+                    $this->blank_no($item[14]),//FAMILY VISIT
+                    $item[15],//DURATION DETETENTION
+                    $this->blank_no($item[16]),//UP TO 24
+                    $this->blank_no($item[17]),//24 TO 48
+                    $this->blank_no($item[18]),//3 TO 10
+                    $this->blank_no($item[19]),//10 TO 21
+                    $this->blank_no($item[20])//ABOVE 21
+
                 );
                 $count++;
             } else {
@@ -136,6 +133,14 @@ class Detention extends Generic_home
     public function download_template_csv()
     {
         force_download("./assets/tool/case_detention.csv", NULL);
+    }
+
+    function listAll()
+    {
+        $this->breadcrumbs->push('Detention Files', '/detention/listAll');
+        $data['detentionlist'] = $this->detention_model->get_list();
+        $this->load->view('detention_list_view', $data);
+        $this->load->view('footer');
     }
 
 }

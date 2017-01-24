@@ -17,25 +17,17 @@
             <th>Date of Birth</th>
             <th>Parents Name</th>
             <th>Province</th>
-            <th>District</th>
-            <th>Address Detail</th>
-            <th>Phone Number</th>
             <th>Birth Place</th>
-            <th>Displacement</th>
-            <th>Age Verified</th>
-            <th>Age Verfied By</th>
+            <th>Age</th>
+            <th>Has Birth Certificate</th>
             <th>Who Verified</th>
-            <th>Educational Level</th>
+            <th>In School</th>
+            <th>Education Level</th>
             <th>Living With</th>
-            <th>Living At</th>
             <th>Father Status</th>
             <th>Mother Status</th>
-            <th>Ethinicty</th>
-            <th>Province Prison</th>
-            <th>District Prison</th>
-            <th>Prison Name</th>
-            <th>Interview Location</th>
-            <th>Source of Infor</th>
+            <th>Ethnicitity</th>
+
         </tr>
         </thead>
         <tbody>
@@ -51,23 +43,14 @@
             echo '<td> ' . $item[6] . ' </td>';
             echo '<td> ' . $item[7] . ' </td>';
             echo '<td> ' . $item[8] . ' </td>';
-            echo '<td> ' . $item[9] . ' </td>';
+            echo '<td> ' . valid_yes_no($item[9]) . ' </td>';
             echo '<td> ' . $item[10] . ' </td>';
             echo '<td> ' . valid_yes_no($item[11]) . ' </td>';
-            echo '<td> ' . valid_yes_no($item[12]) . ' </td>';
+            echo '<td> ' . $item[12] . ' </td>';
             echo '<td> ' . $item[13] . ' </td>';
             echo '<td> ' . $item[14] . ' </td>';
             echo '<td> ' . $item[15] . ' </td>';
             echo '<td> ' . $item[16] . ' </td>';
-            echo '<td> ' . $item[17] . ' </td>';
-            echo '<td> ' . valid_parent_status($item[18]) . ' </td>';
-            echo '<td> ' . valid_parent_status($item[19]) . ' </td>';
-            echo '<td> ' . $item[20] . ' </td>';
-            echo '<td> ' . $item[21] . ' </td>';
-            echo '<td> ' . $item[22] . ' </td>';
-            echo '<td> ' . $item[23] . ' </td>';
-            echo '<td> ' . $item[24] . ' </td>';
-            echo '<td> ' . $item[25] . ' </td>';
             echo '</tr>';
         }
         ?>

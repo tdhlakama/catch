@@ -1,12 +1,10 @@
 <div class="row">
     <?php echo $this->breadcrumbs->show(); ?>
-    <div class="list-group">
-        <a href="<?php echo site_url('case_file/listAll'); ?>" class="list-group-item">
-            <h4 class="list-group-item-heading">Case Files</h4>
-            <p class="list-group-item-text">Individual Case Files for each child</p>
-        </a>
-    </div>
 </div>
+
+<h4><a href="<?php echo site_url('case_file/upload_view/'); ?>">
+        <i class="glyphicon glyphicon-upload"></i> Upload Case File</a></h4>
+
 <div class="row">
     <?php echo $this->session->flashdata('msg'); ?>
     <br/>    

@@ -5,7 +5,7 @@
         echo form_open("login/login", $attributes);
         ?>
         <fieldset>
-            <legend>Login - Catch Surveillance Database</legend>
+            <legend>Login - CATCH Surveillance Database</legend>
             <div class="form-group">
                 <div class="row colbox">
                     <div class="col-lg-4 col-sm-4">

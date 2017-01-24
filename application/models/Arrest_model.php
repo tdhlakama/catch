@@ -191,38 +191,35 @@ class Arrest_model extends CI_Model
     }
 
     public function save_upload(
-        $arrest_no, $case_file_no, $date_of_arrest, $arresting_officer, $station
-        , $parent_informed, $parents_contact, $arrested_before
-        , $similar_charges, $which_ones, $charges_communicated, $victim
-        , $murder, $rape, $touting, $sodomy
-        , $robbery, $attempted_murder, $indescent_assault, $kidnapping
-        , $theft, $sex_with_minor, $malicious_damage, $unlawful_entry
-        , $drug, $bulling, $stock_theft, $unknown
-        , $others, $warrant_issued, $warrant_date, $given_to_child
-        , $notice_period, $child_alone, $whom, $treated_at_arrest
-        , $placed_with, $comments)
+        $arrest_no, $case_file_no, $address_detail, $alleged_crime
+        , $rape, $touting, $sodomy, $robbery, $attempted_murder, $murder, $indecent_assault, $kidnapping
+        , $theft, $stock_theft, $drug, $malicious_damage, $unlawful_entry, $sex_with_minor
+        , $bulling, $others, $arresting_officer, $station, $charges_communicated
+        , $parent_informed, $arrested_before, $similar_charges, $first_time
+        , $murder_repeat, $rape_repeat, $touting_repeat, $sodomy_repeat
+        , $robbery_repeat, $attempted_murder_repeat, $indecent_assault_repeat, $kidnapping_repeat
+        , $theft_repeat, $sex_with_minor_repeat, $malicious_damage_repeat, $unlawful_entry_repeat
+        , $drug_repeat, $bulling_repeat, $stock_theft_repeat
+        , $unknown, $others_repeat, $child_alone, $whom, $arrested_where, $working)
 
     {
         $this->arrest_no = $arrest_no;
         $this->case_file_no = $case_file_no;
-        $currentDate = date('Y-m-d');
-        $this->date_of_arrest = $currentDate;
         $this->arresting_officer = $arresting_officer;
         $this->station = $station;
         $this->parent_informed = $parent_informed;
-        $this->parents_contact = $parents_contact;
         $this->arrested_before = $arrested_before;
         $this->charges_communicated = $charges_communicated;
         $this->similar_charges = $similar_charges;
-        $this->which_ones = $which_ones;
-        $this->victim = $victim;
+        $this->others_repeat = $others_repeat;
+        $this->alleged_crime = $alleged_crime;
         $this->murder = $murder;
         $this->rape = $rape;
         $this->touting = $touting;
         $this->sodomy = $sodomy;
         $this->robbery = $robbery;
         $this->attempted_murder = $attempted_murder;
-        $this->indescent_assault = $indescent_assault;
+        $this->indecent_assault = $indecent_assault;
         $this->kidnapping = $kidnapping;
         $this->unlawful_entry = $unlawful_entry;
         $this->theft = $theft;
@@ -233,16 +230,28 @@ class Arrest_model extends CI_Model
         $this->stock_theft = $stock_theft;
         $this->unknown = $unknown;
         $this->others = $others;
-        $this->warrant_issued = $warrant_issued;
-        $this->warrant_date = $warrant_date;
-        $this->given_to_child = $given_to_child;
-        $this->warrant_date = $warrant_date;
-        $this->notice_period = $notice_period;
+        $this->murder_repeat = $murder_repeat;
+        $this->rape_repeat = $rape_repeat;
+        $this->touting_repeat = $touting_repeat;
+        $this->sodomy_repeat = $sodomy_repeat;
+        $this->robbery_repeat = $robbery_repeat;
+        $this->attempted_murder_repeat = $attempted_murder_repeat;
+        $this->indecent_assault_repeat = $indecent_assault_repeat;
+        $this->kidnapping_repeat = $kidnapping_repeat;
+        $this->unlawful_entry_repeat = $unlawful_entry_repeat;
+        $this->theft_repeat = $theft_repeat;
+        $this->sex_with_minor_repeat = $sex_with_minor_repeat;
+        $this->drug_repeat = $drug_repeat;
+        $this->bulling_repeat = $bulling_repeat;
+        $this->malicious_damage_repeat = $malicious_damage_repeat;
+        $this->stock_theft_repeat = $stock_theft_repeat;
         $this->child_alone = $child_alone;
         $this->whom = $whom;
-        $this->treated_at_arrest = $treated_at_arrest;
-        $this->placed_with = $placed_with;
-        $this->comments = $comments;
+        $this->arrested_where = $arrested_where;
+        $this->working = $working;
+        $this->address_detail = $address_detail;
+        $this->first_time = $first_time;
+
         $this->db->insert('arrest', $this);
         return $this->db->insert_id();
     }

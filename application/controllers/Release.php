@@ -96,11 +96,7 @@ class Release extends Generic_home
                     $item[3],//$bail
                     $item[4],//$bail_amount
                     $this->blank_no($item[5]),//$parents_contact
-                    $this->blank_no($item[6]),//$care_ngo
-                    $this->blank_no($item[7]),//$care_orphange
-                    $this->blank_no($item[8]),//$care_relative
-                    $item[9],//$case_status
-                    $item[10]//$comments
+                    $this->blank_no($item[6])//$care_ORG
 
                 );
                 $count++;
@@ -118,7 +114,14 @@ class Release extends Generic_home
         force_download("./assets/tool/case_release.csv", NULL);
     }
 
+    function listAll()
+    {
+        $this->breadcrumbs->push('Release Files', '/release/listAll');
+        $data['releaselist'] = $this->release_model->get_list();
+        $this->load->view('release_list_view', $data);
+        $this->load->view('footer');
+    }
+
 }
 
 ?>
-

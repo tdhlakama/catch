@@ -103,38 +103,36 @@ class Detention_model extends CI_Model
     }
 
     public function save_upload(
-        $detention_no, $case_file_no, $date_of_arrival, $detention_province, $detention_district
-        , $detention_location, $facility_name, $facility_type, $date_of_transfer, $first_investigation_report, $age_verification
-        , $child_statement, $medical_record, $medical_done_before, $legal_aid
+        $detention_no, $case_file_no, $date_of_arrival, $facility_name, $facility_type, $services_received,
+        $medical_done_before, $legal_aid
         , $organisation, $lawyer, $phone, $met_lawyer, $met_how_many_times
-        , $interrogated, $interogation_date, $interogation_duration, $done_by)
+        , $number_of_prisoners, $family_visit, $detention_duration
+        , $_lessThan24hrs, $_24to48hrs, $_3to10days, $_10to21days, $_greaterThan21)
     {
 
         $this->detention_no = $detention_no;
         $this->case_file_no = $case_file_no;
         $currentDate = date('Y-m-d');
         $this->date_of_arrival = $currentDate;
-        $this->detention_province = $detention_province;
-        $this->detention_district = $detention_district;
-        $this->detention_location = $detention_location;
         $this->facility_name = $facility_name;
         $this->facility_type = $facility_type;
-        $this->date_of_transfer = $date_of_transfer;
-        $this->first_investigation_report = $first_investigation_report;
-        $this->age_verification = $age_verification;
-        $this->child_statement = $child_statement;
-        $this->medical_record = $medical_record;
         $this->medical_done_before = $medical_done_before;
+        $this->services_received = $services_received;
         $this->legal_aid = $legal_aid;
         $this->organisation = $organisation;
-        $this->interogation_date = $currentDate;
         $this->lawyer = $lawyer;
         $this->met_lawyer = $met_lawyer;
         $this->met_how_many_times = $met_how_many_times;
         $this->phone = $phone;
-        $this->interrogated = $interrogated;
-        $this->interogation_duration = $interogation_duration;
-        $this->done_by = $done_by;
+        $this->number_of_prisoners = $number_of_prisoners;
+        $this->family_visit = $family_visit;
+        $this->detention_duration = $detention_duration;
+        $this->_lessThan24hrs = $_lessThan24hrs;
+        $this->_24to48hrs = $_24to48hrs;
+        $this->_3to10days = $_3to10days;
+        $this->_10to21days = $_10to21days;
+        $this->_greaterThan21 = $_greaterThan21;
+
         $this->db->insert('detention', $this);
         return $this->db->insert_id();
     }

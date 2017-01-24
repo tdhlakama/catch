@@ -129,8 +129,7 @@ class Release_model extends CI_Model
 
     public function save_upload(
         $release_no, $case_file_no, $date_of_release, $bail, $bail_amount
-        , $parents_contact, $care_ngo, $care_orphange, $care_relative
-        , $case_status, $comments)
+        , $care_parent, $care_organisation)
     {
         $this->release_no = $release_no;
         $this->case_file_no = $case_file_no;
@@ -138,12 +137,8 @@ class Release_model extends CI_Model
         $this->date_of_release = $currentDate;
         $this->bail = $bail;
         $this->bail_amount = $bail_amount;
-        $this->care_parent = $parents_contact;
-        $this->care_ngo = $care_ngo;
-        $this->care_orphange = $care_orphange;
-        $this->care_relative = $care_relative;
-        $this->case_status = $case_status;
-        $this->comments = $comments;
+        $this->care_parent = $care_parent;
+        $this->care_organisation = $care_organisation;
         $this->db->insert('release', $this);
         return $this->db->insert_id();
     }

@@ -110,10 +110,8 @@ class Case_file_model extends CI_Model
     }
 
     public function save_upload($case_file_no, $first_name, $last_name, $gender, $date_of_birth,
-                                $parent_name, $address_province, $address_district, $address_detail, $phone_number,
-                                $place_of_birth, $displacement, $age_verified, $age_verified_by, $who_verified,
-                                $education_level, $living_with, $living_at, $father_status, $mother_status, $ethinicity,
-                                $province_location, $district_location, $prison_name, $interview_location,$source,
+                                $parent_name, $address_province, $place_of_birth, $age, $birth_certificate, $who_verified,
+                                $in_school, $education_level, $living_with, $father_status, $mother_status, $ethnicity,
                                 $upload_id)
     {
         $this->case_file_no = $case_file_no;
@@ -124,26 +122,16 @@ class Case_file_model extends CI_Model
         $this->date_of_birth = $currentDate;
         $this->parent_name = $parent_name;
         $this->address_province = $address_province;
-        $this->address_district = $address_district;
-        $this->address_detail = $address_detail;
-        $this->phone_number = $phone_number;
         $this->place_of_birth = $place_of_birth;
-        $this->displacement = $displacement;
-        $this->age_verified = $age_verified;
-        $this->age_verified_by = $age_verified_by;
+        $this->age = $age;
         $this->who_verified = $who_verified;
         $this->education_level = $education_level;
         $this->living_with = $living_with;
-        $this->living_at = $living_at;
         $this->father_status = $father_status;
         $this->mother_status = $mother_status;
-        $this->ethinicity = $ethinicity;
-        $this->province_location = $province_location;
-        $this->district_location = $district_location;
-        $this->prison_name = $prison_name;
-        $this->interview_location = $interview_location;
-        $this->source = $source;
-
+        $this->ethnicity = $ethnicity;
+        $this->birth_certificate = $birth_certificate;
+        $this->in_school = $in_school;
         $this->upload_id = $upload_id;
         $this->db->insert('case_file', $this);
         return $this->db->insert_id();

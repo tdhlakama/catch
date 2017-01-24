@@ -6,7 +6,7 @@
     <div class="col-sm-offset-3 col-lg-6 col-sm-6 well">
         <h4><a href="<?php echo site_url('assesment/download_template_csv'); ?>" class="btn btn-lg btn-primary"
                style="float: right;">Download Template File</a></h4>
-        <legend>Upload Assesment File</legend>
+        <legend>Upload Human Rights Violation File</legend>
 
         <fieldset>
             <?php echo $error; ?>

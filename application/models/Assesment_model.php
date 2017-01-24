@@ -149,59 +149,52 @@ class Assesment_model extends CI_Model
     }
 
     public function save_upload(
-        $assesment_no, $case_file_no, $date_of_assesment, $ill_treatment, $food_deprivation
-        , $hand_cuffed, $electric_shock, $beaten_without_instrument, $beaten_with_instrument
-        , $neglect, $slapping, $verbal_abuse, $shackle, $solitary_confinement
-        , $toilet_deprivation, $sexual_abuse, $other_abuse, $abuse_details, $detainees
-        , $police, $prison_guard, $detaining_officer, $prosecutor, $other_person, $torture_details
-        , $separate_facilities, $health_care, $education
-        , $recreation, $water_sanitation, $number_of_prisoners, $food_times, $family_visit
-        , $_lessThan24hrs, $_24to48hrs, $_3to10days, $_10to21days, $_greaterThan21)
+        $assesment_no, $case_file_no, $date_of_assesment, $nature_of_violation,
+        $hand_cuffed, $beaten_without_instrument, $slapping
+        , $verbal_abuse, $mixed_with_adults, $coerced, $detained_48Hours, $gallery_cleared
+        , $charges_explained, $child_represented, $food_deprivation, $solitary_confinement
+        , $inadequate_bedding, $inadequate_diet, $education, $vocation_training
+        , $health_care, $water_sanitation, $toilet_deprivation, $point_of_violation
+        , $perpetrator, $action_taken, $additional_notes
+    )
     {
         $this->assesment_no = $assesment_no;
         $this->case_file_no = $case_file_no;
         $currentDate = date('Y-m-d');
+        $this->nature_of_violation = $nature_of_violation;
         $this->date_of_assesment = $currentDate;
-        $this->ill_treatment = $ill_treatment;
-        $this->electric_shock = $electric_shock;
         $this->food_deprivation = $food_deprivation;
         $this->hand_cuffed = $hand_cuffed;
-        $this->shackle = $shackle;
-        $this->neglect = $neglect;
+        $this->vocation_training = $vocation_training;
         $this->slapping = $slapping;
         $this->verbal_abuse = $verbal_abuse;
-        $this->beaten_with_instrument = $beaten_with_instrument;
+        //$this->beaten_with_instrument = $beaten_with_instrument;
         $this->beaten_without_instrument = $beaten_without_instrument;
         $this->solitary_confinement = $solitary_confinement;
         $this->toilet_deprivation = $toilet_deprivation;
-        $this->sexual_abuse = $sexual_abuse;
-        $this->other_abuse = $other_abuse;
-        $this->abuse_details = $abuse_details;
-        $this->detaining_officer = $detaining_officer;
-        $this->number_of_prisoners = $number_of_prisoners;
-        $this->food_times = $food_times;
-        $this->detainees = $detainees;
-        $this->police = $police;
-        $this->torture_details = $torture_details;
-        $this->other_person = $other_person;
-        $this->prison_guard = $prison_guard;
-        $this->prosecutor = $prosecutor;
-        $this->separate_facilities = $separate_facilities;
+
+        $this->detained_48Hours = $detained_48Hours;
+        $this->additional_notes = $additional_notes;
+        $this->action_taken = $action_taken;
+        $this->perpetrator = $perpetrator;
         $this->health_care = $health_care;
         $this->education = $education;
-        $this->recreation = $recreation;
         $this->water_sanitation = $water_sanitation;
-        $this->family_visit = $family_visit;
-        $this->_lessThan24hrs = $_lessThan24hrs;
-        $this->_24to48hrs = $_24to48hrs;
-        $this->_3to10days = $_3to10days;
-        $this->_10to21days = $_10to21days;
-        $this->_greaterThan21 = $_greaterThan21;
+        $this->gallery_cleared = $gallery_cleared;
+        $this->charges_explained = $charges_explained;
+        $this->child_represented = $child_represented;
+        $this->point_of_violation = $point_of_violation;
+        $this->mixed_with_adults = $mixed_with_adults;
+        $this->coerced = $coerced;
+        $this->inadequate_bedding = $inadequate_bedding;
+        $this->inadequate_diet = $inadequate_diet;
+
         $this->db->insert('assesment', $this);
         return $this->db->insert_id();
     }
 
-    public function get_assesment_list($case_file_no)
+    public
+    function get_assesment_list($case_file_no)
     {
         $this->db->distinct();
         $this->db->from('assesment');

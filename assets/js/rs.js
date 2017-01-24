@@ -13,6 +13,61 @@ $(function () {
         ]
     });
 
+    $('#arrest_table').DataTable({
+        "paging": true,
+        dom: 'Bfrtip',
+        buttons: [
+            'print', 'copy', 'excel', 'pdf'
+            , {
+                extend: 'colvis',
+                postfixButtons: ['colvisRestore'],
+
+            }
+        ]
+    });
+
+
+    $('#detention_table').DataTable({
+        "paging": true,
+        dom: 'Bfrtip',
+        buttons: [
+            'print', 'copy', 'excel', 'pdf'
+            , {
+                extend: 'colvis',
+                postfixButtons: ['colvisRestore'],
+
+            }
+        ]
+    });
+
+
+    $('#assesment_table').DataTable({
+        "paging": true,
+        dom: 'Bfrtip',
+        buttons: [
+            'print', 'copy', 'excel', 'pdf'
+            , {
+                extend: 'colvis',
+                postfixButtons: ['colvisRestore'],
+
+            }
+        ]
+    });
+
+
+    $('#release_table').DataTable({
+        "paging": true,
+        dom: 'Bfrtip',
+        buttons: [
+            'print', 'copy', 'excel', 'pdf'
+            , {
+                extend: 'colvis',
+                postfixButtons: ['colvisRestore'],
+
+            }
+        ]
+    });
+
     $("#start_date").datepicker({
         dateFormat: "yy-mm-dd"
     });
