@@ -187,8 +187,8 @@ class Case_file extends Generic_home
 
     function dashboard($id)
     {
-        $this->breadcrumbs->push('case Settings', '/case/listAll');
-        $this->breadcrumbs->push('case Dashboard', '/case/dashboard/' . $id);
+        $this->breadcrumbs->push('Case Files', '/case/listAll');
+        $this->breadcrumbs->push('case File Dashboard', '/case/dashboard/' . $id);
 
         $data['emp'] = $this->case_file_model->get($id);
         $case_file_no = $data['emp']->case_file_no;
