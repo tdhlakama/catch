@@ -15,29 +15,6 @@
                 </div>
                 <div class="panel-body" style="height: 270px">
 
-                    <div class="list-group">
-
-                        <a href="<?php echo site_url('case_file/listAll'); ?>" class="list-group-item">
-                            <h4 class="list-group-item-heading">Cases</h4>
-                        </a>
-
-                        <a href="<?php echo site_url('arrest/listAll'); ?>" class="list-group-item">
-                            <h4 class="list-group-item-heading">Arrest</h4>
-                        </a>
-
-                        <a href="<?php echo site_url('detention/listAll'); ?>" class="list-group-item">
-                            <h4 class="list-group-item-heading">Detention</h4>
-                        </a>
-
-                        <a href="<?php echo site_url('assesment/listAll'); ?>" class="list-group-item">
-                            <h4 class="list-group-item-heading">HR Violations</h4>
-                        </a>
-
-                        <a href="<?php echo site_url('release/listAll'); ?>" class="list-group-item">
-                            <h4 class="list-group-item-heading">Release</h4>
-                        </a>
-
-                    </div>
                 </div>
             </div>
         </div>

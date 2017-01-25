@@ -149,20 +149,18 @@ class Assesment_model extends CI_Model
     }
 
     public function save_upload(
-        $assesment_no, $case_file_no, $date_of_assesment, $nature_of_violation,
+        $assesment_no, $case_file_no, $nature_of_violation,
         $hand_cuffed, $beaten_without_instrument, $slapping
         , $verbal_abuse, $mixed_with_adults, $coerced, $detained_48Hours, $gallery_cleared
         , $charges_explained, $child_represented, $food_deprivation, $solitary_confinement
         , $inadequate_bedding, $inadequate_diet, $education, $vocation_training
-        , $health_care, $water_sanitation, $toilet_deprivation, $point_of_violation
+        , $health_care, $water_sanitation, $toilet_deprivation, $water_boaring, $point_of_violation
         , $perpetrator, $action_taken, $additional_notes
     )
     {
         $this->assesment_no = $assesment_no;
         $this->case_file_no = $case_file_no;
-        $currentDate = date('Y-m-d');
         $this->nature_of_violation = $nature_of_violation;
-        $this->date_of_assesment = $currentDate;
         $this->food_deprivation = $food_deprivation;
         $this->hand_cuffed = $hand_cuffed;
         $this->vocation_training = $vocation_training;
@@ -188,6 +186,7 @@ class Assesment_model extends CI_Model
         $this->coerced = $coerced;
         $this->inadequate_bedding = $inadequate_bedding;
         $this->inadequate_diet = $inadequate_diet;
+        $this->water_boaring = $water_boaring;
 
         $this->db->insert('assesment', $this);
         return $this->db->insert_id();

@@ -99,7 +99,7 @@ class Assesment extends Generic_home
                 || !$this->is_value_yes_no($item[20])
                 || !$this->is_value_yes_no($item[21])
                 || !$this->is_value_yes_no($item[22])
-                || !$this->is_value_yes_no($item[23])
+
             ) {
                 $valid = false;
             }
@@ -109,31 +109,32 @@ class Assesment extends Generic_home
                 $assesment_id = $this->assesment_model->save_upload(
                     $assesment_no,//assesment_no
                     $case_file_no,//$case_file_id
-                    $item[2],//$date_of_assesment
-                    $this->blank_no($item[3]),//Violation
-                    $this->blank_no($item[4]),//Cuffed
-                    $this->blank_no($item[5]),//beaten_without
-                    $this->blank_no($item[6]),//Slapped
-                    $this->blank_no($item[7]),//Verbal
-                    $this->blank_no($item[8]),//Mixed
-                    $this->blank_no($item[9]),//Coreced
-                    $this->blank_no($item[10]),//Detained
-                    $this->blank_no($item[11]),//Gallery
-                    $this->blank_no($item[12]),//Charges
-                    $this->blank_no($item[13]),//Child NOT REPRESENTED
-                    $this->blank_no($item[14]),//Food
-                    $this->blank_no($item[15]),//Solitary
-                    $this->blank_no($item[16]),//Inadequate BEDDING
-                    $this->blank_no($item[17]),//diet
-                    $this->blank_no($item[18]),//Education
-                    $this->blank_no($item[19]),//TRAINING
-                    $this->blank_no($item[20]),//HEALTH
-                    $this->blank_no($item[21]),//Sanitary
-                    $this->blank_no($item[22]),//TOILTE Facilities
-                    $item[23],//Point of Violation
-                    $item[24],//Perpertrator
-                    $item[25],//Action Taken
-                    $item[26]//Notes
+                    $item[2],//Violation
+                    $this->blank_no($item[3]),//Cuffed
+                    $this->blank_no($item[4]),//beaten_without
+                    $this->blank_no($item[5]),//Slapped
+                    $this->blank_no($item[6]),//Verbal
+                    $this->blank_no($item[7]),//Mixed
+                    $this->blank_no($item[8]),//Coreced
+                    $this->blank_no($item[9]),//Detained
+                    $this->blank_no($item[10]),//Gallery
+                    $this->blank_no($item[11]),//Charges
+                    $this->blank_no($item[12]),//Child NOT REPRESENTED
+                    $this->blank_no($item[13]),//Food
+                    $this->blank_no($item[14]),//Solitary
+                    $this->blank_no($item[15]),//Inadequate BEDDING
+                    $this->blank_no($item[16]),//Inadequate DIET
+                    $this->blank_no($item[17]),//Education
+                    $this->blank_no($item[18]),//TRAINING
+                    $this->blank_no($item[19]),//HEALTH
+                    $this->blank_no($item[20]),//Sanitary
+                    $this->blank_no($item[21]),//TOILTE Facilities
+                    $this->blank_no($item[22]),//WAter Boarding
+                    $this->blank_no($item[23]),//Water Boarding Facilities
+                    $item[24],//Point of Violation
+                    $item[25],//Perpertrator
+                    $item[26],//Action Taken
+                    $item[27]//Notes
                 );
                 $count++;
             } else {

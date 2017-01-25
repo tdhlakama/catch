@@ -239,41 +239,47 @@
     </div>
 </div>
 
-<div class="panel panel-green">
-    <div class="panel-heading">
-        Uploads
-    </div>
-    <div class="panel-body">
+<div class="row ">
+    <div class="col-lg-4">
+        <a href="<?php echo site_url('case_file/catch_upload/'. $emp->case_file_no); ?>">
+            <i class="glyphicon glyphicon-upload"></i> Upload Case File</a>
 
-        <table class="table table-striped table-hover">
-            <thead>
-            <tr>
-                <th></th>
-                <th>Title</th>
-                <th>File Name</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($catchuploadlist as $i => $item): ?>
-                <tr>
-                    <td><?php echo($i + 1) ?></td>
-                    <td>
-                        <a href="<?php echo site_url('case_file/download_file/' . $item->catch_file_id); ?>"
-                        ><?php echo $item->title; ?></a>
-                    </td>
-                    <td><?php echo $item->file_name; ?></td>
-                    <td>
-                        <a href="<?php echo base_url(); ?>index.php/case_file/view_file/<?php echo $item->catch_file_id; ?> "
-                           class="btn-sm btn-danger">Delete</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                Uploads
+            </div>
+            <div class="panel-body">
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Title</th>
+                        <th>File Name</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($catchuploadlist as $i => $item): ?>
+                        <tr>
+                            <td><?php echo($i + 1) ?></td>
+                            <td>
+                                <a href="<?php echo site_url('case_file/download_file/' . $item->catch_file_id); ?>"
+                                ><?php echo $item->title; ?></a>
+                            </td>
+                            <td><?php echo $item->file_name; ?></td>
+                            <td>
+                                <a href="<?php echo base_url(); ?>index.php/case_file/view_file/<?php echo $item->catch_file_id; ?> "
+                                   class="btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-
 
 <div class="row">
 
@@ -283,7 +289,7 @@
         <tr>
             <th>Arrest File #</th>
             <th>File Number</th>
-            <th>Addres</th>
+            <th>Address</th>
             <th>Alleged Crime</th>
             <th>Rape</th>
             <th>Touting</th>
@@ -334,7 +340,216 @@
         <tbody>
         <?php foreach ($arrestlist as $i => $item): ?>
             <tr>
-                <td><?php echo $item->arrest_no; ?></td>
+                <td>
+                    <a href="#" onclick="show_arrest();">
+                        <?php echo $item->arrest_no; ?>
+                    </a>
+
+                    <div id="arrestModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Arrest Detail</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>Case File Number</td>
+                                            <td> <?php echo $item->case_file_no; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td><?php echo $item->address_detail; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alleged Crime</td>
+                                            <td><?php echo $item->alleged_crime; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rape</td>
+                                            <td><?php echo $item->rape; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Touting</td>
+                                            <td><?php echo $item->touting; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sodomy</td>
+                                            <td><?php echo $item->sodomy; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Robbery</td>
+                                            <td><?php echo $item->robbery; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Attempted Murder</td>
+                                            <td><?php echo $item->attempted_murder; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Murder</td>
+                                            <td><?php echo $item->murder; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Indecent Assault</td>
+                                            <td><?php echo $item->indecent_assault; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kidnapping</td>
+                                            <td><?php echo $item->kidnapping; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Theft</td>
+                                            <td><?php echo $item->theft; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Stock Theft</td>
+                                            <td><?php echo $item->stock_theft; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Drug Abuse</td>
+                                            <td><?php echo $item->drug; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Malicious Damage</td>
+                                            <td><?php echo $item->malicious_damage; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Unlawful Entry</td>
+                                            <td><?php echo $item->unlawful_entry; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sexual Intercourse Minor</td>
+                                            <td><?php echo $item->sex_with_minor; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bulling</td>
+                                            <td><?php echo $item->bulling; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Others</td>
+                                            <td><?php echo $item->others; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Police Station</td>
+                                            <td><?php echo $item->arresting_officer; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Name of Arresting Officer</td>
+                                            <td><?php echo $item->station; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Charge Communicated</td>
+                                            <td><?php echo $item->charges_communicated; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Parents Informed</td>
+                                            <td><?php echo $item->parent_informed; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Child Arrested Before</td>
+                                            <td><?php echo $item->arrested_before; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Similar Charges</td>
+                                            <td><?php echo $item->similar_charges; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Was offence first time</td>
+                                            <td><?php echo $item->first_time; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Murder Repeat</td>
+                                            <td><?php echo $item->murder_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rape Repeat</td>
+                                            <td><?php echo $item->rape_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Touting Repeat</td>
+                                            <td><?php echo $item->touting_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sodomy Repeat</td>
+                                            <td><?php echo $item->sodomy_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Robbery Repeat</td>
+                                            <td><?php echo $item->robbery_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Attempted Murder Repeat</td>
+                                            <td><?php echo $item->attempted_murder_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Indecent Assault Repeat</td>
+                                            <td><?php echo $item->indecent_assault_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kidnapping Repeat</td>
+                                            <td><?php echo $item->kidnapping_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Theft</td>
+                                            <td><?php echo $item->theft_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sexual Intercourse Minor Repeat</td>
+                                            <td><?php echo $item->sex_with_minor_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Malicious Damage Repeat</td>
+                                            <td><?php echo $item->malicious_damage_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Unlaw full Entry Repeat</td>
+                                            <td><?php echo $item->unlawful_entry_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Drug Abuse Repeat</td>
+                                            <td><?php echo $item->drug_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bulling Repeat</td>
+                                            <td><?php echo $item->bulling_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Stock Theft Repeat</td>
+                                            <td><?php echo $item->stock_theft_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Unknown</td>
+                                            <td><?php echo $item->unknown; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Others</td>
+                                            <td><?php echo $item->others_repeat; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Child Arrested Alone</td>
+                                            <td><?php echo $item->child_alone; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Staying With Whom</td>
+                                            <td><?php echo $item->whom; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Staying At</td>
+                                            <td><?php echo $item->arrested_where; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Working ?</td>
+                                            <td><?php echo $item->working; ?></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
                 <td><?php echo $item->case_file_no; ?></td>
                 <td><?php echo $item->address_detail; ?></td>
                 <td><?php echo $item->alleged_crime; ?></td>
@@ -420,7 +635,113 @@
         <tbody>
         <?php foreach ($detentionlist as $i => $item): ?>
             <tr>
-                <td><?php echo $item->detention_no; ?></td>
+                <td>
+                    <a href="#" onclick="show_detention();">
+                        <?php echo $item->detention_no; ?>
+                    </a>
+
+                    <div id="detentionModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Detention Detail</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>Detention File #</td>
+                                            <td><?php echo $item->detention_no; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>File Number</td>
+                                            <td><?php echo $item->case_file_no; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Date of Arrival</td>
+                                            <td><?php echo $item->date_of_arrival; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Name of Facility</td>
+                                            <td><?php echo $item->facility_name; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Type of Facility</td>
+                                            <td><?php echo $item->facility_type; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Medical Check Up Done</td>
+                                            <td><?php echo $item->medical_done_before; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Services Received</td>
+                                            <td><?php echo $item->services_received; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Is Legal Aid Provided</td>
+                                            <td><?php echo $item->legal_aid; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Name of Organisation</td>
+                                            <td><?php echo $item->organisation; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Lawyers Name</td>
+                                            <td><?php echo $item->lawyer; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Lawyer Phone</td>
+                                            <td><?php echo $item->phone; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>When child meet lawyer</td>
+                                            <td><?php echo $item->met_lawyer; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>How many tine</td>
+                                            <td><?php echo $item->met_how_many_times; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Number of Prisoner same room</td>
+                                            <td><?php echo $item->number_of_prisoners; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Does tde family visit</td>
+                                            <td><?php echo $item->family_visit; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>How long was child detained</td>
+                                            <td><?php echo $item->detention_duration; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Up to 24 Hours</td>
+                                            <td><?php echo $item->_24to48hrs; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Up to 48 Hours</td>
+                                            <td><?php echo $item->_3to10days; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>3 to 10 Days</td>
+                                            <td><?php echo $item->_3to10days; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>10 - 21 Days</td>
+                                            <td><?php echo $item->_10to21days; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Above 21 Days</td>
+                                            <td><?php echo $item->_greaterThan21; ?></td>
+                                        <tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+                </td>
                 <td><?php echo $item->case_file_no; ?></td>
                 <td><?php echo $item->date_of_arrival; ?></td>
                 <td><?php echo $item->facility_name; ?></td>
@@ -484,10 +805,139 @@
         <tbody>
         <?php foreach ($assesmentlist as $i => $item): ?>
             <tr>
-                <td><?php echo $item->assesment_no; ?></td>
-                <td><?php echo $item->case_file_no; ?></td>
+                <td>
+                    <a href="#" onclick="show_assesment();">
+                        <?php echo $item->assesment_no; ?>
+                    </a>
+
+                    <div id="assesmentModel" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">HR Violations Detail</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>Assesment File #</td>
+                                            <td><?php echo $item->assesment_no; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>File Number</td>
+                                            <td><?php echo $item->case_file_no; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nature of Violation</td>
+                                            <td><?php echo $item->nature_of_violation; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hand Cuffed</td>
+                                            <td><?php echo $item->hand_cuffed; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Beaten_without instrument</td>
+                                            <td><?php echo $item->beaten_without_instrument; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Slapped</td>
+                                            <td><?php echo $item->slapping; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Verbal Abuse</td>
+                                            <td><?php echo $item->verbal_abuse; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mixed With Adults</td>
+                                            <td><?php echo $item->mixed_with_adults; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Coreced to Admit</td>
+                                            <td><?php echo $item->coerced; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detained for 48 hours,</td>
+                                            <td><?php echo $item->detained_48Hours; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gallery Cleared ?,</td>
+                                            <td><?php echo $item->gallery_cleared; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Charges not Communicated</td>
+                                            <td><?php echo $item->charges_explained; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Child Not Represented</td>
+                                            <td><?php echo $item->child_represented; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Food Deprevation</td>
+                                            <td><?php echo $item->food_deprivation; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Solitary Confinement</td>
+                                            <td><?php echo $item->solitary_confinement; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Inadequate Bedding</td>
+                                            <td><?php echo $item->inadequate_bedding; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Inadequated Diet</td>
+                                            <td><?php echo $item->inadequate_diet; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>No Access to Education</td>
+                                            <td><?php echo $item->education; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>No Vocational Training</td>
+                                            <td><?php echo $item->vocation_training; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>No Health Services</td>
+                                            <td><?php echo $item->health_care; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>No Access to Sanitary Services</td>
+                                            <td><?php echo $item->water_sanitation; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Use of Toilet Facilities</td>
+                                            <td><?php echo $item->toilet_deprivation; ?></td>
+                                            ass
+                                        </tr>
+                                        <tr>
+                                            <td>Water Boarding</td>
+                                            <td><?php echo $item->water_boaring; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Point of Violation</td>
+                                            <td><?php echo $item->point_of_violation; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Perpertrator</td>
+                                            <td><?php echo $item->perpetrator; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Action Taken</td>
+                                            <td><?php echo $item->action_taken; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Notes</td>
+                                            <td><?php echo $item->additional_notes; ?></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+                 <td><?php echo $item->case_file_no; ?></td>
                 <td><?php echo $item->nature_of_violation; ?></td>
-                <td><?php echo $item->food_deprivation; ?></td>
                 <td><?php echo $item->hand_cuffed; ?></td>
                 <td><?php echo $item->beaten_without_instrument; ?></td>
                 <td><?php echo $item->slapping; ?></td>
@@ -507,10 +957,11 @@
                 <td><?php echo $item->health_care; ?></td>
                 <td><?php echo $item->water_sanitation; ?></td>
                 <td><?php echo $item->toilet_deprivation; ?></td>
-                <td><?php echo $item->toilet_deprivation; ?></td>
+                <td><?php echo $item->water_boaring; ?></td>
+                <td><?php echo $item->point_of_violation; ?></td>
                 <td><?php echo $item->perpetrator; ?></td>
-                <td><?php echo $item->additional_notes; ?></td>
                 <td><?php echo $item->action_taken; ?></td>
+                <td><?php echo $item->additional_notes; ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
@@ -549,3 +1000,6 @@
 
 </div>
 </div>
+
+
+

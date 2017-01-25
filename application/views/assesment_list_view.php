@@ -45,7 +45,6 @@
                 <td><?php echo $item->assesment_no; ?></td>
                 <td><?php echo $item->case_file_no; ?></td>
                 <td><?php echo $item->nature_of_violation; ?></td>
-                <td><?php echo $item->food_deprivation; ?></td>
                 <td><?php echo $item->hand_cuffed; ?></td>
                 <td><?php echo $item->beaten_without_instrument; ?></td>
                 <td><?php echo $item->slapping; ?></td>
@@ -65,10 +64,11 @@
                 <td><?php echo $item->health_care; ?></td>
                 <td><?php echo $item->water_sanitation; ?></td>
                 <td><?php echo $item->toilet_deprivation; ?></td>
-                <td><?php echo $item->toilet_deprivation; ?></td>
+                <td><?php echo $item->water_boaring; ?></td>
+                <td><?php echo $item->point_of_violation; ?></td>
                 <td><?php echo $item->perpetrator; ?></td>
-                <td><?php echo $item->additional_notes; ?></td>
                 <td><?php echo $item->action_taken; ?></td>
+                <td><?php echo $item->additional_notes; ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
