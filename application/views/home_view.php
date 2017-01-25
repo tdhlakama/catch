@@ -9,17 +9,6 @@
     <div class="row">
 
         <div class="col-lg-4">
-            <div class="panel panel-green">
-                <div class="panel-heading">
-                    Files
-                </div>
-                <div class="panel-body" style="height: 270px">
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     Short Stats
@@ -32,21 +21,21 @@
                             <td>Total Number of Files</td>
                             <td>                               <span
                                     class="badge"><?php echo $total_number_of_files; ?></span> <a
-                                    href="#">
+                                    href="#"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>Total Number of Male Cases</td>
                             <td>                               <span
                                     class="badge"><?php echo $total_male_count; ?></span> <a
-                                    href="#">
+                                    href="#"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>Total Number of Female Cases</td>
                             <td>                               <span
                                     class="badge"><?php echo $total_female_count; ?></span> <a
-                                    href="#">
+                                    href="#"></a>
                             </td>
                         </tr>
                         </tbody>
@@ -58,3 +47,42 @@
         </div>
     </div>
 </div>
+
+<div class="row" jbarDiv>
+    <h3 style="text-align: center">Summary Crimes Committed</h3>
+    <br/><br/>
+    <div id="chargesCommittedGraph"></div>
+</div>
+
+<div class="row" jbarDiv>
+    <h3 style="text-align: center">Summary Human Rights Violations</h3>
+    <br/><br/>
+    <div id="hrViolationsGraph"></div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var charges_committed = <?php echo json_encode($charges_committed) ?>;
+        var hr_violations = <?php echo json_encode($hr_violations) ?>;
+
+        $('#chargesCommittedGraph').jqBarGraph({
+            data: charges_committed,
+            barSpace: 20,
+            width: 800,
+            color: '#A9A9A9',
+            sort: "'desc'"
+        });
+
+
+        $('#hrViolationsGraph').jqBarGraph({
+            data: hr_violations,
+            barSpace: 20,
+            width: 800,
+            color: '#A9A9A9',
+            sort: "'desc'"
+        });
+
+
+    });
+</script>

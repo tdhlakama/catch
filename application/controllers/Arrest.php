@@ -190,6 +190,15 @@ class Arrest extends Generic_home
         $this->load->view('footer');
     }
 
+
+    function count_murder_type($yes)
+    {
+        $this->db->from('assesment');
+        $this->db->where('murder', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
 }
 
 ?>

@@ -275,5 +275,102 @@ class Arrest_model extends CI_Model
         return $data;
     }
 
+    function count_rape_($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('rape', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_robbery_($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('robbery', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_theft_($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('theft', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_sex_with_minor($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('sex_with_minor', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_touting_repeat($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('touting', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_indecent_assault($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('indecent_assault', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_drug($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('drug', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_unlawful_entry($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('unlawful_entry', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_attempted_murder($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('attempted_murder', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+
+    function count_murder($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('murder', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_kidnapping($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('kidnapping', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_malicious_damage($yes)
+    {
+        $this->db->from('arrest');
+        $this->db->where('malicious_damage', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
 
 }

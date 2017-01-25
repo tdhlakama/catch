@@ -18,6 +18,7 @@
     <script type="text/javascript" src="<?php echo base_url("/assets/js/bootstrap.min.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("/assets/js/chart.min.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("/assets/js/rs.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("/assets/js/jqBarGraph.1.1.min.js"); ?>"></script>
     <script>
         var base_url = '<?php echo base_url(); ?>';
     </script>

@@ -170,7 +170,6 @@ class Assesment_model extends CI_Model
         $this->beaten_without_instrument = $beaten_without_instrument;
         $this->solitary_confinement = $solitary_confinement;
         $this->toilet_deprivation = $toilet_deprivation;
-
         $this->detained_48Hours = $detained_48Hours;
         $this->additional_notes = $additional_notes;
         $this->action_taken = $action_taken;
@@ -210,6 +209,86 @@ class Assesment_model extends CI_Model
         $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
         $data = str_replace('"', '', $data);
         return $data;
+    }
+
+    function count_food_deprivation($yes)
+    {
+        $this->db->from('assesment');
+        $this->db->where('food_deprivation', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_hand_cuffed($yes)
+    {
+        $this->db->from('assesment');
+        $this->db->where('hand_cuffed', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_beaten_without_instrument($yes)
+    {
+        $this->db->from('assesment');
+        $this->db->where('beaten_without_instrument', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_slapping($yes)
+    {
+        $this->db->from('assesment');
+        $this->db->where('slapping', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function verbal_abuse($yes)
+    {
+        $this->db->from('assesment');
+        $this->db->where('verbal_abuse', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_solitary_confinement($yes)
+    {
+        $this->db->from('assesment');
+        $this->db->where('solitary_confinement', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_toilet_deprivation($yes)
+    {
+        $this->db->from('assesment');
+        $this->db->where('toilet_deprivation', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_coerced($yes)
+    {
+        $this->db->from('assesment');
+        $this->db->where('coerced', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_inadequate_bedding($yes)
+    {
+        $this->db->from('assesment');
+        $this->db->where('inadequate_bedding', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_inadequate_diet($yes)
+    {
+        $this->db->from('assesment');
+        $this->db->where('inadequate_diet', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
     }
 
 
