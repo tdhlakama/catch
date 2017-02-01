@@ -10,13 +10,13 @@
                         style="float: right;">Save Information</a></h4></caption>
         <thead>
         <tr>
-            <th>Release File #</th>
-            <th>File Number</th>
+            <th>Police Ref #</th>
+            <th>File #</th>
             <th>Date of Release</th>
-            <th>Bail</th>
-            <th>Bail Amount</th>
-            <th>Released to Parenyt Care</th>
-            <th>Released to Department of Child Services </th>
+            <th>Was bail paid</th>
+            <th>Bail amount paid</th>
+            <th>Relesead to parent</th>
+            <th>Released to Department of Child Welfare and Probation Services</th>
         </tr>
         </thead>
         <tbody>

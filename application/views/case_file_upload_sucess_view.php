@@ -15,18 +15,18 @@
             <th>Last Name</th>
             <th>Gender</th>
             <th>Date of Birth</th>
-            <th>Parents Name</th>
+            <th>Parents/guardian Name</th>
             <th>Province</th>
             <th>Birth Place</th>
             <th>Age</th>
-            <th>Has Birth Certificate</th>
+            <th>Does the child have a birth certificate</th>
             <th>Who Verified</th>
-            <th>In School</th>
-            <th>Education Level</th>
-            <th>Living With</th>
-            <th>Father Status</th>
-            <th>Mother Status</th>
-            <th>Ethnicitity</th>
+            <th>Is the child in school</th>
+            <th>What is the child's last Education level</th>
+            <th>Who is the child living with </th>
+            <th>Is the Father Alive</th>
+            <th>Is the Mother Alive</th>
+            <th>Ethinicity</th>
 
         </tr>
         </thead>

@@ -10,23 +10,23 @@
                         style="float: right;">Save Information</a></h4></caption>
         <thead>
         <tr>
-            <th>Arrest File #</th>
-            <th>File Number</th>
+            <th>Police Ref #</th>
+            <th>File #</th>
             <th>Date of Arrival</th>
             <th>Name of Facility</th>
             <th>Type of Facility</th>
-            <th>Medical Check Up Done</th>
-            <th>Services Received</th>
-            <th>Is Legal Aid Provided</th>
-            <th>Name of Organisation</th>
-            <th>Lawyers Name</th>
-            <th>Lawyer Phone</th>
-            <th>When child meet lawyer</th>
-            <th>How many tine</th>
-            <th>Number of Prisoner same room</th>
-            <th>Does the family visit</th>
-            <th>How long was child detained</th>
-            <th>Up to 24 Hours</th>
+            <th>Was a medical check up carried out upon arrival</th>
+            <th>What services is the child receiving</th>
+            <th>Is legal aid provided to the child</th>
+            <th>Name of organisation providing the legal service</th>
+            <th>Lawyer's Name</th>
+            <th>Lawyer's phone Number</th>
+            <th>When did the child meet with the lawyer</th>
+            <th>How many Times</th>
+            <th>How many other prisoners share same room</th>
+            <th>Does the family of the child visit</th>
+            <th>How long was the child been in detention</th>
+            <th>Up to 24 hours</th>
             <th>Up to 48 Hours</th>
             <th>3 to 10 Days</th>
             <th>10 - 21 Days</th>

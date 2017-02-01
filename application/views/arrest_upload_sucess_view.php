@@ -10,9 +10,9 @@
                         style="float: right;">Save Information</a></h4></caption>
         <thead>
         <tr>
-            <th>Arrest File #</th>
-            <th>File Number</th>
-            <th>Addres</th>
+            <th>Police Ref #</th>
+            <th>File #</th>
+            <th>Child's Contact details (Address)</th>
             <th>Alleged Crime</th>
             <th>Rape</th>
             <th>Touting</th>
@@ -24,19 +24,19 @@
             <th>Kidnapping</th>
             <th>Theft</th>
             <th>Stock Theft</th>
-            <th>Drug Abuse</th>
-            <th>Malicious Damage</th>
+            <th>Drug and substance abuse</th>
+            <th>malicious damage to property</th>
             <th>Unlawful Entry</th>
-            <th>Sexual Intercourse Minor</th>
+            <th>Sexual Intercourse with a minor</th>
             <th>Bulling</th>
             <th>Others</th>
             <th>Police Station</th>
             <th>Name of Arresting Officer</th>
-            <th>Charge Communicated</th>
-            <th>Parents Informed</th>
-            <th>Child Arrested Before</th>
-            <th>Similar Charges</th>
-            <th>Was offence first time</th>
+            <th>Were the charges communicated to the child</th>
+            <th>Were the parents informed</th>
+            <th>Has the child been arested before</th>
+            <th>Is it on similar Charges</th>
+            <th>What was the first offense</th>
             <th>Murder Repeat</th>
             <th>Rape Repeat</th>
             <th>Touting Repeat</th>
@@ -54,10 +54,10 @@
             <th>Stock Theft Repeat</th>
             <th>Unknown</th>
             <th>Others</th>
-            <th>Child Arrested Alone</th>
-            <th>Staying With Whom</th>
-            <th>Staying At</th>
-            <th>Working ?</th>
+            <th>Was Child Alone when arrested</th>
+            <th>With whom was the child staying with prior to arrest</th>
+            <th>Where was the child living prior to arrest </th>
+            <th>Was the child working</th>
         </tr>
         </thead>
         <tbody>

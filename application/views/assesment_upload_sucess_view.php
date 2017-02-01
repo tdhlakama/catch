@@ -11,31 +11,31 @@
         <thead>
         <tr>
             <th>Arrest File #</th>
-            <th>File Number</th>
+            <th>File #</th>
             <th>Nature of Violation</th>
             <th>Hand Cuffed</th>
-            <th>beaten_without instrument</th>
+            <th>Beaten_without instrument</th>
             <th>Slapped</th>
             <th>Verbal Abuse</th>
             <th>Mixed With Adults</th>
-            <th>Coreced to Admit</th>
-            <th>Detained for 48 hours,</th>
-            <th>Gallery Cleared ?,</th>
-            <th>Charges not Communicated</th>
-            <th>Child Not Represented</th>
-            <th>Food Deprevation</th>
+            <th>Coerced to admit to charges</th>
+            <th>Detained for 48 hours</th>
+            <th>The gallery was not cleared</th>
+            <th>Charges and proceedings were  not explained in a language understood by the child</th>
+            <th>The child was not represented</th>
+            <th>Food deprevation</th>
             <th>Solitary Confinement</th>
-            <th>Inadequate Bedding </th>
+            <th>Inadequate Bedding</th>
             <th>Inadequated Diet</th>
             <th>No Access to Education</th>
-            <th>No Vocational Training</th>
-            <th>No Health Services</th>
-            <th>No Access to Sanitary Services</th>
-            <th>Use of Toilet Facilities</th>
+            <th>No access to vocational training skills</th>
+            <th>No access to health services</th>
+            <th>No access to clean water supply and sanitation services</th>
+            <th>Deprivation from use of toilet facilities</th>
             <th>Water Boarding</th>
-            <th>Point of Violation</th>
+            <th>At which point was the violation committed</th>
             <th>Perpertrator</th>
-            <th>Action Taken</th>
+            <th>What action did you take</th>
             <th>Notes</th>
         </tr>
         </thead>

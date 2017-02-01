@@ -38,23 +38,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a style="color: white;" class="navbar-brand" href="<?php echo site_url('home'); ?>">Catch Surveillance Database</a>
+            <a style="color: white;" class="navbar-brand" href="<?php echo site_url('home'); ?>">CATCH Surveillance Database</a>
         </div>
 
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
-
-            <form action="<?php echo base_url(); ?>index.php/child/search" method="post"
-                  class="navbar-form navbar-left">
-                <div class="input-group">
-                    <input type="text" name="keyword" placeholder="Enter Key Words" class="form-control"/>
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </span>
-                </div>
-            </form>
 
             <?php
             $checkUsername = $this->session->userdata('username');
