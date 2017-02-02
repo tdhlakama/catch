@@ -109,17 +109,17 @@ class Case_file_model extends CI_Model
         }
     }
 
-    public function save_upload($case_file_no, $first_name, $last_name, $gender, $date_of_birth,
+    public function save_upload($case_no, $case_file_no, $first_name, $last_name, $gender, $date_of_birth,
                                 $parent_name, $address_province, $place_of_birth, $age, $birth_certificate, $who_verified,
                                 $in_school, $education_level, $living_with, $father_status, $mother_status, $ethnicity,
                                 $upload_id)
     {
+        $this->case_no = $case_no;
         $this->case_file_no = $case_file_no;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->gender = $gender;
-        $currentDate = date('Y-m-d');
-        $this->date_of_birth = $currentDate;
+        $this->date_of_birth = $date_of_birth;
         $this->parent_name = $parent_name;
         $this->address_province = $address_province;
         $this->place_of_birth = $place_of_birth;

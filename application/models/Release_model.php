@@ -133,8 +133,7 @@ class Release_model extends CI_Model
     {
         $this->release_no = $release_no;
         $this->case_file_no = $case_file_no;
-        $currentDate = date('Y-m-d');
-        $this->date_of_release = $currentDate;
+        $this->date_of_release = $date_of_release;
         $this->bail = $bail;
         $this->bail_amount = $bail_amount;
         $this->care_parent = $care_parent;

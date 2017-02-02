@@ -9,7 +9,7 @@
             <th>Date of Arrival</th>
             <th>Name of Facility</th>
             <th>Type of Facility</th>
-            <th>Was a medical check up carried out upon arrival</th>
+            <th>If child is sick,is he or she receiving medical attention</th>
             <th>What services is the child receiving</th>
             <th>Is legal aid provided to the child</th>
             <th>Name of organisation providing the legal service</th>
@@ -29,110 +29,111 @@
         </thead>
         <tbody>
         <?php foreach ($detentionlist as $i => $item): ?>
-            <tr>
+            <tr><td>
                 <a href="#" onclick="show_detention();">
                     <?php echo $item->detention_no; ?>
                 </a>
 
-                <div id="detentionModal" class="modal fade">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"
-                                        aria-hidden="true">&times;</button>
-                                <h4 class="modal-title">Detention Detail</h4>
-                            </div>
-                            <div class="modal-body">
-                                <table class="table">
-                                    <tr>
-                                        <td>Detention File #</td>
-                                        <td><?php echo $item->detention_no; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>File #</td>
-                                        <td><?php echo $item->case_file_no; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Date of Arrival</td>
-                                        <td><?php echo $item->date_of_arrival; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Name of Facility</td>
-                                        <td><?php echo $item->facility_name; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Type of Facility</td>
-                                        <td><?php echo $item->facility_type; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Was a medical check up carried out upon arrival</td>
-                                        <td><?php echo $item->medical_done_before; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>What services is the child receiving</td>
-                                        <td><?php echo $item->services_received; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Is legal aid provided to the child</td>
-                                        <td><?php echo $item->legal_aid; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Name of organisation providing the legal service</td>
-                                        <td><?php echo $item->organisation; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Lawyer's Name</td>
-                                        <td><?php echo $item->lawyer; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Lawyer's phone Number</td>
-                                        <td><?php echo $item->phone; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>When did the child meet with the lawyer</td>
-                                        <td><?php echo $item->met_lawyer; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>How many time</td>
-                                        <td><?php echo $item->met_how_many_times; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>How many other prisoners share same room</td>
-                                        <td><?php echo $item->number_of_prisoners; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Does the family of the child visit</td>
-                                        <td><?php echo $item->family_visit; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>How long was the child been in detention</td>
-                                        <td><?php echo $item->detention_duration; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Up to 24 Hours</td>
-                                        <td><?php echo $item->_24to48hrs; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Up to 48 Hours</td>
-                                        <td><?php echo $item->_3to10days; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>3 to 10 Days</td>
-                                        <td><?php echo $item->_3to10days; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>10 - 21 Days</td>
-                                        <td><?php echo $item->_10to21days; ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>Above 21 Days</td>
-                                        <td><?php echo $item->_greaterThan21; ?></td>
-                                    <tr>
-                                </table>
+                    <div id="detentionModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Detention Detail</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>Detention File #</td>
+                                            <td><?php echo $item->detention_no; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>File #</td>
+                                            <td><?php echo $item->case_file_no; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Date of Arrival</td>
+                                            <td><?php echo $item->date_of_arrival; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Name of Facility</td>
+                                            <td><?php echo $item->facility_name; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Type of Facility</td>
+                                            <td><?php echo $item->facility_type; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>If child is sick,is he or she receiving medical attention</td>
+                                            <td><?php echo $item->medical_done_before; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>What services is the child receiving</td>
+                                            <td><?php echo $item->services_received; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Is legal aid provided to the child</td>
+                                            <td><?php echo $item->legal_aid; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Name of organisation providing the legal service</td>
+                                            <td><?php echo $item->organisation; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Lawyer's Name</td>
+                                            <td><?php echo $item->lawyer; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Lawyer's phone Number</td>
+                                            <td><?php echo $item->phone; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>When did the child meet with the lawyer</td>
+                                            <td><?php echo $item->met_lawyer; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>How many time</td>
+                                            <td><?php echo $item->met_how_many_times; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>How many other prisoners share same room</td>
+                                            <td><?php echo $item->number_of_prisoners; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Does the family of the child visit</td>
+                                            <td><?php echo $item->family_visit; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>How long was the child been in detention</td>
+                                            <td><?php echo $item->detention_duration; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Up to 24 Hours</td>
+                                            <td><?php echo $item->_24to48hrs; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Up to 48 Hours</td>
+                                            <td><?php echo $item->_3to10days; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>3 to 10 Days</td>
+                                            <td><?php echo $item->_3to10days; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>10 - 21 Days</td>
+                                            <td><?php echo $item->_10to21days; ?></td>
+                                        <tr>
+                                        <tr>
+                                            <td>Above 21 Days</td>
+                                            <td><?php echo $item->_greaterThan21; ?></td>
+                                        <tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </td>
                 <td><?php echo $item->case_file_no; ?></td>
                 <td><?php echo $item->date_of_arrival; ?></td>
                 <td><?php echo $item->facility_name; ?></td>

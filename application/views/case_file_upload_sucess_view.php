@@ -10,6 +10,7 @@
                         style="float: right;">Save Information</a></h4></caption>
         <thead>
         <tr>
+            <th>Police Ref #</th>
             <th>File #</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -23,7 +24,7 @@
             <th>Who Verified</th>
             <th>Is the child in school</th>
             <th>What is the child's last Education level</th>
-            <th>Who is the child living with </th>
+            <th>Who is the child living with</th>
             <th>Is the Father Alive</th>
             <th>Is the Mother Alive</th>
             <th>Ethinicity</th>
@@ -34,23 +35,24 @@
         <?php
         foreach ($csv as $i => $item) {
             echo '<tr>';
-            echo '<td> ' . ($this->case_file_model->check_duplicate(trim($item[0])) ? '<label class="m">' . $item[0] . "</label>" : $item[0]) . ' </td>';
-            echo '<td> ' . $item[1] . ' </td>';
+            echo '<td> ' . $item[0] . ' </td>';
+            echo '<td> ' . ($this->case_file_model->check_duplicate(trim($item[1])) ? '<label class="m">' . $item[1] . "</label>" : $item[1]) . ' </td>';
             echo '<td> ' . $item[2] . ' </td>';
-            echo '<td> ' . valid_gender($item[3]) . ' </td>';
-            echo '<td> ' . $item[4] . ' </td>';
+            echo '<td> ' . $item[3] . ' </td>';
+            echo '<td> ' . valid_gender($item[4]) . ' </td>';
             echo '<td> ' . $item[5] . ' </td>';
             echo '<td> ' . $item[6] . ' </td>';
             echo '<td> ' . $item[7] . ' </td>';
             echo '<td> ' . $item[8] . ' </td>';
-            echo '<td> ' . valid_yes_no($item[9]) . ' </td>';
-            echo '<td> ' . $item[10] . ' </td>';
-            echo '<td> ' . valid_yes_no($item[11]) . ' </td>';
-            echo '<td> ' . $item[12] . ' </td>';
+            echo '<td> ' . $item[9] . ' </td>';
+            echo '<td> ' . valid_yes_no($item[10]) . ' </td>';
+            echo '<td> ' . $item[11] . ' </td>';
+            echo '<td> ' . valid_yes_no($item[12]) . ' </td>';
             echo '<td> ' . $item[13] . ' </td>';
             echo '<td> ' . $item[14] . ' </td>';
             echo '<td> ' . $item[15] . ' </td>';
             echo '<td> ' . $item[16] . ' </td>';
+            echo '<td> ' . $item[17] . ' </td>';
             echo '</tr>';
         }
         ?>

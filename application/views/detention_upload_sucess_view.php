@@ -15,7 +15,7 @@
             <th>Date of Arrival</th>
             <th>Name of Facility</th>
             <th>Type of Facility</th>
-            <th>Was a medical check up carried out upon arrival</th>
+            <th>If child is sick,is he or she receiving medical attention</th>
             <th>What services is the child receiving</th>
             <th>Is legal aid provided to the child</th>
             <th>Name of organisation providing the legal service</th>

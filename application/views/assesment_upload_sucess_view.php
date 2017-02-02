@@ -12,7 +12,7 @@
         <tr>
             <th>Arrest File #</th>
             <th>File #</th>
-            <th>Nature of Violation</th>
+            <th>The guardians were not informed</th>
             <th>Hand Cuffed</th>
             <th>Beaten_without instrument</th>
             <th>Slapped</th>
@@ -45,7 +45,7 @@
             echo '<tr>';
             echo '<td> ' . ($this->assesment_model->check_duplicate(trim($item[0])) ? '<label class="m">' . $item[0] . "</label>" : $item[0]) . ' </td>';
             echo '<td> ' . ($this->case_file_model->check_duplicate(trim($item[1])) ?  $item[0] : '<label class="m">' . $item[0]) . "</label>" . ' </td>';
-            echo '<td> ' . $item[2] . ' </td>';
+            echo '<td> ' . valid_yes_no($item[2]) . ' </td>';
             echo '<td> ' . valid_yes_no($item[3]) . ' </td>';
             echo '<td> ' . valid_yes_no($item[4]) . ' </td>';
             echo '<td> ' . valid_yes_no($item[5]) . ' </td>';

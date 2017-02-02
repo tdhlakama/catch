@@ -10,6 +10,18 @@
                 Case File Details
             </div>
             <div class="panel-body">
+
+                <div class="form-group">
+                    <div class="row colbox">
+
+                        <div class="col-lg-4 col-sm-4">
+                            <label for="case_no" class="control-label">Police Ref #</label>
+                        </div>
+                        <div class="col-lg-8 col-sm-8">
+                            <?php echo $emp->case_no; ?>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="row colbox">
 
@@ -21,7 +33,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div class="row colbox">
                         <div class="col-lg-4 col-sm-4">
@@ -288,5 +299,7 @@
 <?php include 'assesment.php'; ?>
 
 <?php include 'release.php'; ?>
+
+<?php include 'case_service.php'; ?>
 
 

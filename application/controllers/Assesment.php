@@ -82,7 +82,8 @@ class Assesment extends Generic_home
                 $case_file_no = $item[1];
             }
 
-            if (!$this->is_value_yes_no($item[3])
+            if (!$this->is_value_yes_no($item[2])
+                || !$this->is_value_yes_no($item[3])
                 || !$this->is_value_yes_no($item[4])
                 || !$this->is_value_yes_no($item[5])
                 || !$this->is_value_yes_no($item[6])
@@ -109,7 +110,7 @@ class Assesment extends Generic_home
                 $assesment_id = $this->assesment_model->save_upload(
                     $assesment_no,//assesment_no
                     $case_file_no,//$case_file_id
-                    $item[2],//Violation
+                    $this->blank_no($item[2]),//Violation
                     $this->blank_no($item[3]),//Cuffed
                     $this->blank_no($item[4]),//beaten_without
                     $this->blank_no($item[5]),//Slapped

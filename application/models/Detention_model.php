@@ -112,8 +112,7 @@ class Detention_model extends CI_Model
 
         $this->detention_no = $detention_no;
         $this->case_file_no = $case_file_no;
-        $currentDate = date('Y-m-d');
-        $this->date_of_arrival = $currentDate;
+        $this->date_of_arrival = $date_of_arrival;
         $this->facility_name = $facility_name;
         $this->facility_type = $facility_type;
         $this->medical_done_before = $medical_done_before;

@@ -87,6 +87,16 @@ class Release extends Generic_home
                 $case_file_no = $item[1];
             }
 
+            try {
+                if (!(strcasecmp($item[2], '') == 0)) {
+                    $d = new DateTime($item[2]);
+                    $timestamp = $d->getTimestamp(); // Unix timestamp
+                    $formatted_date = $d->format('Y-m-d'); // 2003-10-16
+                }
+            } catch (Exception $e) {
+
+            }
+
             if ($valid) {
                  
                 $release_id = $this->release_model->save_upload(

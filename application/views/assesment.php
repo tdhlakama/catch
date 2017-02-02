@@ -5,7 +5,7 @@
         <tr>
             <th>Arrest File #</th>
             <th>File Number</th>
-            <th>Nature of Violation</th>
+            <th>The guardians were not informed</th>
             <th>Hand Cuffed</th>
             <th>Beaten_without instrument</th>
             <th>Slapped</th>
@@ -59,7 +59,7 @@
                                             <td><?php echo $item->case_file_no; ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Nature of Violation</td>
+                                            <td>The guardians were not informed</td>
                                             <td><?php echo $item->nature_of_violation; ?></td>
                                         </tr>
                                         <tr>

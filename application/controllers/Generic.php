@@ -33,7 +33,8 @@ class Generic extends CI_Controller {
         $this->load->model('release_model');
         $this->load->model('detention_model');
         $this->load->model('upload_model');
-        $this->load->model('catch_file_model');        
+        $this->load->model('catch_file_model');
+        $this->load->model('case_service_model');
 
         $str = ' <a href="' . site_url('home') . '"> Home </a>';
         $this->breadcrumbs->unshift($str, site_url('home'));

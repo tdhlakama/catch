@@ -68,46 +68,57 @@ class Case_file extends Generic_home
         foreach ($data['csv'] as $item) {
             $valid = true;
             $case_file_no = null;
-            if ($this->case_file_model->check_duplicate(trim($item[0]))) {
+            if ($this->case_file_model->check_duplicate(trim($item[1]))) {
                 $valid = false;
                 $duplicate = 'Duplicate ID found';
             } else {
-                $case_file_no = $item[0];
+                $case_file_no = $item[1];
             }
 
-            if (!$this->is_valid_gender($item[3])) {
+            try {
+                if (!(strcasecmp($item[5], '') == 0)) {
+                    $d = new DateTime($item[5]);
+                    $timestamp = $d->getTimestamp(); // Unix timestamp
+                    $formatted_date = $d->format('Y-m-d'); // 2003-10-16
+                }
+            } catch (Exception $e) {
+
+            }
+
+
+            if (!$this->is_valid_gender($item[4])) {
                 $valid = false;
             }
 
-            if (!$this->is_value_yes_no($item[9])) {
+            if (!$this->is_value_yes_no($item[10])) {
                 $valid = false;
             }
 
-            if (!$this->is_value_yes_no($item[11])) {
+            if (!$this->is_value_yes_no($item[12])) {
                 $valid = false;
             }
-
 
             if ($valid) {
 
                 $case_file_id = $this->case_file_model->save_upload(
-                    $case_file_no,//file no
-                    $item[1],//firstname
-                    $item[2],//lastname
-                    $item[3],//gender
-                    $item[4],//date of birth
-                    $item[5],//parents name
-                    $item[6],//province
-                    $item[7],//birth place
-                    $item[8],//age
-                    $this->blank_no($item[9]),//birth certificate
-                    $item[10],//who verified
-                    $this->blank_no($item[11]),//in_school
-                    $item[12],//education level
-                    $item[13],//living with
-                    $item[14],//father status
-                    $item[15],//mother status
-                    $item[16],//ethicinity
+                    $item[0],//file no
+                    $case_file_no,//$case_no
+                    $item[2],//firstname
+                    $item[3],//lastname
+                    $item[4],//gender
+                    $formatted_date,//date of birth
+                    $item[6],//parents name
+                    $item[7],//province
+                    $item[8],//birth place
+                    $item[9],//age
+                    $this->blank_no($item[10]),//birth certificate
+                    $item[11],//who verified
+                    $this->blank_no($item[12]),//in_school
+                    $item[13],//education level
+                    $item[14],//living with
+                    $item[15],//father status
+                    $item[16],//mother status
+                    $item[17],//ethicinity
                     $id
                 );
                 $count++;
@@ -187,7 +198,7 @@ class Case_file extends Generic_home
 
     function dashboard($id)
     {
-        $this->breadcrumbs->push('Case Files', '/case/listAll');
+        $this->breadcrumbs->push('Case Files', '/Case/listAll');
         $this->breadcrumbs->push('case File Dashboard', '/case/dashboard/' . $id);
 
         $data['emp'] = $this->case_file_model->get($id);
@@ -197,6 +208,7 @@ class Case_file extends Generic_home
         $data['releaselist'] = $this->release_model->get_release_list($case_file_no);
         $data['detentionlist'] = $this->detention_model->get_detention_list($case_file_no);
         $data['catchuploadlist'] = $this->catch_file_model->get_upload_list($case_file_no);
+        $data['case_service_list'] = $this->case_service_model->get_service_list($case_file_no);
         $this->load->view('case_file_dashboard_view', $data);
         $this->load->view('footer');
     }

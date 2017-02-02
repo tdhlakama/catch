@@ -11,6 +11,7 @@
     <table id="emp_table" class="table table-striped table-hover">
         <thead>
             <tr>
+                <th>Police Ref #</th>
                 <th>File #</th>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -22,6 +23,7 @@
         <tbody>
             <?php foreach ($case_file_list as $item): ?>
                 <tr>
+                    <td><?php echo $item->case_no; ?></td>
                     <td><?php echo $item->case_file_no; ?></td>
                     <td><?php echo $item->first_name; ?></td>
                     <td ><?php echo $item->last_name; ?></td>

@@ -94,12 +94,22 @@ class Detention extends Generic_home
                 $valid = false;
             }
 
+            try {
+                if (!(strcasecmp($item[2], '') == 0)) {
+                    $d = new DateTime($item[2]);
+                    $timestamp = $d->getTimestamp(); // Unix timestamp
+                    $formatted_date = $d->format('Y-m-d'); // 2003-10-16
+                }
+                } catch (Exception $e) {
+
+            }
+
             if ($valid) {
 
                 $detention_id = $this->detention_model->save_upload(
                     $detention_no,//detention_no
                     $case_file_no,//$case_file_id
-                    $item[2],//$date_of_arrival
+                    $formatted_date,//$date_of_arrival
                     $item[3],//Facility NAME
                     $item[4],//Facility TYPE
                     $this->blank_no($item[5]),//MEDICAL CHECK UP
