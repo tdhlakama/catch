@@ -86,8 +86,8 @@ th.action {
     text-decoration: underline;
 }
 
-.jbarDiv{
-    width:800px;
+#jbarDiv{
+    width:1000px;
     overflow-y: hidden;
     overflow-x: visible;
 }

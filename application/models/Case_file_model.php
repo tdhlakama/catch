@@ -146,6 +146,7 @@ class Case_file_model extends CI_Model
         return $query->result();
     }
 
+
     function export()
     {
         $query = $this->db->query("SELECT * FROM case_file");
@@ -155,4 +156,34 @@ class Case_file_model extends CI_Model
         $data = str_replace('"', '', $data);
         return $data;
     }
+
+
+    public function get_complete_data_list()
+    {
+        $this->db->from('case_file');
+        $this->db->join('arrest', 'case_file.case_file_no = arrest.case_file_no');
+        $this->db->join('assesment', 'case_file.case_file_no = assesment.case_file_no');
+        $this->db->join('case_service', 'case_file.case_file_no = case_service.case_file_no');
+        $this->db->join('detention', 'case_file.case_file_no = detention.case_file_no');
+        $this->db->join('release', 'case_file.case_file_no = release.case_file_no');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function get_complete_data_list_cvs()
+    {
+        $this->db->from('case_file');
+        $this->db->join('arrest', 'case_file.case_file_no = arrest.case_file_no');
+        $this->db->join('assesment', 'case_file.case_file_no = assesment.case_file_no');
+        $this->db->join('case_service', 'case_file.case_file_no = case_service.case_file_no');
+        $this->db->join('detention', 'case_file.case_file_no = detention.case_file_no');
+        $this->db->join('release', 'case_file.case_file_no = release.case_file_no');
+        $query = $this->db->get();
+        $delimiter = ",";
+        $newline = "\r\n";
+        $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
+        $data = str_replace('"', '', $data);
+        return $data;
+    }
+
 }

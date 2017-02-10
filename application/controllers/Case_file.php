@@ -272,10 +272,11 @@ class Case_file extends Generic_home
         redirect('case_file/dashboard/' . $case_file->case_file_id);
     }
 
-    public function download_file($id)
+
+    public function case_combined_list()
     {
-        $file = $this->catch_file_model->get($id);
-        force_download("./files/" . $file->file_name, NULL);
+        $data['case_combined_list'] = $this->case_file_model->get_complete_data_list();
+        $this->load->view('combined_list_view', $data);
     }
 
 }

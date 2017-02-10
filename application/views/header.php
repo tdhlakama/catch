@@ -100,6 +100,13 @@
                         <i class="glyphicon glyphicon-upload"></i> Upload History</a>
                 </li>
 
+
+                <li class="<?php echo active_method('upload_result'); ?>">
+                    <a href="<?php echo site_url('case_file/case_combined_list'); ?>">
+                        <i class="glyphicon glyphicon-upload"></i> Comnined Case Files</a>
+                </li>
+
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->

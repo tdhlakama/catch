@@ -90,8 +90,8 @@ class Case_service_model extends CI_Model
         }
     }
 
-    public function save_upload($service_no,$case_file_no, $age_estimate, $bill_payment, $therapy, $mediation,
-                                $counselling,$accompaniment, $consultation, $presentation, $restitution, $transport,
+    public function save_upload($service_no, $case_file_no, $age_estimate, $bill_payment, $therapy, $mediation,
+                                $counselling, $accompaniment, $consultation, $presentation, $restitution, $transport,
                                 $assistance_inmates, $escort)
     {
         $this->service_no = $service_no;
@@ -112,6 +112,101 @@ class Case_service_model extends CI_Model
         return $this->db->insert_id();
     }
 
+    function count_age_estimate($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('age_estimate', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_bill_payment($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('bill_payment', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_therapy($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('therapy', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_mediation($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('mediation', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_counselling($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('counselling', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_accompaniment($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('accompaniment', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_consultation($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('consultation', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_presentation($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('presentation', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_restitution($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('restitution', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_transport($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('transport', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_assistance_inmates($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('assistance_inmates', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function count_escort($yes)
+    {
+        $this->db->from('case_service');
+        $this->db->where('escort', $yes);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
 
     function export()
     {

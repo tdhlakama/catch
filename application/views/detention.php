@@ -93,7 +93,7 @@
                                             <td><?php echo $item->met_lawyer; ?></td>
                                         <tr>
                                         <tr>
-                                            <td>How many time</td>
+                                            <td>How many Times</td>
                                             <td><?php echo $item->met_how_many_times; ?></td>
                                         <tr>
                                         <tr>

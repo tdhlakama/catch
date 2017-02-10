@@ -23,6 +23,8 @@ class Home extends Generic_home
 
         $data['hr_violations'] = $this->hr_violations();
 
+        $data['case_services'] = $this->case_services();
+
         $this->load->view('home_view', $data);
         $this->load->view('footer');
     }
@@ -106,6 +108,50 @@ class Home extends Generic_home
 
 
         return $hr_violations;
+    }
+    
+    public function case_services(){
+
+        $yes = 'yes';
+        $services = array();
+
+        $count = $this->case_service_model->count_age_estimate($yes);
+        array_push($services, array($count, "Age Estimation"));
+
+        $count = $this->case_service_model->count_bill_payment($yes);
+        array_push($services, array($count, "Bail and Fine payment"));
+     
+        $count = $this->case_service_model->count_therapy($yes);
+        array_push($services, array($count, "Family Therapy"));
+
+        $count = $this->case_service_model->count_mediation($yes);
+        array_push($services, array($count, "Family mediation"));
+
+        $count = $this->case_service_model->count_counselling($yes);
+        array_push($services, array($count, "Socio-legal counselling"));
+
+        $count = $this->case_service_model->count_accompaniment($yes);
+        array_push($services, array($count, "Court accompaniment"));
+
+        $count = $this->case_service_model->count_consultation($yes);
+        array_push($services, array($count, "Walk-in consultation"));
+
+        $count = $this->case_service_model->count_presentation($yes);
+        array_push($services, array($count, "Legal representation"));
+
+        $count = $this->case_service_model->count_restitution($yes);
+        array_push($services, array($count, "Restitution"));
+
+        $count = $this->case_service_model->count_transport($yes);
+        array_push($services, array($count, "Bus fare"));
+
+        $count = $this->case_service_model->count_assistance_inmates($yes);
+        array_push($services, array($count, "Assistance of inmates..."));
+
+        $count = $this->case_service_model->count_escort($yes);
+        array_push($services, array($count, "Escorting of children from..."));
+
+        return $services;
     }
 
 

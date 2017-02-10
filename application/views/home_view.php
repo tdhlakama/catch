@@ -50,16 +50,23 @@
     </div>
 </div>
 
-<div class="row" jbarDiv>
+<div class="row" id="jbarDiv">
     <h3 style="text-align: center">Summary Crimes Committed</h3>
     <br/><br/>
     <div id="chargesCommittedGraph"></div>
 </div>
 
-<div class="row" jbarDiv>
+<div class="row" id="jbarDiv">
     <h3 style="text-align: center">Summary Human Rights Violations</h3>
     <br/><br/>
     <div id="hrViolationsGraph"></div>
+</div>
+
+
+<div class="row" id="jbarDiv">
+    <h3 style="text-align: center">Services Provided </h3>
+    <br/><br/>
+    <div id="caseServicesGraph"></div>
 </div>
 
 <script type="text/javascript">
@@ -67,6 +74,7 @@
 
         var charges_committed = <?php echo json_encode($charges_committed) ?>;
         var hr_violations = <?php echo json_encode($hr_violations) ?>;
+        var case_services = <?php echo json_encode($case_services) ?>;
 
         $('#chargesCommittedGraph').jqBarGraph({
             data: charges_committed,
@@ -85,6 +93,13 @@
             sort: "'desc'"
         });
 
+        $('#caseServicesGraph').jqBarGraph({
+            data: case_services,
+            barSpace: 20,
+            width: 1000,
+            color: '#A9A9A9',
+            sort: "'desc'"
+        });
 
     });
 </script>
