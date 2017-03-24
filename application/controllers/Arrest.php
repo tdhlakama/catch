@@ -73,7 +73,6 @@ class Arrest extends Generic_home
                 $arrest_no = $item[0];
             }
 
-            $valid = true;
             $case_file_no = null;
             if (!$this->case_file_model->check_duplicate(trim($item[1]))) {
                 $valid = false;
@@ -86,6 +85,9 @@ class Arrest extends Generic_home
                 || !$this->is_value_yes_no($item[5])
                 || !$this->is_value_yes_no($item[6])
                 || !$this->is_value_yes_no($item[7])
+                || !$this->is_value_yes_no($item[8])
+                || !$this->is_value_yes_no($item[9])
+                || !$this->is_value_yes_no($item[10])
                 || !$this->is_value_yes_no($item[11])
                 || !$this->is_value_yes_no($item[12])
                 || !$this->is_value_yes_no($item[13])
@@ -98,8 +100,8 @@ class Arrest extends Generic_home
                 || !$this->is_value_yes_no($item[23])
                 || !$this->is_value_yes_no($item[24])
                 || !$this->is_value_yes_no($item[25])
-                || !$this->is_value_yes_no($item[26])
                 || !$this->is_value_yes_no($item[27])
+                || !$this->is_value_yes_no($item[28])
                 || !$this->is_value_yes_no($item[29])
                 || !$this->is_value_yes_no($item[31])
                 || !$this->is_value_yes_no($item[33])

@@ -73,7 +73,6 @@ class Detention extends Generic_home
                 $detention_no = $item[0];
             }
 
-            $valid = true;
             $case_file_no = null;
             if (!$this->case_file_model->check_duplicate(trim($item[1]))) {
                 $valid = false;
